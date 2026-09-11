@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw data - never commit source ZIP/CSV (large + licensed). Keep locally only.
+*.zip
+*.csv
+*.xlsx
+data/raw/
+data/*.csv
+
+# Power BI temp / backups
+*.tmp
+~$*.pbix
+*.backup
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
