@@ -1,0 +1,1464 @@
+{
+  "methodology": {
+    "input": "data/processed/fact_sales.csv (read-only)",
+    "implied_unit_formula": "sales / (quantity * (1 - discount))",
+    "price_tolerance": 0.01,
+    "rounding_note": "comparisons on UNROUNDED values; rounded only for display",
+    "determinism": "sorted keys; no random sampling; no hardcoded IDs"
+  },
+  "dataset": {
+    "rows": 9994,
+    "distinct_product_ids": 1862,
+    "distinct_product_names": 1850,
+    "total_sales": 2297200.86,
+    "total_quantity": 37873
+  },
+  "analysis_a_pid_uniqueness": {
+    "distinct_product_ids": 1862,
+    "distinct_product_names": 1850,
+    "pids_single_name": 1830,
+    "pids_multi_name": 32,
+    "pids_multi_name_pct": 1.719,
+    "affected_rows": 337,
+    "affected_rows_pct": 3.372
+  },
+  "conflict_pid_table_by_rows_desc": [
+    {
+      "product_id": "OFF-PA-10001970",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 19
+    },
+    {
+      "product_id": "TEC-AC-10003832",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 18
+    },
+    {
+      "product_id": "FUR-FU-10004270",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 16
+    },
+    {
+      "product_id": "FUR-CH-10001146",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 15
+    },
+    {
+      "product_id": "TEC-AC-10002049",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 15
+    },
+    {
+      "product_id": "FUR-FU-10001473",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 14
+    },
+    {
+      "product_id": "OFF-BI-10002026",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 14
+    },
+    {
+      "product_id": "OFF-BI-10004632",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 14
+    },
+    {
+      "product_id": "OFF-PA-10002377",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 14
+    },
+    {
+      "product_id": "FUR-FU-10004864",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 13
+    },
+    {
+      "product_id": "FUR-FU-10004848",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 12
+    },
+    {
+      "product_id": "OFF-PA-10000357",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 12
+    },
+    {
+      "product_id": "OFF-PA-10002195",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 12
+    },
+    {
+      "product_id": "OFF-BI-10004654",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 11
+    },
+    {
+      "product_id": "OFF-ST-10004950",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 11
+    },
+    {
+      "product_id": "FUR-BO-10002213",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 10
+    },
+    {
+      "product_id": "OFF-PA-10001166",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 10
+    },
+    {
+      "product_id": "OFF-ST-10001228",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 9
+    },
+    {
+      "product_id": "TEC-PH-10001530",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 9
+    },
+    {
+      "product_id": "FUR-FU-10004091",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 8
+    },
+    {
+      "product_id": "TEC-AC-10002550",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 8
+    },
+    {
+      "product_id": "TEC-PH-10002200",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 8
+    },
+    {
+      "product_id": "FUR-FU-10004017",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 7
+    },
+    {
+      "product_id": "OFF-AP-10000576",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 7
+    },
+    {
+      "product_id": "OFF-AR-10001149",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 7
+    },
+    {
+      "product_id": "OFF-PA-10000477",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 7
+    },
+    {
+      "product_id": "OFF-PA-10000659",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 7
+    },
+    {
+      "product_id": "TEC-PH-10002310",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 7
+    },
+    {
+      "product_id": "TEC-PH-10004531",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 7
+    },
+    {
+      "product_id": "OFF-PA-10003022",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 6
+    },
+    {
+      "product_id": "TEC-MA-10001148",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 5
+    },
+    {
+      "product_id": "TEC-PH-10001795",
+      "distinct_product_name_count": 2,
+      "affected_row_count": 5
+    }
+  ],
+  "conflict_product_ids": [
+    "FUR-BO-10002213",
+    "FUR-CH-10001146",
+    "FUR-FU-10001473",
+    "FUR-FU-10004017",
+    "FUR-FU-10004091",
+    "FUR-FU-10004270",
+    "FUR-FU-10004848",
+    "FUR-FU-10004864",
+    "OFF-AP-10000576",
+    "OFF-AR-10001149",
+    "OFF-BI-10002026",
+    "OFF-BI-10004632",
+    "OFF-BI-10004654",
+    "OFF-PA-10000357",
+    "OFF-PA-10000477",
+    "OFF-PA-10000659",
+    "OFF-PA-10001166",
+    "OFF-PA-10001970",
+    "OFF-PA-10002195",
+    "OFF-PA-10002377",
+    "OFF-PA-10003022",
+    "OFF-ST-10001228",
+    "OFF-ST-10004950",
+    "TEC-AC-10002049",
+    "TEC-AC-10002550",
+    "TEC-AC-10003832",
+    "TEC-MA-10001148",
+    "TEC-PH-10001530",
+    "TEC-PH-10001795",
+    "TEC-PH-10002200",
+    "TEC-PH-10002310",
+    "TEC-PH-10004531"
+  ],
+  "analysis_d_pid_name_grain": {
+    "unique_pid_name_combos": 1894,
+    "combos_multi_category": 0,
+    "combos_multi_category_list": [],
+    "combos_multi_sub_category": 0,
+    "combos_multi_sub_category_list": [],
+    "names_multi_pid": 16,
+    "names_multi_pid_rows": 314
+  },
+  "analysis_e_reverse_name_to_id": {
+    "total_multi_id_names": 16,
+    "top20_by_sales": [
+      {
+        "product_name": "KI Adjustable-Height Table",
+        "product_id_count": 2,
+        "product_ids": [
+          "FUR-TA-10001039",
+          "FUR-TA-10004086"
+        ],
+        "categories": [
+          "Furniture"
+        ],
+        "sub_categories": [
+          "Tables"
+        ],
+        "row_count": 18,
+        "total_sales": 4552.64
+      },
+      {
+        "product_name": "Easy-staple paper",
+        "product_id_count": 8,
+        "product_ids": [
+          "OFF-PA-10000249",
+          "OFF-PA-10000349",
+          "OFF-PA-10000474",
+          "OFF-PA-10000565",
+          "OFF-PA-10001685",
+          "OFF-PA-10002764",
+          "OFF-PA-10003127",
+          "OFF-PA-10004947"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Paper"
+        ],
+        "row_count": 46,
+        "total_sales": 2504.19
+      },
+      {
+        "product_name": "Okidata C610n Printer",
+        "product_id_count": 2,
+        "product_ids": [
+          "TEC-MA-10001856",
+          "TEC-MA-10003230"
+        ],
+        "categories": [
+          "Technology"
+        ],
+        "sub_categories": [
+          "Machines"
+        ],
+        "row_count": 2,
+        "total_sales": 2011.9
+      },
+      {
+        "product_name": "Staple envelope",
+        "product_id_count": 9,
+        "product_ids": [
+          "OFF-EN-10001028",
+          "OFF-EN-10001099",
+          "OFF-EN-10001415",
+          "OFF-EN-10001539",
+          "OFF-EN-10001990",
+          "OFF-EN-10002621",
+          "OFF-EN-10003134",
+          "OFF-EN-10003286",
+          "OFF-EN-10004773"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Envelopes"
+        ],
+        "row_count": 48,
+        "total_sales": 1686.81
+      },
+      {
+        "product_name": "Staples",
+        "product_id_count": 10,
+        "product_ids": [
+          "OFF-FA-10000735",
+          "OFF-FA-10001229",
+          "OFF-FA-10001843",
+          "OFF-FA-10002780",
+          "OFF-FA-10002815",
+          "OFF-FA-10002975",
+          "OFF-FA-10003021",
+          "OFF-FA-10003112",
+          "OFF-FA-10003485",
+          "OFF-FA-10003495"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Fasteners"
+        ],
+        "row_count": 46,
+        "total_sales": 755.47
+      },
+      {
+        "product_name": "Staple holder",
+        "product_id_count": 3,
+        "product_ids": [
+          "OFF-AP-10001366",
+          "OFF-AP-10002222",
+          "OFF-AP-10004249"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Appliances"
+        ],
+        "row_count": 13,
+        "total_sales": 528.78
+      },
+      {
+        "product_name": "Staples in misc. colors",
+        "product_id_count": 7,
+        "product_ids": [
+          "OFF-AR-10001166",
+          "OFF-AR-10002280",
+          "OFF-AR-10003087",
+          "OFF-AR-10003631",
+          "OFF-AR-10004062",
+          "OFF-AR-10004707",
+          "OFF-AR-10004790"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Art"
+        ],
+        "row_count": 19,
+        "total_sales": 478.81
+      },
+      {
+        "product_name": "Staple-based wall hangings",
+        "product_id_count": 2,
+        "product_ids": [
+          "FUR-FU-10001940",
+          "FUR-FU-10004351"
+        ],
+        "categories": [
+          "Furniture"
+        ],
+        "sub_categories": [
+          "Furnishings"
+        ],
+        "row_count": 16,
+        "total_sales": 422.29
+      },
+      {
+        "product_name": "#10- 4 1/8\" x 9 1/2\" Recycled Envelopes",
+        "product_id_count": 2,
+        "product_ids": [
+          "OFF-EN-10000461",
+          "OFF-EN-10000781"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Envelopes"
+        ],
+        "row_count": 10,
+        "total_sales": 286.67
+      },
+      {
+        "product_name": "Storex Dura Pro Binders",
+        "product_id_count": 2,
+        "product_ids": [
+          "OFF-BI-10001922",
+          "OFF-BI-10004364"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Binders"
+        ],
+        "row_count": 17,
+        "total_sales": 278.59
+      },
+      {
+        "product_name": "Staple magnet",
+        "product_id_count": 2,
+        "product_ids": [
+          "OFF-ST-10002562",
+          "OFF-ST-10003221"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Storage"
+        ],
+        "row_count": 10,
+        "total_sales": 272.89
+      },
+      {
+        "product_name": "Eldon Wave Desk Accessories",
+        "product_id_count": 2,
+        "product_ids": [
+          "FUR-FU-10000023",
+          "FUR-FU-10003981"
+        ],
+        "categories": [
+          "Furniture"
+        ],
+        "sub_categories": [
+          "Furnishings"
+        ],
+        "row_count": 14,
+        "total_sales": 266.73
+      },
+      {
+        "product_name": "Peel & Seel Recycled Catalog Envelopes, Brown",
+        "product_id_count": 2,
+        "product_ids": [
+          "OFF-EN-10002592",
+          "OFF-EN-10003448"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Envelopes"
+        ],
+        "row_count": 6,
+        "total_sales": 264.02
+      },
+      {
+        "product_name": "Staple remover",
+        "product_id_count": 3,
+        "product_ids": [
+          "OFF-SU-10000946",
+          "OFF-SU-10001225",
+          "OFF-SU-10001935"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Supplies"
+        ],
+        "row_count": 18,
+        "total_sales": 263.09
+      },
+      {
+        "product_name": "Avery Non-Stick Binders",
+        "product_id_count": 2,
+        "product_ids": [
+          "OFF-BI-10000829",
+          "OFF-BI-10004140"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Binders"
+        ],
+        "row_count": 20,
+        "total_sales": 217.32
+      },
+      {
+        "product_name": "Prang Drawing Pencil Set",
+        "product_id_count": 2,
+        "product_ids": [
+          "OFF-AR-10002766",
+          "OFF-AR-10003251"
+        ],
+        "categories": [
+          "Office Supplies"
+        ],
+        "sub_categories": [
+          "Art"
+        ],
+        "row_count": 11,
+        "total_sales": 100.08
+      }
+    ]
+  },
+  "analysis_f_category_consistency": {
+    "pids_multi_category": 0,
+    "pids_multi_category_list": [],
+    "pids_multi_sub_category": 0,
+    "pids_multi_sub_category_list": []
+  },
+  "analysis_g_financial_impact": {
+    "affected_rows": 337,
+    "affected_sales": 97465.67,
+    "affected_quantity": 1273,
+    "affected_sales_pct": 4.243,
+    "affected_quantity_pct": 3.361
+  },
+  "financial_impact_per_pid": [
+    {
+      "product_id": "TEC-AC-10002049",
+      "rows": 15,
+      "quantity": 60,
+      "sales": 13756.54
+    },
+    {
+      "product_id": "FUR-BO-10002213",
+      "rows": 10,
+      "quantity": 42,
+      "sales": 12921.64
+    },
+    {
+      "product_id": "TEC-AC-10003832",
+      "rows": 18,
+      "quantity": 75,
+      "sales": 11203.76
+    },
+    {
+      "product_id": "TEC-PH-10001530",
+      "rows": 9,
+      "quantity": 34,
+      "sales": 8111.14
+    },
+    {
+      "product_id": "TEC-PH-10002200",
+      "rows": 8,
+      "quantity": 30,
+      "sales": 7437.89
+    },
+    {
+      "product_id": "TEC-PH-10001795",
+      "rows": 5,
+      "quantity": 16,
+      "sales": 6935.86
+    },
+    {
+      "product_id": "OFF-BI-10004632",
+      "rows": 14,
+      "quantity": 45,
+      "sales": 5535.59
+    },
+    {
+      "product_id": "TEC-MA-10001148",
+      "rows": 5,
+      "quantity": 22,
+      "sales": 5204.24
+    },
+    {
+      "product_id": "TEC-PH-10002310",
+      "rows": 7,
+      "quantity": 22,
+      "sales": 3168.61
+    },
+    {
+      "product_id": "FUR-CH-10001146",
+      "rows": 15,
+      "quantity": 51,
+      "sales": 2442.02
+    },
+    {
+      "product_id": "OFF-PA-10001970",
+      "rows": 19,
+      "quantity": 70,
+      "sales": 2167.35
+    },
+    {
+      "product_id": "OFF-PA-10000357",
+      "rows": 12,
+      "quantity": 48,
+      "sales": 2141.63
+    },
+    {
+      "product_id": "OFF-BI-10002026",
+      "rows": 14,
+      "quantity": 64,
+      "sales": 2068.82
+    },
+    {
+      "product_id": "OFF-AP-10000576",
+      "rows": 7,
+      "quantity": 29,
+      "sales": 2010.85
+    },
+    {
+      "product_id": "FUR-FU-10004864",
+      "rows": 13,
+      "quantity": 46,
+      "sales": 1834.81
+    },
+    {
+      "product_id": "FUR-FU-10004848",
+      "rows": 12,
+      "quantity": 44,
+      "sales": 1438.13
+    },
+    {
+      "product_id": "FUR-FU-10004017",
+      "rows": 7,
+      "quantity": 21,
+      "sales": 1264.58
+    },
+    {
+      "product_id": "FUR-FU-10004091",
+      "rows": 8,
+      "quantity": 39,
+      "sales": 1117.43
+    },
+    {
+      "product_id": "TEC-PH-10004531",
+      "rows": 7,
+      "quantity": 24,
+      "sales": 1041.81
+    },
+    {
+      "product_id": "OFF-PA-10002377",
+      "rows": 14,
+      "quantity": 52,
+      "sales": 1004.65
+    },
+    {
+      "product_id": "FUR-FU-10001473",
+      "rows": 14,
+      "quantity": 57,
+      "sales": 839.68
+    },
+    {
+      "product_id": "OFF-ST-10004950",
+      "rows": 11,
+      "quantity": 43,
+      "sales": 652.62
+    },
+    {
+      "product_id": "TEC-AC-10002550",
+      "rows": 8,
+      "quantity": 27,
+      "sales": 619.42
+    },
+    {
+      "product_id": "OFF-PA-10000659",
+      "rows": 7,
+      "quantity": 39,
+      "sales": 501.39
+    },
+    {
+      "product_id": "OFF-ST-10001228",
+      "rows": 9,
+      "quantity": 36,
+      "sales": 462.33
+    },
+    {
+      "product_id": "FUR-FU-10004270",
+      "rows": 16,
+      "quantity": 51,
+      "sales": 426.56
+    },
+    {
+      "product_id": "OFF-PA-10003022",
+      "rows": 6,
+      "quantity": 26,
+      "sales": 297.12
+    },
+    {
+      "product_id": "OFF-PA-10001166",
+      "rows": 10,
+      "quantity": 28,
+      "sales": 222.43
+    },
+    {
+      "product_id": "OFF-BI-10004654",
+      "rows": 11,
+      "quantity": 36,
+      "sales": 214.57
+    },
+    {
+      "product_id": "OFF-PA-10000477",
+      "rows": 7,
+      "quantity": 33,
+      "sales": 172.78
+    },
+    {
+      "product_id": "OFF-PA-10002195",
+      "rows": 12,
+      "quantity": 33,
+      "sales": 168.46
+    },
+    {
+      "product_id": "OFF-AR-10001149",
+      "rows": 7,
+      "quantity": 30,
+      "sales": 80.95
+    }
+  ],
+  "financial_impact_per_combo": [
+    {
+      "product_id": "FUR-BO-10002213",
+      "product_name": "DMI Eclipse Executive Suite Bookcases",
+      "rows": 6,
+      "quantity": 27,
+      "sales": 11046.61
+    },
+    {
+      "product_id": "TEC-AC-10003832",
+      "product_name": "Logitech\u00a0P710e Mobile Speakerphone",
+      "rows": 9,
+      "quantity": 41,
+      "sales": 10196.6
+    },
+    {
+      "product_id": "TEC-AC-10002049",
+      "product_name": "Plantronics Savi W720 Multi-Device Wireless Headset System",
+      "rows": 7,
+      "quantity": 24,
+      "sales": 9367.29
+    },
+    {
+      "product_id": "TEC-PH-10001530",
+      "product_name": "Cisco Unified IP Phone 7945G VoIP phone",
+      "rows": 6,
+      "quantity": 26,
+      "sales": 6751.6
+    },
+    {
+      "product_id": "TEC-PH-10001795",
+      "product_name": "ClearOne CHATAttach 160 -\u00a0speaker phone",
+      "rows": 4,
+      "quantity": 13,
+      "sales": 6695.89
+    },
+    {
+      "product_id": "OFF-BI-10004632",
+      "product_name": "Ibico Hi-Tech Manual Binding System",
+      "rows": 11,
+      "quantity": 34,
+      "sales": 5398.32
+    },
+    {
+      "product_id": "TEC-PH-10002200",
+      "product_name": "Samsung Galaxy Note 2",
+      "rows": 2,
+      "quantity": 14,
+      "sales": 4507.9
+    },
+    {
+      "product_id": "TEC-AC-10002049",
+      "product_name": "Logitech G19 Programmable Gaming Keyboard",
+      "rows": 8,
+      "quantity": 36,
+      "sales": 4389.25
+    },
+    {
+      "product_id": "TEC-PH-10002200",
+      "product_name": "Aastra 6757i CT Wireless VoIP phone",
+      "rows": 6,
+      "quantity": 16,
+      "sales": 2929.98
+    },
+    {
+      "product_id": "TEC-MA-10001148",
+      "product_name": "Okidata MB491 Multifunction Printer",
+      "rows": 2,
+      "quantity": 9,
+      "sales": 2844.3
+    },
+    {
+      "product_id": "TEC-PH-10002310",
+      "product_name": "Plantronics Calisto P620-M USB Wireless Speakerphone System",
+      "rows": 4,
+      "quantity": 14,
+      "sales": 2508.67
+    },
+    {
+      "product_id": "TEC-MA-10001148",
+      "product_name": "Swingline SM12-08 MicroCut Jam Free Shredder",
+      "rows": 3,
+      "quantity": 13,
+      "sales": 2359.94
+    },
+    {
+      "product_id": "FUR-CH-10001146",
+      "product_name": "Global Value Mid-Back Manager's Chair, Gray",
+      "rows": 10,
+      "quantity": 39,
+      "sales": 1978.92
+    },
+    {
+      "product_id": "FUR-BO-10002213",
+      "product_name": "Sauder Forest Hills Library, Woodland Oak Finish",
+      "rows": 4,
+      "quantity": 15,
+      "sales": 1875.03
+    },
+    {
+      "product_id": "OFF-PA-10001970",
+      "product_name": "Xerox 1908",
+      "rows": 7,
+      "quantity": 32,
+      "sales": 1712.99
+    },
+    {
+      "product_id": "FUR-FU-10004864",
+      "product_name": "Howard Miller 14-1/2\" Diameter Chrome Round Wall Clock",
+      "rows": 7,
+      "quantity": 29,
+      "sales": 1636.86
+    },
+    {
+      "product_id": "OFF-AP-10000576",
+      "product_name": "Belkin 325VA UPS Surge Protector, 6'",
+      "rows": 4,
+      "quantity": 13,
+      "sales": 1379.17
+    },
+    {
+      "product_id": "TEC-PH-10001530",
+      "product_name": "Plantronics Voyager Pro Legend",
+      "rows": 3,
+      "quantity": 8,
+      "sales": 1359.53
+    },
+    {
+      "product_id": "FUR-FU-10004848",
+      "product_name": "Howard Miller 13-3/4\" Diameter Brushed Chrome Round Wall Clock",
+      "rows": 9,
+      "quantity": 31,
+      "sales": 1324.8
+    },
+    {
+      "product_id": "OFF-BI-10002026",
+      "product_name": "Avery Arch Ring Binders",
+      "rows": 10,
+      "quantity": 40,
+      "sales": 1318.87
+    },
+    {
+      "product_id": "OFF-PA-10000357",
+      "product_name": "Xerox 1888",
+      "rows": 6,
+      "quantity": 24,
+      "sales": 1231.66
+    },
+    {
+      "product_id": "FUR-FU-10004091",
+      "product_name": "Howard Miller 13\" Diameter Goldtone Round Wall Clock",
+      "rows": 6,
+      "quantity": 27,
+      "sales": 1042.07
+    },
+    {
+      "product_id": "FUR-FU-10004017",
+      "product_name": "Tenex Contemporary Contur Chairmats for Low and Medium Pile Carpet, Computer, 39\" x 49\"",
+      "rows": 4,
+      "quantity": 10,
+      "sales": 1010.78
+    },
+    {
+      "product_id": "TEC-AC-10003832",
+      "product_name": "Imation\u00a016GB Mini TravelDrive USB 2.0\u00a0Flash Drive",
+      "rows": 9,
+      "quantity": 34,
+      "sales": 1007.15
+    },
+    {
+      "product_id": "OFF-PA-10000357",
+      "product_name": "White Dual Perf Computer Printout Paper, 2700 Sheets, 1 Part, Heavyweight, 20 lbs., 14 7/8 x 11",
+      "rows": 6,
+      "quantity": 24,
+      "sales": 909.98
+    },
+    {
+      "product_id": "OFF-PA-10002377",
+      "product_name": "Xerox 1916",
+      "rows": 7,
+      "quantity": 20,
+      "sales": 831.98
+    },
+    {
+      "product_id": "TEC-PH-10004531",
+      "product_name": "AT&T CL2909",
+      "rows": 3,
+      "quantity": 8,
+      "sales": 755.94
+    },
+    {
+      "product_id": "OFF-BI-10002026",
+      "product_name": "Ibico Recycled Linen-Style Covers",
+      "rows": 4,
+      "quantity": 24,
+      "sales": 749.95
+    },
+    {
+      "product_id": "TEC-PH-10002310",
+      "product_name": "Panasonic KX T7731-B Digital phone",
+      "rows": 3,
+      "quantity": 8,
+      "sales": 659.93
+    },
+    {
+      "product_id": "OFF-AP-10000576",
+      "product_name": "Belkin 7 Outlet SurgeMaster II",
+      "rows": 3,
+      "quantity": 16,
+      "sales": 631.68
+    },
+    {
+      "product_id": "FUR-FU-10001473",
+      "product_name": "DAX Wood Document Frame",
+      "rows": 9,
+      "quantity": 40,
+      "sales": 477.8
+    },
+    {
+      "product_id": "TEC-AC-10002550",
+      "product_name": "Memorex 25GB 6X Branded Blu-Ray Recordable Disc, 30/Pack",
+      "rows": 4,
+      "quantity": 17,
+      "sales": 472.86
+    },
+    {
+      "product_id": "FUR-CH-10001146",
+      "product_name": "Global Task Chair, Black",
+      "rows": 5,
+      "quantity": 12,
+      "sales": 463.1
+    },
+    {
+      "product_id": "OFF-PA-10001970",
+      "product_name": "Xerox 1881",
+      "rows": 12,
+      "quantity": 38,
+      "sales": 454.36
+    },
+    {
+      "product_id": "OFF-PA-10000659",
+      "product_name": "TOPS Carbonless Receipt Book, Four 2-3/4 x 7-1/4 Money Receipts per Page",
+      "rows": 4,
+      "quantity": 25,
+      "sales": 406.46
+    },
+    {
+      "product_id": "OFF-ST-10004950",
+      "product_name": "Acco Perma 3000 Stacking Storage Drawers",
+      "rows": 6,
+      "quantity": 21,
+      "sales": 373.44
+    },
+    {
+      "product_id": "FUR-FU-10001473",
+      "product_name": "Eldon Executive Woodline II Desk Accessories, Mahogany",
+      "rows": 5,
+      "quantity": 17,
+      "sales": 361.87
+    },
+    {
+      "product_id": "FUR-FU-10004270",
+      "product_name": "Executive Impressions 13\" Clairmont Wall Clock",
+      "rows": 8,
+      "quantity": 20,
+      "sales": 315.37
+    },
+    {
+      "product_id": "TEC-PH-10004531",
+      "product_name": "OtterBox Commuter Series Case - iPhone 5 & 5s",
+      "rows": 4,
+      "quantity": 16,
+      "sales": 285.87
+    },
+    {
+      "product_id": "OFF-ST-10001228",
+      "product_name": "Fellowes Personal Hanging Folder Files, Navy",
+      "rows": 4,
+      "quantity": 24,
+      "sales": 284.72
+    },
+    {
+      "product_id": "OFF-ST-10004950",
+      "product_name": "Tenex Personal Filing Tote With Secure Closure Lid, Black/Frost",
+      "rows": 5,
+      "quantity": 22,
+      "sales": 279.18
+    },
+    {
+      "product_id": "FUR-FU-10004017",
+      "product_name": "Executive Impressions 13\" Chairman Wall Clock",
+      "rows": 3,
+      "quantity": 11,
+      "sales": 253.8
+    },
+    {
+      "product_id": "TEC-PH-10001795",
+      "product_name": "RCA H5401RE1 DECT 6.0 4-Line Cordless Handset With Caller ID/Call Waiting",
+      "rows": 1,
+      "quantity": 3,
+      "sales": 239.97
+    },
+    {
+      "product_id": "OFF-PA-10003022",
+      "product_name": "Standard Line \u0093While You Were Out\u0094 Hardbound Telephone Message Book",
+      "rows": 2,
+      "quantity": 11,
+      "sales": 211.01
+    },
+    {
+      "product_id": "FUR-FU-10004864",
+      "product_name": "Eldon 500 Class Desk Accessories",
+      "rows": 6,
+      "quantity": 17,
+      "sales": 197.95
+    },
+    {
+      "product_id": "OFF-ST-10001228",
+      "product_name": "Personal File Boxes with Fold-Down Carry Handle",
+      "rows": 5,
+      "quantity": 12,
+      "sales": 177.61
+    },
+    {
+      "product_id": "OFF-PA-10002377",
+      "product_name": "Adams Telephone Message Book W/Dividers/Space For Phone Numbers, 5 1/4\"X8 1/2\", 200/Messages",
+      "rows": 7,
+      "quantity": 32,
+      "sales": 172.67
+    },
+    {
+      "product_id": "TEC-AC-10002550",
+      "product_name": "Maxell 4.7GB DVD-RW 3/Pack",
+      "rows": 4,
+      "quantity": 10,
+      "sales": 146.56
+    },
+    {
+      "product_id": "OFF-PA-10001166",
+      "product_name": "Xerox 2",
+      "rows": 9,
+      "quantity": 25,
+      "sales": 137.38
+    },
+    {
+      "product_id": "OFF-BI-10004632",
+      "product_name": "GBC Binding covers",
+      "rows": 3,
+      "quantity": 11,
+      "sales": 137.27
+    },
+    {
+      "product_id": "OFF-BI-10004654",
+      "product_name": "VariCap6 Expandable Binder",
+      "rows": 3,
+      "quantity": 10,
+      "sales": 122.83
+    },
+    {
+      "product_id": "FUR-FU-10004848",
+      "product_name": "DAX Solid Wood Frames",
+      "rows": 3,
+      "quantity": 13,
+      "sales": 113.33
+    },
+    {
+      "product_id": "FUR-FU-10004270",
+      "product_name": "Eldon Image Series Desk Accessories, Burgundy",
+      "rows": 8,
+      "quantity": 31,
+      "sales": 111.19
+    },
+    {
+      "product_id": "OFF-PA-10000477",
+      "product_name": "Xerox 1952",
+      "rows": 4,
+      "quantity": 20,
+      "sales": 97.61
+    },
+    {
+      "product_id": "OFF-PA-10000659",
+      "product_name": "Adams Phone Message Book, Professional, 400 Message Capacity, 5 3/6\u0094 x 11\u0094",
+      "rows": 3,
+      "quantity": 14,
+      "sales": 94.93
+    },
+    {
+      "product_id": "OFF-BI-10004654",
+      "product_name": "Avery Binding System Hidden Tab Executive Style Index Sets",
+      "rows": 8,
+      "quantity": 26,
+      "sales": 91.74
+    },
+    {
+      "product_id": "OFF-PA-10002195",
+      "product_name": "RSVP Cards & Envelopes, Blank White, 8-1/2\" X 11\", 24 Cards/25 Envelopes/Set",
+      "rows": 6,
+      "quantity": 19,
+      "sales": 89.41
+    },
+    {
+      "product_id": "OFF-PA-10003022",
+      "product_name": "Xerox 1992",
+      "rows": 4,
+      "quantity": 15,
+      "sales": 86.11
+    },
+    {
+      "product_id": "OFF-PA-10001166",
+      "product_name": "Xerox 1932",
+      "rows": 1,
+      "quantity": 3,
+      "sales": 85.06
+    },
+    {
+      "product_id": "OFF-PA-10002195",
+      "product_name": "Xerox 1966",
+      "rows": 6,
+      "quantity": 14,
+      "sales": 79.06
+    },
+    {
+      "product_id": "FUR-FU-10004091",
+      "product_name": "Eldon 200 Class Desk Accessories, Black",
+      "rows": 2,
+      "quantity": 12,
+      "sales": 75.36
+    },
+    {
+      "product_id": "OFF-PA-10000477",
+      "product_name": "Xerox 22",
+      "rows": 3,
+      "quantity": 13,
+      "sales": 75.17
+    },
+    {
+      "product_id": "OFF-AR-10001149",
+      "product_name": "Sanford Colorific Colored Pencils, 12/Box",
+      "rows": 5,
+      "quantity": 26,
+      "sales": 73.15
+    },
+    {
+      "product_id": "OFF-AR-10001149",
+      "product_name": "Avery Hi-Liter Comfort Grip Fluorescent Highlighter, Yellow Ink",
+      "rows": 2,
+      "quantity": 4,
+      "sales": 7.8
+    }
+  ],
+  "reverse_lookup_full": [
+    {
+      "product_name": "KI Adjustable-Height Table",
+      "product_id_count": 2,
+      "product_ids": [
+        "FUR-TA-10001039",
+        "FUR-TA-10004086"
+      ],
+      "categories": [
+        "Furniture"
+      ],
+      "sub_categories": [
+        "Tables"
+      ],
+      "row_count": 18,
+      "total_sales": 4552.64
+    },
+    {
+      "product_name": "Easy-staple paper",
+      "product_id_count": 8,
+      "product_ids": [
+        "OFF-PA-10000249",
+        "OFF-PA-10000349",
+        "OFF-PA-10000474",
+        "OFF-PA-10000565",
+        "OFF-PA-10001685",
+        "OFF-PA-10002764",
+        "OFF-PA-10003127",
+        "OFF-PA-10004947"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Paper"
+      ],
+      "row_count": 46,
+      "total_sales": 2504.19
+    },
+    {
+      "product_name": "Okidata C610n Printer",
+      "product_id_count": 2,
+      "product_ids": [
+        "TEC-MA-10001856",
+        "TEC-MA-10003230"
+      ],
+      "categories": [
+        "Technology"
+      ],
+      "sub_categories": [
+        "Machines"
+      ],
+      "row_count": 2,
+      "total_sales": 2011.9
+    },
+    {
+      "product_name": "Staple envelope",
+      "product_id_count": 9,
+      "product_ids": [
+        "OFF-EN-10001028",
+        "OFF-EN-10001099",
+        "OFF-EN-10001415",
+        "OFF-EN-10001539",
+        "OFF-EN-10001990",
+        "OFF-EN-10002621",
+        "OFF-EN-10003134",
+        "OFF-EN-10003286",
+        "OFF-EN-10004773"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Envelopes"
+      ],
+      "row_count": 48,
+      "total_sales": 1686.81
+    },
+    {
+      "product_name": "Staples",
+      "product_id_count": 10,
+      "product_ids": [
+        "OFF-FA-10000735",
+        "OFF-FA-10001229",
+        "OFF-FA-10001843",
+        "OFF-FA-10002780",
+        "OFF-FA-10002815",
+        "OFF-FA-10002975",
+        "OFF-FA-10003021",
+        "OFF-FA-10003112",
+        "OFF-FA-10003485",
+        "OFF-FA-10003495"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Fasteners"
+      ],
+      "row_count": 46,
+      "total_sales": 755.47
+    },
+    {
+      "product_name": "Staple holder",
+      "product_id_count": 3,
+      "product_ids": [
+        "OFF-AP-10001366",
+        "OFF-AP-10002222",
+        "OFF-AP-10004249"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Appliances"
+      ],
+      "row_count": 13,
+      "total_sales": 528.78
+    },
+    {
+      "product_name": "Staples in misc. colors",
+      "product_id_count": 7,
+      "product_ids": [
+        "OFF-AR-10001166",
+        "OFF-AR-10002280",
+        "OFF-AR-10003087",
+        "OFF-AR-10003631",
+        "OFF-AR-10004062",
+        "OFF-AR-10004707",
+        "OFF-AR-10004790"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Art"
+      ],
+      "row_count": 19,
+      "total_sales": 478.81
+    },
+    {
+      "product_name": "Staple-based wall hangings",
+      "product_id_count": 2,
+      "product_ids": [
+        "FUR-FU-10001940",
+        "FUR-FU-10004351"
+      ],
+      "categories": [
+        "Furniture"
+      ],
+      "sub_categories": [
+        "Furnishings"
+      ],
+      "row_count": 16,
+      "total_sales": 422.29
+    },
+    {
+      "product_name": "#10- 4 1/8\" x 9 1/2\" Recycled Envelopes",
+      "product_id_count": 2,
+      "product_ids": [
+        "OFF-EN-10000461",
+        "OFF-EN-10000781"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Envelopes"
+      ],
+      "row_count": 10,
+      "total_sales": 286.67
+    },
+    {
+      "product_name": "Storex Dura Pro Binders",
+      "product_id_count": 2,
+      "product_ids": [
+        "OFF-BI-10001922",
+        "OFF-BI-10004364"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Binders"
+      ],
+      "row_count": 17,
+      "total_sales": 278.59
+    },
+    {
+      "product_name": "Staple magnet",
+      "product_id_count": 2,
+      "product_ids": [
+        "OFF-ST-10002562",
+        "OFF-ST-10003221"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Storage"
+      ],
+      "row_count": 10,
+      "total_sales": 272.89
+    },
+    {
+      "product_name": "Eldon Wave Desk Accessories",
+      "product_id_count": 2,
+      "product_ids": [
+        "FUR-FU-10000023",
+        "FUR-FU-10003981"
+      ],
+      "categories": [
+        "Furniture"
+      ],
+      "sub_categories": [
+        "Furnishings"
+      ],
+      "row_count": 14,
+      "total_sales": 266.73
+    },
+    {
+      "product_name": "Peel & Seel Recycled Catalog Envelopes, Brown",
+      "product_id_count": 2,
+      "product_ids": [
+        "OFF-EN-10002592",
+        "OFF-EN-10003448"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Envelopes"
+      ],
+      "row_count": 6,
+      "total_sales": 264.02
+    },
+    {
+      "product_name": "Staple remover",
+      "product_id_count": 3,
+      "product_ids": [
+        "OFF-SU-10000946",
+        "OFF-SU-10001225",
+        "OFF-SU-10001935"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Supplies"
+      ],
+      "row_count": 18,
+      "total_sales": 263.09
+    },
+    {
+      "product_name": "Avery Non-Stick Binders",
+      "product_id_count": 2,
+      "product_ids": [
+        "OFF-BI-10000829",
+        "OFF-BI-10004140"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Binders"
+      ],
+      "row_count": 20,
+      "total_sales": 217.32
+    },
+    {
+      "product_name": "Prang Drawing Pencil Set",
+      "product_id_count": 2,
+      "product_ids": [
+        "OFF-AR-10002766",
+        "OFF-AR-10003251"
+      ],
+      "categories": [
+        "Office Supplies"
+      ],
+      "sub_categories": [
+        "Art"
+      ],
+      "row_count": 11,
+      "total_sales": 100.08
+    }
+  ],
+  "cogs_key_options": "see docs/PRODUCT_GRAIN_DECISION.md (no values created)",
+  "modeled_fields_created": []
+}

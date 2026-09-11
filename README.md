@@ -12,17 +12,21 @@ Build a transparent, reproducible profitability model on top of the Superstore
 sales dataset, then extend it with cost-to-serve allocation, pricing/discount
 analytics, and an executive cockpit.
 
-## Current status — Phase 0 / Data Audit (COMPLETE, awaiting confirmation)
+## Current status — Phase 1A / Financial Definitions & KPI Dictionary (COMPLETE, awaiting confirmation)
 
 - [x] Environment + Git inspection
 - [x] ZIP inspection (`archive.zip` → `Sample - Superstore.csv`)
 - [x] Full dataset audit → see `docs/DATA_AUDIT.md`
-- [ ] Phase 1 – Financial & Operational Data Mapping (NOT STARTED)
+- [x] Phase 1A — Financial definitions & KPI dictionary → see `docs/FINANCIAL_MODEL.md`, `docs/KPI_DICTIONARY.md`, `docs/DECISION_LOG.md`
+- [x] Phase 1B — Data Foundation → `src/data/prepare_fact_sales.py` → `data/processed/fact_sales.csv` (9,994 rows, 25 cols) → see `docs/DATA_QUALITY_REPORT.md`
+- [x] Phase 1C-1 — Analytical product grain investigation → `src/data/analyze_product_grain.py` → `docs/PRODUCT_GRAIN_DECISION.md` (recommendation: product_id + product_name; source unmodified; PENDING REVIEW)
+- [ ] Phase 1C-2 (NOT STARTED — pending 1C-1 review)
+- [ ] Phase 1B+ – Data mapping & implementation (NOT STARTED)
 - [ ] Phase 2 – Cost-to-Serve Model (NOT STARTED)
 - [ ] Phase 3 – Pricing & Discount Analytics (NOT STARTED)
 - [ ] Phase 4 – Executive Profitability Cockpit (NOT STARTED)
 
-**We stop here until you confirm. Do not start Phase 1 calculations yet.**
+**Phase 1B status: COMPLETED / READY FOR REVIEW (definitions + foundation only — no cost modeling, no dashboard). Phase 1 as a whole is NOT finished; Phase 1C still required. Stopping here — do not start Phase 1C until confirmed.**
 
 ## Tech stack (planned)
 
@@ -52,6 +56,9 @@ Margin Map/
   .gitignore
   docs/
     DATA_AUDIT.md        # Phase 0 audit findings (source of truth)
+    FINANCIAL_MODEL.md   # Phase 1A approved formulas + controls
+    KPI_DICTIONARY.md    # Phase 1A KPI definitions
+    DECISION_LOG.md      # Phase 1A approved decisions
   data/                  # local working data, git-ignored (raw/ processed/ curated/)
   notebooks/             # exploratory analysis (Phase 1+)
   src/                   # reusable Python (Phase 1+)
