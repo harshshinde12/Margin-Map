@@ -1,0 +1,62 @@
+{
+  "methodology": {
+    "cogs_nature": "MODELED estimate from sub-category industry benchmark gross margins \u2014 NOT historical accounting COGS.",
+    "formulas": {
+      "net_revenue": "Sales",
+      "modeled_cogs_pct": "100 - benchmark_gross_margin_pct",
+      "modeled_cogs": "Net Revenue * modeled_cogs_pct / 100 [AUTHORITATIVE \u2014 sole COGS driver; never Quantity x unit cost]",
+      "modeled_gross_profit": "Net Revenue - modeled_cogs",
+      "modeled_gross_margin_pct": "modeled_gross_profit / Net Revenue * 100 (NULL if Net Revenue = 0)",
+      "implied_modeled_cogs_per_unit_row": "modeled_cogs / Quantity [DERIVED ONLY \u2014 varies with transaction price/discount; NOT a physical unit cost]",
+      "implied_modeled_cogs_per_unit_product": "product Net Revenue * modeled_cogs_pct / 100 / product Quantity [DERIVED reference only]"
+    },
+    "aggregation_rule": "SUM(gross profit)/SUM(net revenue)*100 \u2014 never AVERAGE of %",
+    "units": "percentages as plain numbers (40 = 40%)"
+  },
+  "source_statistics": {
+    "fact_rows": 9994,
+    "unique_orders": 5009,
+    "total_net_revenue": 2297200.86,
+    "total_quantity": 37873,
+    "fact_sha256_before": "d7478eb549c61d96c34296a418aec872bbe8757c46f20993ad6d04c7e3261ee2",
+    "fact_sha256_after": "d7478eb549c61d96c34296a418aec872bbe8757c46f20993ad6d04c7e3261ee2",
+    "source_profit_used_for_cogs": false
+  },
+  "benchmark_statistics": {
+    "sub_categories": 17,
+    "subcategory_level": 2,
+    "category_fallbacks": 15,
+    "unresolved": 0,
+    "confidence": {
+      "MEDIUM": 16,
+      "LOW": 1
+    }
+  },
+  "product_statistics": {
+    "analytical_products": 1894,
+    "modeled_subcategory_rows": 160,
+    "modeled_category_rows": 1734
+  },
+  "cogs_statistics": {
+    "total_modeled_cogs": 1493910.13,
+    "total_modeled_gross_profit": 803290.73,
+    "overall_modeled_gross_margin_pct": 34.97
+  },
+  "profitability_statistics": {
+    "overall_modeled_gross_margin_pct": 34.97,
+    "note": "Furniture ~40% / Office Supplies ~38% / Accessories 35% / Copiers 30% / Machines & Phones 25% modeled margins by construction."
+  },
+  "sensitivity_statistics": {
+    "scenarios": "base, downside (margin -5pp), upside (margin +5pp), clipped [0,100]; revenue-based COGS model only (no implied-unit input)",
+    "total_downside_margin_pct": 29.97,
+    "total_base_margin_pct": 34.97,
+    "total_upside_margin_pct": 39.97
+  },
+  "validation_results": "ALL PHASE-1C-3 + CORRECTION-REVIEW CHECKS PASSED (authoritative COGS == revenue x pct; implied unit derived-only; 23 data-quality checks; source metadata/URL validation; determinism verified by repeated execution).",
+  "unresolved_benchmark_issues": [],
+  "warnings": [
+    "All COGS/profit/margin fields are MODELED from industry benchmarks, not observed costs \u2014 see docs/SUBCATEGORY_BENCHMARK_METHODOLOGY.md \u00a78.",
+    "Paper benchmark confidence LOW (commodity-pulp anchor contradicts range).",
+    "implied_modeled_cogs_per_unit is derived from the revenue-based modeled COGS (row: modeled_cogs/quantity) and varies with transaction price/discount \u2014 it is NOT a stable procurement/manufacturing cost and must never drive COGS. Authoritative COGS is always Net Revenue x COGS %."
+  ]
+}

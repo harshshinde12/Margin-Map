@@ -1,0 +1,20 @@
+{
+  "input": {
+    "file": "data/processed/fact_sales.csv",
+    "rows": 9994
+  },
+  "analytical_product_count": 1894,
+  "unique_product_key_count": 1894,
+  "key_method": "analytical_product_key = product_id + ' || ' + product_name (deterministic, order-independent, no UUID/row numbers)",
+  "template": {
+    "file": "data/processed/product_cogs_input_template.csv",
+    "rows": 1894,
+    "null_cogs_count": 1894,
+    "fabricated_cogs_count": 0,
+    "pending_status_count": 1894
+  },
+  "validation_results": "ALL 15 CHECKS PASSED (see script source for check list)",
+  "methodology_status": "NO COGS METHODOLOGY SELECTED \u2014 architecture only; see docs/COGS_MODEL.md for candidate evaluation",
+  "source_preservation": "fact_sales.csv read-only (9,994 rows verified); archive.zip untouched; dim values verbatim from fact",
+  "modeled_fields_created": []
+}

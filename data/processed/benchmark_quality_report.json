@@ -1,0 +1,180 @@
+{
+  "input_universe": {
+    "dim_product": "C:\\Users\\Harsh Shinde\\Desktop\\Margin Map\\data\\processed\\dim_product.csv",
+    "fact_sales": "C:\\Users\\Harsh Shinde\\Desktop\\Margin Map\\data\\processed\\fact_sales.csv",
+    "sub_categories": 17
+  },
+  "number_of_sub_categories": 17,
+  "sourced_subcategory_benchmarks": 2,
+  "category_level_fallbacks": 15,
+  "other_level_fallbacks": 0,
+  "unresolved_benchmarks": 0,
+  "unresolved_list": [],
+  "confidence_distribution": {
+    "MEDIUM": 16,
+    "LOW": 1
+  },
+  "range_statistics": {
+    "selected_min_pct": 25.0,
+    "selected_max_pct": 40.0,
+    "selected_mean_pct": 36.29
+  },
+  "benchmark_values": [
+    {
+      "sub_category": "Bookcases",
+      "benchmark_gross_margin_pct": 40,
+      "benchmark_low_pct": 35,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Chairs",
+      "benchmark_gross_margin_pct": 40,
+      "benchmark_low_pct": 35,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Furnishings",
+      "benchmark_gross_margin_pct": 40,
+      "benchmark_low_pct": 35,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Tables",
+      "benchmark_gross_margin_pct": 40,
+      "benchmark_low_pct": 35,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Appliances",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Art",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Binders",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Envelopes",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Fasteners",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Labels",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Paper",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "LOW",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Storage",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Supplies",
+      "benchmark_gross_margin_pct": 38,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 45,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Accessories",
+      "benchmark_gross_margin_pct": 35,
+      "benchmark_low_pct": 30,
+      "benchmark_high_pct": 40,
+      "benchmark_level": "SUB_CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "FALSE"
+    },
+    {
+      "sub_category": "Copiers",
+      "benchmark_gross_margin_pct": 30,
+      "benchmark_low_pct": 25,
+      "benchmark_high_pct": 35,
+      "benchmark_level": "SUB_CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "FALSE"
+    },
+    {
+      "sub_category": "Machines",
+      "benchmark_gross_margin_pct": 25,
+      "benchmark_low_pct": 20,
+      "benchmark_high_pct": 30,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    },
+    {
+      "sub_category": "Phones",
+      "benchmark_gross_margin_pct": 25,
+      "benchmark_low_pct": 20,
+      "benchmark_high_pct": 30,
+      "benchmark_level": "CATEGORY",
+      "confidence": "MEDIUM",
+      "fallback_used": "TRUE"
+    }
+  ],
+  "validation_results": "ALL BENCHMARK CHECKS PASSED (coverage-17, no-duplicates, margins 0-100, low<=selected<=high, metadata present, URL valid/traceable, level/fallback consistency)",
+  "units": "percentages as plain numbers (40 = 40%); modeled COGS % = 100 - benchmark %",
+  "quarantine_note": "source Profit was not read, not used, and plays no role in any benchmark."
+}

@@ -151,6 +151,6 @@ merged on visual similarity.
 
 ## 12. Decision Status
 
-**PHASE 1C-1 COMPLETE — PENDING REVIEW.** Not frozen until the project owner
-approves the Option B recommendation. No Phase 1C-2 work (COGS, keys
-materialization, profit math) begins before approval.
+**PHASE 1C-1 COMPLETE — APPROVED.** Frozen as part of Phase 1 on 2026-09-12
+(see `docs/PHASE_1_FREEZE.md`). The Option B recommendation above is the
+approved analytical grain.
