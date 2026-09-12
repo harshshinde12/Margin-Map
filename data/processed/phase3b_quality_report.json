@@ -1,0 +1,224 @@
+{
+  "phase": "3B observed discount impact analysis (descriptive only)",
+  "causal_scope": "No causal claims. Band-quantity patterns are descriptive associations in historical data; they are not estimates of demand response.",
+  "configuration": {
+    "bands": {
+      "B0": "No discount",
+      "B1": "Low discount",
+      "B2": "Standard discount",
+      "B3": "Elevated discount",
+      "B4": "High discount",
+      "B5": "Deep discount"
+    },
+    "band_intervals": {
+      "B0": "d = 0",
+      "B1": "0 < d <= 0.15",
+      "B2": "0.15 < d <= 0.25",
+      "B3": "0.25 < d <= 0.35",
+      "B4": "0.35 < d <= 0.55",
+      "B5": "0.55 < d <= 0.80"
+    },
+    "minimum_line_count": 30,
+    "minimum_order_count": 10,
+    "threshold_status": "provisional analytical thresholds (D3B-02), not universal statistical rules",
+    "order_band_rule": "order weighted-average discount band (D3B-03); single rule, no competing rule",
+    "quantile_comparator": "not built (D3B-04)",
+    "scenarios": "OFF",
+    "elasticity_coefficients": "none estimated",
+    "quantity_response_assumptions": "none introduced"
+  },
+  "inputs": {
+    "fact_margin_map_phase2.csv": {
+      "rows": 9994,
+      "sha256": "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1"
+    },
+    "order_margin_map_phase2.csv": {
+      "rows": 5009,
+      "sha256": "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267"
+    },
+    "fact_sales_cogs.csv": {
+      "rows": 9994,
+      "sha256": "4d8de717486b323ffb656d13c94fd6bd94f8e61d1a93ea339a602ab5303b9988"
+    }
+  },
+  "band_validation": {
+    "line_counts": {
+      "B0": 4798,
+      "B1": 146,
+      "B2": 3657,
+      "B3": 254,
+      "B4": 283,
+      "B5": 856
+    },
+    "order_counts": {
+      "B0": 2055,
+      "B1": 415,
+      "B2": 1634,
+      "B3": 278,
+      "B4": 274,
+      "B5": 353
+    },
+    "zero_preserved": true,
+    "no_value_split": true,
+    "coverage_complete": true
+  },
+  "frozen_baseline_reconciliation": {
+    "revenue": 2297200.8603000003,
+    "cogs": 1493910.1284699999,
+    "freight": 238173.78999999998,
+    "contribution_profit": 565116.9418299999,
+    "expected_contribution_profit": 565116.9418,
+    "line_partial_gap": 200.04759999993257
+  },
+  "checks": [
+    {
+      "id": "quarantine",
+      "description": "quarantined Profit excluded from computations",
+      "expected": "source_profit_quarantined never loaded",
+      "actual": "excluded",
+      "status": "PASS"
+    },
+    {
+      "id": "inputs",
+      "description": "frozen input shapes and Phase 1 cross-check",
+      "expected": "9994 lines / 5009 orders / Phase 1 sales+COGS identical",
+      "actual": "9994 lines / 5009 orders",
+      "status": "PASS"
+    },
+    {
+      "id": "scenarios",
+      "description": "pricing/return/support scenarios remain OFF",
+      "expected": "all scenario flags FALSE and costs 0",
+      "actual": "OFF confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "discount-range",
+      "description": "discount values within valid range",
+      "expected": "[0, 1); no NULL",
+      "actual": "[0.0, 0.8]",
+      "status": "PASS"
+    },
+    {
+      "id": "ambiguity",
+      "description": "ambiguous freight pair preserved (NULL, flagged)",
+      "expected": "2 lines NULL freight in one order",
+      "actual": "2 lines in US-2014-150119",
+      "status": "PASS"
+    },
+    {
+      "id": "net",
+      "description": "Net Revenue equals Sales",
+      "expected": "max |net - sales| <= 1e-6",
+      "actual": "0.00e+00",
+      "status": "PASS"
+    },
+    {
+      "id": "discount-amount",
+      "description": "Discount Amount = Gross - Net (dual reconciled)",
+      "expected": "max dual gap <= 1e-6",
+      "actual": "1.82e-12",
+      "status": "PASS"
+    },
+    {
+      "id": "bands",
+      "description": "six-band assignment validated",
+      "expected": "coverage 9994; B0 exact; no value split",
+      "actual": "B0=4798 | B1=146 | B2=3657 | B3=254 | B4=283 | B5=856",
+      "status": "PASS"
+    },
+    {
+      "id": "order-dims",
+      "description": "order dimensional attribution clean",
+      "expected": "1 customer + 1 segment per order",
+      "actual": "5009/5009 clean",
+      "status": "PASS"
+    },
+    {
+      "id": "order-bands",
+      "description": "order WAD band assignment (single rule)",
+      "expected": "5009 orders exactly one band",
+      "actual": "B0=2055 | B1=415 | B2=1634 | B3=278 | B4=274 | B5=353",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen",
+      "description": "order-level contribution reconciles to Phase 2 baseline",
+      "expected": "contrib 565116.9418 / freight 238173.79",
+      "actual": "565116.9418 / 238173.79",
+      "status": "PASS"
+    },
+    {
+      "id": "line-gap",
+      "description": "line-partial vs authoritative gap stated",
+      "expected": "gap equals held-at-order pair economics",
+      "actual": "gap=200.0476 (25.05 freight + 225.10 gross held at order)",
+      "status": "PASS"
+    },
+    {
+      "id": "customers",
+      "description": "793 customers with authoritative contribution",
+      "expected": "contrib 565116.9418",
+      "actual": "565116.9418",
+      "status": "PASS"
+    },
+    {
+      "id": "product-flags",
+      "description": "product sparsity fully flagged",
+      "expected": "all product rows below provisional thresholds",
+      "actual": "5925/5925 flagged",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen",
+      "description": "frozen Phase 1/Phase 2 files unchanged",
+      "expected": "byte-identical SHA-256 before/after",
+      "actual": "unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "wad",
+      "description": "gross-revenue-weighted WAD; no averaging of rates",
+      "expected": "dual-form gap <= 1e-9",
+      "actual": "5.55e-17",
+      "status": "PASS"
+    }
+  ],
+  "outputs": {
+    "discount_band_summary.csv": {
+      "rows": 14,
+      "columns": 25,
+      "sha256": "ad8f7e571c76f295bde3cb119bca4b7ff56c7b3e1734869ebf60f8d7e3c236eb"
+    },
+    "discount_segment_summary.csv": {
+      "rows": 39,
+      "columns": 25,
+      "sha256": "ad11e525dff2ea875e0749ad284e47bddb45cad619301a90e9fa2ca162a7ac11"
+    },
+    "discount_category_summary.csv": {
+      "rows": 19,
+      "columns": 26,
+      "sha256": "504e8ae0189b8e1f9786b8e791f8303be1951277bf7bdf0f0eb43eed79f2d974"
+    },
+    "discount_subcategory_summary.csv": {
+      "rows": 69,
+      "columns": 26,
+      "sha256": "5b8e89b743bc4b957f93cc62434e3466ed5a7ba79134add7648284574a4fc197"
+    },
+    "discount_customer_summary.csv": {
+      "rows": 3304,
+      "columns": 27,
+      "sha256": "bc0a707d44b27c9912ed883750e7dd2906b0a368513e3163b44288f4d9c0e12e"
+    },
+    "discount_order_summary.csv": {
+      "rows": 5009,
+      "columns": 25,
+      "sha256": "17389c40b45823a3046f17c33f8a77bac3acc39896b33ce3ae19bb7306a521d2"
+    },
+    "discount_product_summary.csv": {
+      "rows": 5925,
+      "columns": 33,
+      "sha256": "1bb6fcf5fabe40dd6e6b125ac291a5c0595213761c3e464c7b2a51e1ea75efd8"
+    }
+  }
+}
