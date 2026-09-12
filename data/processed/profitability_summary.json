@@ -1,0 +1,256 @@
+{
+  "medians": {
+    "customer_revenue_median": 2256.39,
+    "customer_contribution_median": 544.02
+  },
+  "customers": {
+    "count": 793,
+    "loss_making_count": 0,
+    "loss_making_revenue": 0.0,
+    "loss_making_contribution": 0.0,
+    "quadrants": {
+      "HIGH_REVENUE_HIGH_CONTRIBUTION": 367,
+      "LOW_REVENUE_LOW_CONTRIBUTION": 366,
+      "LOW_REVENUE_HIGH_CONTRIBUTION": 30,
+      "HIGH_REVENUE_LOW_CONTRIBUTION": 30
+    },
+    "risk_classes": {
+      "HIGH_REVENUE_HIGH_CONTRIBUTION": 367,
+      "LOW_REVENUE_LOW_CONTRIBUTION": 366,
+      "LOW_REVENUE_HIGH_CONTRIBUTION": 30,
+      "HIGH_REVENUE_LOW_CONTRIBUTION": 30
+    }
+  },
+  "top10_customer_revenue": {
+    "value": 153811.17,
+    "share_pct": 6.7,
+    "members": [
+      {
+        "customer_id": "SM-20320",
+        "customer_name": "Sean Miller",
+        "revenue": 25043.05,
+        "contribution_profit": 6265.587159999999
+      },
+      {
+        "customer_id": "TC-20980",
+        "customer_name": "Tamara Chand",
+        "revenue": 19052.218000000004,
+        "contribution_profit": 5351.89684
+      },
+      {
+        "customer_id": "RB-19360",
+        "customer_name": "Raymond Buch",
+        "revenue": 15117.339,
+        "contribution_profit": 4398.70994
+      },
+      {
+        "customer_id": "TA-21385",
+        "customer_name": "Tom Ashbrook",
+        "revenue": 14595.62,
+        "contribution_profit": 3763.7061000000012
+      },
+      {
+        "customer_id": "AB-10105",
+        "customer_name": "Adrian Barton",
+        "revenue": 14473.571,
+        "contribution_profit": 4371.546780000001
+      },
+      {
+        "customer_id": "KL-16645",
+        "customer_name": "Ken Lonsdale",
+        "revenue": 14175.229,
+        "contribution_profit": 4371.960799999999
+      },
+      {
+        "customer_id": "SC-20095",
+        "customer_name": "Sanjit Chand",
+        "revenue": 14142.334,
+        "contribution_profit": 4295.718940000001
+      },
+      {
+        "customer_id": "HL-15040",
+        "customer_name": "Hunter Lopez",
+        "revenue": 12873.297999999999,
+        "contribution_profit": 3390.40304
+      },
+      {
+        "customer_id": "SE-20110",
+        "customer_name": "Sanjit Engle",
+        "revenue": 12209.438,
+        "contribution_profit": 3216.068360000001
+      },
+      {
+        "customer_id": "CC-12370",
+        "customer_name": "Christopher Conant",
+        "revenue": 12129.072,
+        "contribution_profit": 3000.5532999999996
+      }
+    ]
+  },
+  "top10_customer_contribution": {
+    "value": 43087.8,
+    "share_pct": 7.62,
+    "members": [
+      {
+        "customer_id": "SM-20320",
+        "customer_name": "Sean Miller",
+        "revenue": 25043.05,
+        "contribution_profit": 6265.587159999999
+      },
+      {
+        "customer_id": "TC-20980",
+        "customer_name": "Tamara Chand",
+        "revenue": 19052.218000000004,
+        "contribution_profit": 5351.89684
+      },
+      {
+        "customer_id": "RB-19360",
+        "customer_name": "Raymond Buch",
+        "revenue": 15117.339,
+        "contribution_profit": 4398.70994
+      },
+      {
+        "customer_id": "KL-16645",
+        "customer_name": "Ken Lonsdale",
+        "revenue": 14175.229,
+        "contribution_profit": 4371.960799999999
+      },
+      {
+        "customer_id": "AB-10105",
+        "customer_name": "Adrian Barton",
+        "revenue": 14473.571,
+        "contribution_profit": 4371.546780000001
+      },
+      {
+        "customer_id": "SC-20095",
+        "customer_name": "Sanjit Chand",
+        "revenue": 14142.334,
+        "contribution_profit": 4295.718940000001
+      },
+      {
+        "customer_id": "TA-21385",
+        "customer_name": "Tom Ashbrook",
+        "revenue": 14595.62,
+        "contribution_profit": 3763.7061000000012
+      },
+      {
+        "customer_id": "GT-14710",
+        "customer_name": "Greg Tran",
+        "revenue": 11820.12,
+        "contribution_profit": 3653.2724
+      },
+      {
+        "customer_id": "HL-15040",
+        "customer_name": "Hunter Lopez",
+        "revenue": 12873.297999999999,
+        "contribution_profit": 3390.40304
+      },
+      {
+        "customer_id": "SV-20365",
+        "customer_name": "Seth Vernon",
+        "revenue": 11470.949999999999,
+        "contribution_profit": 3225.00162
+      }
+    ]
+  },
+  "top10_product_revenue": {
+    "value": 244620.2,
+    "share_pct": 10.65
+  },
+  "top10_product_gross_profit": {
+    "value": 84327.53,
+    "share_pct": 10.5
+  },
+  "top10_subcategory_revenue": {
+    "members": [
+      {
+        "sub_category": "Phones",
+        "revenue": 330007.054
+      },
+      {
+        "sub_category": "Chairs",
+        "revenue": 328449.103
+      },
+      {
+        "sub_category": "Storage",
+        "revenue": 223843.608
+      },
+      {
+        "sub_category": "Tables",
+        "revenue": 206965.532
+      },
+      {
+        "sub_category": "Binders",
+        "revenue": 203412.733
+      },
+      {
+        "sub_category": "Machines",
+        "revenue": 189238.631
+      },
+      {
+        "sub_category": "Accessories",
+        "revenue": 167380.318
+      },
+      {
+        "sub_category": "Copiers",
+        "revenue": 149528.03
+      },
+      {
+        "sub_category": "Bookcases",
+        "revenue": 114879.9963
+      },
+      {
+        "sub_category": "Appliances",
+        "revenue": 107532.16100000001
+      }
+    ]
+  },
+  "top10_subcategory_gross_profit": {
+    "members": [
+      {
+        "sub_category": "Chairs",
+        "gross_profit": 131379.6412
+      },
+      {
+        "sub_category": "Storage",
+        "gross_profit": 85060.57104000001
+      },
+      {
+        "sub_category": "Tables",
+        "gross_profit": 82786.21280000001
+      },
+      {
+        "sub_category": "Phones",
+        "gross_profit": 82501.7635
+      },
+      {
+        "sub_category": "Binders",
+        "gross_profit": 77296.83854000001
+      },
+      {
+        "sub_category": "Accessories",
+        "gross_profit": 58583.111300000004
+      },
+      {
+        "sub_category": "Machines",
+        "gross_profit": 47309.657749999984
+      },
+      {
+        "sub_category": "Bookcases",
+        "gross_profit": 45951.998519999994
+      },
+      {
+        "sub_category": "Copiers",
+        "gross_profit": 44858.409
+      },
+      {
+        "sub_category": "Appliances",
+        "gross_profit": 40862.22118000001
+      }
+    ]
+  },
+  "negative_orders": 50,
+  "negative_gross_products": 0,
+  "negative_gross_subcategories": 0,
+  "validation_results": "ALL PHASE-2C CHECKS A-O PASSED (fail-loud; O determinism by repeated execution)"
+}

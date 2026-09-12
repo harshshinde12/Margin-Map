@@ -1,0 +1,50 @@
+{
+  "phase": "2B",
+  "inputs": {
+    "fact_sales_cogs.csv_sha256": "4d8de717486b323ffb656d13c94fd6bd94f8e61d1a93ea339a602ab5303b9988",
+    "Dataset 1 Apoorva.zip_sha256": "5d3155e74e2b4bdfd693e60b6b1d6b42e43a9c39d7e27bbe941366f559152a90",
+    "sample_-_superstore.xls_sha256": "5045ed4fec49cae2cc0dfc5ab0d204ba09efa767fe00c996822499e8cc42fbbd",
+    "fact_rows": 9994,
+    "file_reference_correction": "brief named sample_-_superstore.xls for freight, but its Orders sheet has no Shipping Cost column; validated source is Dataset 1 Apoorva.zip/Global_Superstore2.csv US segment (join audit total 238173.79 matches expected exactly)"
+  },
+  "row_counts": {
+    "output_rows": 9994,
+    "unique_row_id": 9994,
+    "unique_orders": 5009
+  },
+  "reconciliation": {
+    "total_net_revenue": 2297200.86,
+    "total_modeled_cogs": 1493910.13,
+    "total_cost_to_serve": 238148.74,
+    "total_contribution_profit": 564916.89,
+    "overall_contribution_margin_pct": 24.59
+  },
+  "freight": {
+    "audit_total_all_matched_candidate_rows": 238173.79,
+    "expected_us_total": 238173.79,
+    "output_line_sum": 238148.74,
+    "ambiguous_order_total": 25.05,
+    "matched_unique_lines": 9992,
+    "ambiguous_lines": 2,
+    "unmatched_lines": 0
+  },
+  "returns": {
+    "yes_orders": 296,
+    "unknown_orders": 1,
+    "unknown_order_id": "CA-2015-102015",
+    "not_returned_orders": 4712,
+    "crosswalk": "suffix +9yr asserted per row; line-sets verified (295 exact + 1 one-cent tolerance)"
+  },
+  "scenarios": {
+    "return_processing_scenario_enabled": false,
+    "support_scenario_enabled": false,
+    "note": "zeros mean scenario OFF/excluded, never actual business cost"
+  },
+  "validation_results": "ALL PHASE-2B CHECKS A-M PASSED (fail-loud; N determinism verified by repeated execution)",
+  "warnings": [
+    "Contribution is the MarginMap modeled/observed measure under OFF scenarios \u2014 not actual profit.",
+    "2 ambiguous lines carry NULL freight/contribution; their order total 25.05 is preserved at order level only.",
+    "Return YES is order-level status for filtering \u2014 never line-level attribution.",
+    "NOT_RETURNED rests on the candidate-Returns completeness assumption (documented caveat)."
+  ]
+}
