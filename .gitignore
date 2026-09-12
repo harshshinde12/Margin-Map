@@ -26,3 +26,5 @@ data/*.csv
 Thumbs.db
 .vscode/
 .idea/
+
+sample_-_superstore.xls
