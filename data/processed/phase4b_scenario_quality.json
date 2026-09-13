@@ -1,0 +1,144 @@
+{
+  "phase": "4B first slice \u2014 uniform discount-replacement scenario (hypothetical arithmetic sensitivity; not a forecast)",
+  "scenario": {
+    "scenario_id": "uniform_replace_0.10",
+    "scenario_type": "uniform_replacement",
+    "input_form": "replacement_rate",
+    "stated_rate": 0.1,
+    "rate_bounds": [
+      0.0,
+      0.8
+    ],
+    "scope": "all_valid_lines",
+    "quantity_assumption": "CONSTANT_OBSERVED_QUANTITY",
+    "cogs_method": "FROZEN_MODELED_COGS_PCT",
+    "freight_method": "OBSERVED_PASSTHROUGH",
+    "return_support": "OFF",
+    "reporting": "Order x Discount Band (baseline bands), ORDER basis",
+    "standing": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY_NOT_A_FORECAST"
+  },
+  "inputs": {
+    "fact_margin_map_phase2.csv": {
+      "rows": 9994,
+      "sha256": "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1"
+    },
+    "order_margin_map_phase2.csv": {
+      "rows": 5009,
+      "sha256": "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267"
+    }
+  },
+  "checks": [
+    {
+      "id": "quarantine",
+      "description": "quarantined Profit excluded from computations",
+      "expected": "source_profit_quarantined never loaded",
+      "actual": "excluded",
+      "status": "PASS"
+    },
+    {
+      "id": "inputs",
+      "description": "frozen input shapes",
+      "expected": "9994 lines / 5009 unique orders",
+      "actual": "9994 lines / 5009 orders",
+      "status": "PASS"
+    },
+    {
+      "id": "scenarios-off",
+      "description": "return/support scenario layers remain OFF",
+      "expected": "all flags FALSE and costs 0",
+      "actual": "OFF confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "discount-range",
+      "description": "observed discounts within valid range",
+      "expected": "[0, 1); no NULL",
+      "actual": "[0.0, 0.8]",
+      "status": "PASS"
+    },
+    {
+      "id": "ambiguity",
+      "description": "ambiguous freight pair preserved (NULL, flagged)",
+      "expected": "2 lines NULL freight in one order",
+      "actual": "2 lines in US-2014-150119",
+      "status": "PASS"
+    },
+    {
+      "id": "hypo-lines",
+      "description": "line hypotheticals computed (quantity constant)",
+      "expected": "dual-form gaps <= 1e-6",
+      "actual": "gross 1.82e-12; hypo 9.09e-13; cogs-pct 4.55e-13",
+      "status": "PASS"
+    },
+    {
+      "id": "freight-passthrough",
+      "description": "observed freight passed through unchanged",
+      "expected": "values identical; 2 NULL preserved; flags unchanged",
+      "actual": "confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "order-bands",
+      "description": "baseline order-WAD band assignment (single rule)",
+      "expected": "5009 orders exactly one band",
+      "actual": "B0=2055 | B1=415 | B2=1634 | B3=278 | B4=274 | B5=353",
+      "status": "PASS"
+    },
+    {
+      "id": "quantity-constant",
+      "description": "hypothetical quantity equals baseline quantity",
+      "expected": "line + order totals 37873; column never transformed",
+      "actual": "37873",
+      "status": "PASS"
+    },
+    {
+      "id": "cogs-reconcile",
+      "description": "order COGS rollup matches authoritative order fact",
+      "expected": "max per-order gap <= 1e-6",
+      "actual": "1.82e-12",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen",
+      "description": "baseline reconciles to Phase 2 facts",
+      "expected": "contrib 565116.9418 / freight 238173.79",
+      "actual": "565116.9418 / 238173.79",
+      "status": "PASS"
+    },
+    {
+      "id": "variances",
+      "description": "variance arithmetic reconciled both ways",
+      "expected": "max gap <= 1e-9; freight variance 0",
+      "actual": "confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "totals",
+      "description": "TOTAL row reconciles to frozen baseline",
+      "expected": "5009 orders / contrib 565116.9418",
+      "actual": "5009 orders / 565116.9418",
+      "status": "PASS"
+    },
+    {
+      "id": "metadata",
+      "description": "scenario metadata and assumption lineage complete",
+      "expected": "all lineage columns populated",
+      "actual": "uniform_replace_0.10",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen-inputs",
+      "description": "frozen Phase 1/Phase 2 files unchanged",
+      "expected": "byte-identical SHA-256 before/after",
+      "actual": "unchanged",
+      "status": "PASS"
+    }
+  ],
+  "outputs": {
+    "phase4b_scenario_uniform_0.10.csv": {
+      "rows": 7,
+      "columns": 52,
+      "sha256": "6771a5f2ec4eb1584a7965768766e329c4e80f1b3ae805992c9ff65a7b9da2d1"
+    }
+  }
+}
