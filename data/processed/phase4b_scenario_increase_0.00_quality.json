@@ -1,0 +1,197 @@
+{
+  "phase": "4B increase slice \u2014 uniform discount-increase scenario (hypothetical arithmetic sensitivity; not a forecast)",
+  "scenario": {
+    "scenario_id": "discount_increase_pp_0.00",
+    "scenario_type": "discount_increase",
+    "input_form": "increase_pp",
+    "stated_increase_pp": 0.0,
+    "increase_bounds": [
+      0.0,
+      0.8
+    ],
+    "dprime_bounds": [
+      0.0,
+      0.8
+    ],
+    "scope": "all_valid_lines",
+    "quantity_assumption": "CONSTANT_OBSERVED_QUANTITY",
+    "cogs_method": "FROZEN_MODELED_COGS_PCT",
+    "freight_method": "OBSERVED_PASSTHROUGH",
+    "return_support": "OFF",
+    "reporting": "Order x Discount Band (baseline bands), ORDER basis",
+    "standing": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY_NOT_A_FORECAST"
+  },
+  "inputs": {
+    "fact_margin_map_phase2.csv": {
+      "rows": 9994,
+      "sha256": "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1"
+    },
+    "order_margin_map_phase2.csv": {
+      "rows": 5009,
+      "sha256": "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267"
+    }
+  },
+  "checks": [
+    {
+      "id": "increase-exists",
+      "description": "stated increase present and numeric",
+      "expected": "finite numeric --increase-pp",
+      "actual": "0.0",
+      "status": "PASS"
+    },
+    {
+      "id": "increase-sign",
+      "description": "increase-only slice rejects negatives",
+      "expected": "increase >= 0.00",
+      "actual": "0.0",
+      "status": "PASS"
+    },
+    {
+      "id": "increase-bounds",
+      "description": "stated increase within decimal bounds",
+      "expected": "[0.00, 0.80] decimal fraction",
+      "actual": "0.0",
+      "status": "PASS"
+    },
+    {
+      "id": "quarantine",
+      "description": "quarantined Profit excluded from computations",
+      "expected": "source_profit_quarantined never loaded",
+      "actual": "excluded",
+      "status": "PASS"
+    },
+    {
+      "id": "inputs",
+      "description": "frozen input shapes",
+      "expected": "9994 lines / 5009 unique orders",
+      "actual": "9994 lines / 5009 orders",
+      "status": "PASS"
+    },
+    {
+      "id": "scenarios-off",
+      "description": "return/support scenario layers remain OFF",
+      "expected": "all flags FALSE and costs 0",
+      "actual": "OFF confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "discount-range",
+      "description": "observed discounts within valid range",
+      "expected": "[0, 1); no NULL",
+      "actual": "[0.0, 0.8]",
+      "status": "PASS"
+    },
+    {
+      "id": "ambiguity",
+      "description": "ambiguous freight pair preserved (NULL, flagged)",
+      "expected": "2 lines NULL freight in one order",
+      "actual": "2 lines in US-2014-150119",
+      "status": "PASS"
+    },
+    {
+      "id": "discount-bounds-per-line",
+      "description": "every resulting discount within [0.00, 0.80]",
+      "expected": "0 violations; no clipping/drops/partial runs",
+      "actual": "max d'=0.800000",
+      "status": "PASS"
+    },
+    {
+      "id": "no-silent-exclusion",
+      "description": "universal scope preserved, nothing dropped",
+      "expected": "9994 lines / 5009 orders in scope",
+      "actual": "9994 lines in scope",
+      "status": "PASS"
+    },
+    {
+      "id": "hypo-revenue-dual-additive",
+      "description": "additive hypo revenue dual forms reconcile",
+      "expected": "max gap <= 1e-6",
+      "actual": "9.09e-13",
+      "status": "PASS"
+    },
+    {
+      "id": "hypo-lines",
+      "description": "line hypotheticals computed (quantity constant)",
+      "expected": "dual-form gaps <= 1e-6",
+      "actual": "gross 1.82e-12; cogs-pct 4.55e-13",
+      "status": "PASS"
+    },
+    {
+      "id": "freight-passthrough",
+      "description": "observed freight passed through unchanged",
+      "expected": "values identical; 2 NULL preserved; flags unchanged",
+      "actual": "confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "order-bands",
+      "description": "baseline order-WAD band assignment (single rule)",
+      "expected": "5009 orders exactly one band",
+      "actual": "B0=2055 | B1=415 | B2=1634 | B3=278 | B4=274 | B5=353",
+      "status": "PASS"
+    },
+    {
+      "id": "quantity-constant",
+      "description": "hypothetical quantity equals baseline quantity",
+      "expected": "line + order totals 37873; column never transformed",
+      "actual": "37873",
+      "status": "PASS"
+    },
+    {
+      "id": "cogs-reconcile",
+      "description": "order COGS rollup matches authoritative order fact",
+      "expected": "max per-order gap <= 1e-6",
+      "actual": "1.82e-12",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen",
+      "description": "baseline reconciles to Phase 2 facts",
+      "expected": "contrib 565116.9418 / freight 238173.79",
+      "actual": "565116.9418 / 238173.79",
+      "status": "PASS"
+    },
+    {
+      "id": "variances",
+      "description": "variance arithmetic reconciled both ways",
+      "expected": "max gap <= 1e-9; freight variance 0",
+      "actual": "confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "totals",
+      "description": "TOTAL row reconciles to frozen baseline",
+      "expected": "5009 orders / contrib 565116.9418",
+      "actual": "5009 orders / 565116.9418",
+      "status": "PASS"
+    },
+    {
+      "id": "metadata",
+      "description": "scenario metadata and assumption lineage complete",
+      "expected": "all lineage columns populated",
+      "actual": "discount_increase_pp_0.00",
+      "status": "PASS"
+    },
+    {
+      "id": "metadata-increase",
+      "description": "increase scenario identity consistent",
+      "expected": "discount_increase / increase_pp / id matches filename",
+      "actual": "discount_increase_pp_0.00",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen-inputs",
+      "description": "frozen Phase 1/Phase 2 files unchanged",
+      "expected": "byte-identical SHA-256 before/after",
+      "actual": "unchanged",
+      "status": "PASS"
+    }
+  ],
+  "outputs": {
+    "phase4b_scenario_increase_0.00.csv": {
+      "rows": 7,
+      "columns": 52,
+      "sha256": "10fb41f207c7cc011d3fbfe5bdbaec0bbfdc0be4e53cf39f3a0bf7ce087c9560"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Phase 4B Design — Uniform Discount Increase (Percentage-Point Input)
 
-> Standing: **DESIGN ONLY — DRAFT, NOT APPROVED, NOT FROZEN.**
+> Standing: **APPROVED FOR IMPLEMENTATION — NOT YET FROZEN.**
 > No calculations are implemented, no scripts are created or modified, no
 > outputs are produced, and no frozen Phase 1, 2, 3, 4A, or Phase 4B first-slice
 > artifact is altered by this document. Design authority: the frozen Phase 4A
@@ -239,10 +239,9 @@ fails loudly with no valid output.
 
 ## 12. Approval status
 
-**DRAFT — NOT APPROVED, NOT FROZEN.** This document proposes the increase
-slice only; it authorizes no build, selects no instance value beyond the
-illustrative `0.05` examples above, and changes no frozen artifact. A build
-may proceed only after explicit project-owner approval and freezing of this
-record. Any departure — broader grains, wider bounds, response assumptions,
+**APPROVED FOR IMPLEMENTATION — NOT YET FROZEN.** This document specifies the increase
+slice; it authorizes the build of this slice only, selects no instance value beyond the
+illustrative `0.05` examples above, and changes no frozen artifact. The slice itself
+is not yet frozen. Any departure — broader grains, wider bounds, response assumptions,
 comparator activation, new scenario types, or silent-exclusion handling —
 requires a new documented approval before it is built.
