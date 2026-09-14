@@ -1,0 +1,164 @@
+{
+  "phase": "4C slice 5 \u2014 AO-05 order-level baseline reading (observed baseline; not a forecast)",
+  "output": {
+    "output_name": "Order-level baseline reading",
+    "scenario_status": "OBSERVED BASELINE",
+    "grain": "Order",
+    "standing": "OBSERVED_BASELINE"
+  },
+  "inputs": {
+    "discount_order_summary.csv": {
+      "rows": 5009,
+      "sha256": "17389c40b45823a3046f17c33f8a77bac3acc39896b33ce3ae19bb7306a521d2"
+    },
+    "order_margin_map_phase2.csv": {
+      "rows": 5009,
+      "sha256": "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267"
+    },
+    "phase3b_quality_report.json": {
+      "checks": 16,
+      "status": "all PASS"
+    }
+  },
+  "checks": [
+    {
+      "id": "inputs-exist",
+      "description": "required frozen inputs present",
+      "expected": "order summary + order fact + quality report",
+      "actual": "present",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen-inputs",
+      "description": "frozen hashes match records",
+      "expected": "byte-identical SHA-256 (2 files)",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "upstream-standing",
+      "description": "Phase 3B quality 16 checks all PASS",
+      "expected": "16 checks all PASS (one reused ID in frozen record)",
+      "actual": "16 checks all PASS",
+      "status": "PASS"
+    },
+    {
+      "id": "quarantine",
+      "description": "no quarantined-Profit column",
+      "expected": "absent from order summary",
+      "actual": "absent",
+      "status": "PASS"
+    },
+    {
+      "id": "inputs",
+      "description": "5009 unique orders, sets match fact",
+      "expected": "5009 / 5009; sets equal",
+      "actual": "5009 / 5009; sets equal",
+      "status": "PASS"
+    },
+    {
+      "id": "order-schema",
+      "description": "order summary schema complete",
+      "expected": "all 22 required columns",
+      "actual": "present",
+      "status": "PASS"
+    },
+    {
+      "id": "band-coverage",
+      "description": "exactly one frozen band per order",
+      "expected": "B0 2055 / B1 415 / B2 1634 / B3 278 / B4 274 / B5 353; no NULL",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "authority",
+      "description": "all rows AUTHORITATIVE_ORDER",
+      "expected": "AUTHORITATIVE_ORDER x 5009",
+      "actual": "all match",
+      "status": "PASS"
+    },
+    {
+      "id": "flags",
+      "description": "low_sample_flag FALSE convention",
+      "expected": "FALSE x 5009",
+      "actual": "all FALSE",
+      "status": "PASS"
+    },
+    {
+      "id": "rollups",
+      "description": "revenue/COGS/freight/CTS/contribution rollups match fact",
+      "expected": "gaps <= 1e-6",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "margins-recomputed",
+      "description": "per-order margins recomputed, never averaged",
+      "expected": "0 mismatches x 5009 orders",
+      "actual": "0 mismatches",
+      "status": "PASS"
+    },
+    {
+      "id": "wad-recomputed",
+      "description": "per-order WAD/realization recomputed, never averaged",
+      "expected": "0 mismatches x 5009 orders",
+      "actual": "0 mismatches",
+      "status": "PASS"
+    },
+    {
+      "id": "negatives",
+      "description": "50 flags exactly where contribution < 0",
+      "expected": "50 / 0 mismatches",
+      "actual": "50 / 0 mismatches",
+      "status": "PASS"
+    },
+    {
+      "id": "ambiguity",
+      "description": "exactly one noted order, freight 26.55",
+      "expected": "US-2014-150119 / 26.55 / ORDER_CONTAINS_AMBIGUOUS_PAIR_25P05_HELD_AT_ORDER",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "attribution",
+      "description": "one non-null customer + segment per order row",
+      "expected": "no NULL; unique order_id",
+      "actual": "verified",
+      "status": "PASS"
+    },
+    {
+      "id": "return-cohorts",
+      "description": "cohorts sum to 5009; UNKNOWN never defaulted",
+      "expected": "YES 296 / UNKNOWN 1 (CA-2015-102015) / NOT_RETURNED 4712",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "grain",
+      "description": "order grain only; no hypothetical/scenario columns",
+      "expected": "no hypo_/scenario_/variance_ columns",
+      "actual": "clean",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Single observations carry no per-row sample-flag meaning beyond FALSE.",
+    "Hypothetical order-level scenario detail does not exist and was not fabricated.",
+    "Return status is filter context only; identifies no returned line.",
+    "Conditional on benchmarks; freight methodology caveat carried.",
+    "Descriptive visibility only; no causal attribution."
+  ],
+  "failure_behavior": [
+    "Missing file fails [inputs-exist] before any further I/O.",
+    "Hash mismatch fails [frozen-inputs] before loading.",
+    "Non-PASS upstream evidence fails [upstream-standing].",
+    "Wrong schema fails [order-schema]; any failed check writes no outputs."
+  ],
+  "determinism": "File-ordered rows (unique order_id), fixed metric order, repr() numeric formatting, no timestamps, no randomness, no environment-dependent values.",
+  "outputs": {
+    "phase4c_order_reading.csv": {
+      "rows": 60108,
+      "sha256": "0966d89e616f66bad5e59a50b0b87d0637e13e23761117d419d31c1c625d0437"
+    }
+  }
+}
