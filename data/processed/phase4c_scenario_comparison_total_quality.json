@@ -1,0 +1,200 @@
+{
+  "phase": "4C slice 3 \u2014 AO-03 scenario comparison at TOTAL (arithmetic sensitivity; not a forecast)",
+  "output": {
+    "output_name": "Scenario comparison at TOTAL",
+    "grain": "Overall TOTAL",
+    "scenario_status": "BASELINE_BESIDE_HYPOTHETICAL",
+    "standing": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY_NOT_A_FORECAST"
+  },
+  "inputs": {
+    "phase4b_scenario_uniform_0.10.csv": {
+      "rows": 7,
+      "columns": 52,
+      "sha256": "6771a5f2ec4eb1584a7965768766e329c4e80f1b3ae805992c9ff65a7b9da2d1",
+      "scenario_id": "uniform_replace_0.10"
+    },
+    "phase4b_scenario_increase_0.00.csv": {
+      "rows": 7,
+      "columns": 52,
+      "sha256": "10fb41f207c7cc011d3fbfe5bdbaec0bbfdc0be4e53cf39f3a0bf7ce087c9560",
+      "scenario_id": "discount_increase_pp_0.00"
+    },
+    "phase4b_scenario_decrease_0.00.csv": {
+      "rows": 7,
+      "columns": 52,
+      "sha256": "8089d3b22c4e82cd2c31ba59b2fb1ababd91ccf5816dda419e4f4ea3c359636d",
+      "scenario_id": "discount_decrease_pp_0.00"
+    }
+  },
+  "evidence": {
+    "phase4b_scenario_quality.json": {
+      "checks": 15,
+      "status": "all PASS",
+      "scenario_id": "uniform_replace_0.10"
+    },
+    "phase4b_scenario_increase_0.00_quality.json": {
+      "checks": 22,
+      "status": "all PASS",
+      "scenario_id": "discount_increase_pp_0.00"
+    },
+    "phase4b_scenario_decrease_0.00_quality.json": {
+      "checks": 22,
+      "status": "all PASS",
+      "scenario_id": "discount_decrease_pp_0.00"
+    }
+  },
+  "checks": [
+    {
+      "id": "inputs-exist",
+      "description": "3 scenario CSVs + 3 quality JSONs present",
+      "expected": "6 files",
+      "actual": "present",
+      "status": "PASS"
+    },
+    {
+      "id": "quality-status",
+      "description": "frozen quality evidence all PASS, unique IDs",
+      "expected": "15/15 + 22/22 + 22/22 unique",
+      "actual": "15/15 + 22/22 + 22/22 unique",
+      "status": "PASS"
+    },
+    {
+      "id": "quality-chain",
+      "description": "CSV bytes match sha recorded in quality JSON",
+      "expected": "3/3 match",
+      "actual": "3/3 match",
+      "status": "PASS"
+    },
+    {
+      "id": "fact-chain",
+      "description": "fact hashes in scenario evidence match freeze records",
+      "expected": "2 facts x 3 evidence files match",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "identifiers",
+      "description": "scenario_id/type/scope/basis/standing per instance",
+      "expected": "uniform_replace_0.10 / discount_increase_pp_0.00 / discount_decrease_pp_0.00; ORDER; all_valid_lines",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "input-forms",
+      "description": "stated input form + value per instance",
+      "expected": "replacement_rate 0.10; increase_pp 0.0; decrease_pp 0.0",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "shapes",
+      "description": "scenario file shapes + TOTAL row",
+      "expected": "7 rows x 52 cols x 3 files; one TOTAL each",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "band-schema",
+      "description": "required TOTAL columns present",
+      "expected": "all required columns",
+      "actual": "present",
+      "status": "PASS"
+    },
+    {
+      "id": "quarantine",
+      "description": "no quarantined-Profit column",
+      "expected": "absent from all 3 CSVs",
+      "actual": "absent",
+      "status": "PASS"
+    },
+    {
+      "id": "assumption-labels",
+      "description": "assumption labels on every TOTAL row",
+      "expected": "CONSTANT_OBSERVED_QUANTITY / FROZEN_MODELED_COGS_PCT / OBSERVED_PASSTHROUGH / OFF",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "na-markers",
+      "description": "unlicensed views N/A with reasons",
+      "expected": "COMPARATOR_NOT_IN_INITIAL_BUILD / RESPONSE_NOT_ESTIMATED",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "counts",
+      "description": "universal scope counts per TOTAL",
+      "expected": "9994 / 5009 / 37873 x 3",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-identical",
+      "description": "baseline blocks identical across instances",
+      "expected": "10 baseline columns match within 0.05",
+      "actual": "identical",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-frozen",
+      "description": "baseline TOTAL equals frozen baseline",
+      "expected": "2297200.8603 / 1493910.1285 / 238173.79 / 565116.9418",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "variance-reconcile",
+      "description": "stored variances equal hypo-base",
+      "expected": "5 currency pairs x 3 instances, gaps <= 1e-9",
+      "actual": "reconciled",
+      "status": "PASS"
+    },
+    {
+      "id": "freight-zero",
+      "description": "freight variance exactly 0; CTS passthrough",
+      "expected": "0.0 x 3; hypo_cts = base freight",
+      "actual": "zero",
+      "status": "PASS"
+    },
+    {
+      "id": "margin-pp",
+      "description": "stored pp changes equal recomputed",
+      "expected": "2 pp pairs x 3 instances, gaps <= 1e-9",
+      "actual": "recomputed",
+      "status": "PASS"
+    },
+    {
+      "id": "headline",
+      "description": "headline figures match design (+ identities zero)",
+      "expected": "hypo 660523.18 / var 95406.24 / +1.03pp; identities 0.0",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "grain",
+      "description": "TOTAL-only output; no band detail emitted",
+      "expected": "3 instances x 3 blocks, TOTAL grain",
+      "actual": "TOTAL only",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Identity slices show zero variance by construction (integrity, not economics).",
+    "Nonzero universal pp shifts have no valid output and do not appear here.",
+    "LINE-basis scenario detail is not licensed.",
+    "Conditional illustration under stated assumptions; not a forecast."
+  ],
+  "failure_behavior": [
+    "Missing file fails [inputs-exist] before any further I/O.",
+    "Non-PASS or malformed quality evidence fails [quality-status].",
+    "CSV/evidence sha mismatch fails [quality-chain] before loading.",
+    "Wrong schema fails [band-schema]; any failed check writes no outputs."
+  ],
+  "determinism": "Fixed instance/block/metric ordering, repr() numeric formatting, no timestamps, no randomness, no environment-dependent values.",
+  "outputs": {
+    "phase4c_scenario_comparison_total.csv": {
+      "rows": 105,
+      "sha256": "7d8088701c32903f6d55b65f5b14dce9f4bf39dc44e15c98c06579eea4e1734e"
+    }
+  }
+}
