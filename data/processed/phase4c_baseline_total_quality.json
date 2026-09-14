@@ -1,0 +1,153 @@
+{
+  "phase": "4C slice 1 \u2014 AO-01 baseline TOTAL performance summary (observed baseline; not a forecast)",
+  "output": {
+    "output_name": "Baseline performance summary (TOTAL)",
+    "scenario_status": "OBSERVED BASELINE",
+    "grain": "TOTAL",
+    "standing": "OBSERVED_BASELINE"
+  },
+  "inputs": {
+    "fact_margin_map_phase2.csv": {
+      "rows": 9994,
+      "sha256": "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1"
+    },
+    "order_margin_map_phase2.csv": {
+      "rows": 5009,
+      "sha256": "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267"
+    }
+  },
+  "checks": [
+    {
+      "id": "inputs-exist",
+      "description": "required frozen inputs present",
+      "expected": "line + order + band files",
+      "actual": "present",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen-inputs",
+      "description": "frozen hashes match records",
+      "expected": "byte-identical SHA-256",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "quarantine",
+      "description": "quarantined Profit excluded",
+      "expected": "source_profit_quarantined never loaded",
+      "actual": "excluded",
+      "status": "PASS"
+    },
+    {
+      "id": "inputs",
+      "description": "frozen input shapes",
+      "expected": "9994 lines / 5009 unique orders",
+      "actual": "9994 lines / 5009 orders",
+      "status": "PASS"
+    },
+    {
+      "id": "scenarios-off",
+      "description": "return/support layers OFF",
+      "expected": "all flags FALSE and costs 0",
+      "actual": "OFF confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "discount-range",
+      "description": "observed discounts valid",
+      "expected": "[0, 1); no NULL",
+      "actual": "[0.0, 0.8]",
+      "status": "PASS"
+    },
+    {
+      "id": "quantity-total",
+      "description": "quantity reconciles",
+      "expected": "37873",
+      "actual": "37873",
+      "status": "PASS"
+    },
+    {
+      "id": "revenue-reconcile",
+      "description": "net revenue reconciles",
+      "expected": "2297200.8603 +/- 0.05",
+      "actual": "2297200.8603000003",
+      "status": "PASS"
+    },
+    {
+      "id": "cogs-reconcile",
+      "description": "modeled COGS reconciles (identity + total)",
+      "expected": "1493910.1285 +/- 0.05; identity gap <= 1e-06",
+      "actual": "1493910.1284699999; gap 4.547473508864641e-13",
+      "status": "PASS"
+    },
+    {
+      "id": "freight-reconcile",
+      "description": "freight reconciles",
+      "expected": "238173.79 +/- 0.05",
+      "actual": "238173.78999999998",
+      "status": "PASS"
+    },
+    {
+      "id": "contribution-reconcile",
+      "description": "contribution reconciles",
+      "expected": "565116.9418 +/- 0.05",
+      "actual": "565116.9418299999",
+      "status": "PASS"
+    },
+    {
+      "id": "margin-reconcile",
+      "description": "SUM/SUM margin reconciles",
+      "expected": "24.600241 +/- 1e-06",
+      "actual": "24.600240736293262",
+      "status": "PASS"
+    },
+    {
+      "id": "wad-reconcile",
+      "description": "WAD dual-form + value reconciles",
+      "expected": "0.197887 +/- 1e-6; dual gap <= 1e-06",
+      "actual": "0.19788653436077944; dual gap 2.7755575615628914e-17",
+      "status": "PASS"
+    },
+    {
+      "id": "band-total-crosscheck",
+      "description": "ORDER TOTAL row reconciles",
+      "expected": "net/gross/discount/freight/contribution/WAD/margin match",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "negatives",
+      "description": "negative-contribution order count",
+      "expected": "50",
+      "actual": "50",
+      "status": "PASS"
+    },
+    {
+      "id": "return-cohorts",
+      "description": "return-status cohorts (context only)",
+      "expected": "YES 296 / UNKNOWN 1",
+      "actual": "YES 296 / UNKNOWN 1 / NOT_RETURNED 4712",
+      "status": "PASS"
+    },
+    {
+      "id": "ambiguity",
+      "description": "ambiguous freight preserved",
+      "expected": "2 NULL lines in one order",
+      "actual": "2 lines in US-2014-150119",
+      "status": "PASS"
+    },
+    {
+      "id": "grain-consistency",
+      "description": "authoritative order grain; no line partials mixed",
+      "expected": "order fact primary; band TOTAL cross-check only",
+      "actual": "consistent",
+      "status": "PASS"
+    }
+  ],
+  "outputs": {
+    "phase4c_baseline_total.csv": {
+      "rows": 20,
+      "sha256": "6782330a066722fa020ddad741e452a317588b30468d381df715bd32848e1bc5"
+    }
+  }
+}
