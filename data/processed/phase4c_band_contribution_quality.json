@@ -1,0 +1,164 @@
+{
+  "phase": "4C slice 2 \u2014 AO-02 contribution by discount band (observed baseline; not a forecast)",
+  "output": {
+    "output_name": "Contribution by discount band (observed, ORDER basis)",
+    "scenario_status": "OBSERVED BASELINE",
+    "grain": "Overall x discount band",
+    "standing": "OBSERVED_BASELINE"
+  },
+  "inputs": {
+    "discount_band_summary.csv": {
+      "rows": 14,
+      "sha256": "ad8f7e571c76f295bde3cb119bca4b7ff56c7b3e1734869ebf60f8d7e3c236eb"
+    },
+    "order_margin_map_phase2.csv": {
+      "rows": 5009,
+      "sha256": "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267"
+    },
+    "fact_margin_map_phase2.csv": {
+      "rows": 9994,
+      "sha256": "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1"
+    }
+  },
+  "checks": [
+    {
+      "id": "inputs-exist",
+      "description": "required frozen inputs present",
+      "expected": "band + order + line files",
+      "actual": "present",
+      "status": "PASS"
+    },
+    {
+      "id": "frozen-inputs",
+      "description": "frozen hashes match records",
+      "expected": "byte-identical SHA-256 (3 files)",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "quarantine",
+      "description": "quarantined Profit absent/excluded",
+      "expected": "source_profit_quarantined in line fact but never loaded; absent from band summary",
+      "actual": "excluded",
+      "status": "PASS"
+    },
+    {
+      "id": "inputs",
+      "description": "frozen input shapes",
+      "expected": "14 band rows / 5009 unique orders",
+      "actual": "14 band rows / 5009 orders",
+      "status": "PASS"
+    },
+    {
+      "id": "band-schema",
+      "description": "band summary schema complete",
+      "expected": "all 21 required columns",
+      "actual": "present",
+      "status": "PASS"
+    },
+    {
+      "id": "band-coverage",
+      "description": "ORDER + LINE blocks, B0-B5 + TOTAL",
+      "expected": "7 rows per basis in band order",
+      "actual": "complete",
+      "status": "PASS"
+    },
+    {
+      "id": "authority",
+      "description": "authority markers correct per basis",
+      "expected": "ORDER AUTHORITATIVE_ORDER; LINE LINE_PARTIAL_EXCL_AMBIGUOUS",
+      "actual": "correct",
+      "status": "PASS"
+    },
+    {
+      "id": "flags",
+      "description": "low_sample_flag preserved (all FALSE)",
+      "expected": "FALSE on all 14 rows",
+      "actual": "all FALSE",
+      "status": "PASS"
+    },
+    {
+      "id": "band-totals-reconcile",
+      "description": "per-basis bands sum to TOTAL",
+      "expected": "counts/quantity/currency reconciled within 0.05",
+      "actual": "reconciled",
+      "status": "PASS"
+    },
+    {
+      "id": "authoritative-total",
+      "description": "ORDER TOTAL contribution authoritative",
+      "expected": "565116.9418 +/- 0.05",
+      "actual": "565116.94183",
+      "status": "PASS"
+    },
+    {
+      "id": "line-gap",
+      "description": "LINE partial gap stated",
+      "expected": "ORDER minus LINE = 200.0476 +/- 0.05",
+      "actual": "200.04759999993257",
+      "status": "PASS"
+    },
+    {
+      "id": "margins-recomputed",
+      "description": "margins recomputed SUM/SUM (never averaged)",
+      "expected": "gaps <= 1e-06 on all 14 rows",
+      "actual": "recomputed",
+      "status": "PASS"
+    },
+    {
+      "id": "wad-recomputed",
+      "description": "WAD recomputed gross-weighted (never averaged)",
+      "expected": "gaps <= 1e-06 on all 14 rows",
+      "actual": "recomputed",
+      "status": "PASS"
+    },
+    {
+      "id": "negatives",
+      "description": "negative-order distribution + order-fact count",
+      "expected": "B0 14 / B1 3 / B2 24 / B3 1 / B4 3 / B5 5 / TOTAL 50; fact 50",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "order-fact-crosscheck",
+      "description": "ORDER TOTAL vs order/line facts",
+      "expected": "contribution/revenue/freight/quantity/counts match",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "band-counts",
+      "description": "ORDER band order counts frozen",
+      "expected": "B0 2055 / B1 415 / B2 1634 / B3 278 / B4 274 / B5 353",
+      "actual": "match",
+      "status": "PASS"
+    },
+    {
+      "id": "grain-consistency",
+      "description": "neg-count NULL discipline per basis (detail rows)",
+      "expected": "ORDER detail neg lines NULL; LINE detail neg orders NULL",
+      "actual": "consistent",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Conditional on revenue-based modeled COGS benchmarks.",
+    "Return/support OFF (zero means excluded); return status not used.",
+    "Freight methodology caveat carried from Phase 2.",
+    "Descriptive comparison only; no causal attribution.",
+    "LINE block is partial (gap 200.0476); authoritative reading is ORDER."
+  ],
+  "failure_behavior": [
+    "Missing file fails [inputs-exist] before any I/O beyond existence checks.",
+    "Hash mismatch fails [frozen-inputs] before loading.",
+    "Wrong schema fails [band-schema]; no partial output is written.",
+    "Any failed check raises VALIDATION FAILED and writes no output files."
+  ],
+  "determinism": "Fixed basis/band/metric ordering, repr() numeric formatting, no timestamps, no randomness, no environment-dependent values.",
+  "outputs": {
+    "phase4c_band_contribution.csv": {
+      "rows": 238,
+      "sha256": "fb568bd33ae4dd7b2ea5aff490eba1a72a2ea80b6366b6dc56fcd8866636953a"
+    }
+  }
+}
