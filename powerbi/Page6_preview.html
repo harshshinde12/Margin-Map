@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page 6 — Data Quality and Analytical Reliability — preview (not a .pbix)</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; margin: 24px; color: #1b1b1b;
+         background: #f5f5f5; }
+  .page { max-width: 1240px; margin: auto; background: #fff; padding: 28px 32px;
+           border: 1px solid #ddd; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 26px 0 8px; border-bottom: 3px solid #0f5c2e;
+        padding-bottom: 4px; }
+  .banner { display: inline-block; background: #0f5c2e; color: #fff; font-weight: 600;
+             padding: 4px 12px; margin: 8px 0; font-size: 13px; letter-spacing: .5px; }
+  .meta { font-size: 13px; color: #333; line-height: 1.7; background: #f0f4f1;
+           border-left: 4px solid #0f5c2e; padding: 10px 14px; margin: 12px 0 6px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+            margin: 10px 0; }
+  .card { border: 1px solid #ccc; border-top: 4px solid #0f5c2e; padding: 12px 14px; }
+  .card-title { font-size: 12px; color: #555; text-transform: uppercase;
+                 letter-spacing: .4px; }
+  .card-value { font-size: 22px; font-weight: 600; margin: 4px 0;
+                 overflow-wrap: anywhere; }
+  .card-unit { font-size: 12px; color: #666; }
+  table.q { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.q th, table.q td { border: 1px solid #ccc; padding: 5px 7px;
+                            text-align: left; vertical-align: top; }
+  table.q th { background: #0f5c2e; color: #fff; }
+  .note { font-size: 13px; line-height: 1.65; background: #fafafa;
+           border: 1px solid #ddd; padding: 12px 16px; margin-top: 20px; }
+  .note h2 { border: none; margin: 0 0 6px; padding: 0; }
+  .caveat { font-size: 13px; font-weight: 600; border: 2px solid #8a6d00;
+             background: #fff8e1; padding: 10px 14px; margin-top: 16px; }
+  .footer { font-size: 12px; color: #666; margin-top: 18px; }
+  .wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Page 6 — Data Quality and Analytical Reliability</h1>
+  <div class="banner">QUALITY_GATE — ELIGIBILITY, NOT ECONOMICS</div>
+  <div class="meta">
+    <b>Source view:</b> quality_summary &nbsp;|&nbsp;
+    <b>Source artifact:</b> AO-06 data-quality summary
+    (phase4c_quality_summary.csv)<br>
+    <b>Reporting grain:</b> Artifact (per file), then TOTAL (ALL_ARTIFACTS)
+    &nbsp;|&nbsp; <b>Validation status:</b> 9/9 PASS
+    (phase4c_quality_summary_quality.json)<br>
+    <b>Standing:</b> 75 upstream checks mirrored verbatim in frozen order
+    (16 + 15 + 22 + 22); 17 artifacts verified: 10 data CSVs + 4 quality JSONs +
+    3 frozen facts.<br>
+    <b>Limitation:</b> Quality evidence covers arithmetic and lineage only; licenses no behavioral, predictive, or causal reading.<br>
+    <b>Upstream checks are mirrored verbatim from frozen evidence — verified for parseability, counts, standing, and record completeness, not re-executed.</b>
+  </div>
+  <h2>TOTAL verdict</h2>
+  <div class="cards">
+      <div class="card"><div class="card-title">TOTAL verdict</div><div class="card-value" data-source-value="ALL_SOURCES_ELIGIBLE">ALL_SOURCES_ELIGIBLE</div><div class="card-unit">Stored Label</div></div>
+      <div class="card"><div class="card-title">Artifacts verified</div><div class="card-value" data-source-value="17">17</div><div class="card-unit">Stored CT</div></div>
+      <div class="card"><div class="card-title">Upstream checks attested (all PASS)</div><div class="card-value" data-source-value="75">75</div><div class="card-unit">Stored CT</div></div>
+  </div>
+  <h2>Per-artifact eligibility (17 artifacts)</h2>
+  <div class="wrap">
+    <table class="q">
+      <tr><th>Artifact</th><th>Eligibility</th><th>Checks passed</th>
+      <th>Row count</th><th>SHA-256 match</th><th>Status</th></tr>
+      <tr><td>phase3b_quality_report.json</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td data-source-value="16">16</td><td></td><td></td><td>PASS</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td data-source-value="15">15</td><td></td><td></td><td>PASS</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td data-source-value="22">22</td><td></td><td></td><td>PASS</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td data-source-value="22">22</td><td></td><td></td><td>PASS</td></tr>
+      <tr><td>discount_band_summary.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="14">14</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>discount_category_summary.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="19">19</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>discount_customer_summary.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="3304">3,304</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>discount_order_summary.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="5009">5,009</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>discount_product_summary.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="5925">5,925</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>discount_segment_summary.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="39">39</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>discount_subcategory_summary.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="69">69</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="7">7</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="7">7</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>phase4b_scenario_uniform_0.10.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="7">7</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>fact_margin_map_phase2.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="9994">9,994</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>order_margin_map_phase2.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="5009">5,009</td><td data-source-value="True">True</td><td>PASS</td></tr>
+      <tr><td>fact_sales_cogs.csv</td><td data-source-value="ELIGIBLE_AS_INTERPRETATION_SOURCE">ELIGIBLE_AS_INTERPRETATION_SOURCE</td><td></td><td data-source-value="9994">9,994</td><td data-source-value="True">True</td><td>PASS</td></tr>
+    </table>
+  </div>
+  <h2>Mirrored upstream checks (75 rows, verbatim)</h2>
+  <div class="wrap">
+    <table class="q">
+      <tr><th>Evidence file</th><th>Check ID</th><th>Value</th><th>Status</th>
+      <th>Expected</th><th>Actual</th></tr>
+      <tr><td>phase3b_quality_report.json</td><td>quarantine</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>source_profit_quarantined never loaded</td><td>excluded</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>inputs</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>9994 lines / 5009 orders / Phase 1 sales+COGS identical</td><td>9994 lines / 5009 orders</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>scenarios</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>all scenario flags FALSE and costs 0</td><td>OFF confirmed</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>discount-range</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>[0, 1); no NULL</td><td>[0.0, 0.8]</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>ambiguity</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>2 lines NULL freight in one order</td><td>2 lines in US-2014-150119</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>net</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max |net - sales| &lt;= 1e-6</td><td>0.00e+00</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>discount-amount</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max dual gap &lt;= 1e-6</td><td>1.82e-12</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>bands</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>coverage 9994; B0 exact; no value split</td><td>B0=4798 | B1=146 | B2=3657 | B3=254 | B4=283 | B5=856</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>order-dims</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>1 customer + 1 segment per order</td><td>5009/5009 clean</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>order-bands</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>5009 orders exactly one band</td><td>B0=2055 | B1=415 | B2=1634 | B3=278 | B4=274 | B5=353</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>frozen</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>contrib 565116.9418 / freight 238173.79</td><td>565116.9418 / 238173.79</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>line-gap</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>gap equals held-at-order pair economics</td><td>gap=200.0476 (25.05 freight + 225.10 gross held at order)</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>customers</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>contrib 565116.9418</td><td>565116.9418</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>product-flags</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>all product rows below provisional thresholds</td><td>5925/5925 flagged</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>frozen</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>byte-identical SHA-256 before/after</td><td>unchanged</td></tr>
+      <tr><td>phase3b_quality_report.json</td><td>wad</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>dual-form gap &lt;= 1e-9</td><td>5.55e-17</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>quarantine</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>source_profit_quarantined never loaded</td><td>excluded</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>inputs</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>9994 lines / 5009 unique orders</td><td>9994 lines / 5009 orders</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>scenarios-off</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>all flags FALSE and costs 0</td><td>OFF confirmed</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>discount-range</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>[0, 1); no NULL</td><td>[0.0, 0.8]</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>ambiguity</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>2 lines NULL freight in one order</td><td>2 lines in US-2014-150119</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>hypo-lines</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>dual-form gaps &lt;= 1e-6</td><td>gross 1.82e-12; hypo 9.09e-13; cogs-pct 4.55e-13</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>freight-passthrough</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>values identical; 2 NULL preserved; flags unchanged</td><td>confirmed</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>order-bands</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>5009 orders exactly one band</td><td>B0=2055 | B1=415 | B2=1634 | B3=278 | B4=274 | B5=353</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>quantity-constant</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>line + order totals 37873; column never transformed</td><td>37873</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>cogs-reconcile</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max per-order gap &lt;= 1e-6</td><td>1.82e-12</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>frozen</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>contrib 565116.9418 / freight 238173.79</td><td>565116.9418 / 238173.79</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>variances</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max gap &lt;= 1e-9; freight variance 0</td><td>confirmed</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>totals</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>5009 orders / contrib 565116.9418</td><td>5009 orders / 565116.9418</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>metadata</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>all lineage columns populated</td><td>uniform_replace_0.10</td></tr>
+      <tr><td>phase4b_scenario_quality.json</td><td>frozen-inputs</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>byte-identical SHA-256 before/after</td><td>unchanged</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>increase-exists</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>finite numeric --increase-pp</td><td>0.0</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>increase-sign</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>increase &gt;= 0.00</td><td>0.0</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>increase-bounds</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>[0.00, 0.80] decimal fraction</td><td>0.0</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>quarantine</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>source_profit_quarantined never loaded</td><td>excluded</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>inputs</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>9994 lines / 5009 unique orders</td><td>9994 lines / 5009 orders</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>scenarios-off</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>all flags FALSE and costs 0</td><td>OFF confirmed</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>discount-range</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>[0, 1); no NULL</td><td>[0.0, 0.8]</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>ambiguity</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>2 lines NULL freight in one order</td><td>2 lines in US-2014-150119</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>discount-bounds-per-line</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>0 violations; no clipping/drops/partial runs</td><td>max d&#x27;=0.800000</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>no-silent-exclusion</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>9994 lines / 5009 orders in scope</td><td>9994 lines in scope</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>hypo-revenue-dual-additive</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max gap &lt;= 1e-6</td><td>9.09e-13</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>hypo-lines</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>dual-form gaps &lt;= 1e-6</td><td>gross 1.82e-12; cogs-pct 4.55e-13</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>freight-passthrough</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>values identical; 2 NULL preserved; flags unchanged</td><td>confirmed</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>order-bands</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>5009 orders exactly one band</td><td>B0=2055 | B1=415 | B2=1634 | B3=278 | B4=274 | B5=353</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>quantity-constant</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>line + order totals 37873; column never transformed</td><td>37873</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>cogs-reconcile</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max per-order gap &lt;= 1e-6</td><td>1.82e-12</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>frozen</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>contrib 565116.9418 / freight 238173.79</td><td>565116.9418 / 238173.79</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>variances</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max gap &lt;= 1e-9; freight variance 0</td><td>confirmed</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>totals</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>5009 orders / contrib 565116.9418</td><td>5009 orders / 565116.9418</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>metadata</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>all lineage columns populated</td><td>discount_increase_pp_0.00</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>metadata-increase</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>discount_increase / increase_pp / id matches filename</td><td>discount_increase_pp_0.00</td></tr>
+      <tr><td>phase4b_scenario_increase_0.00_quality.json</td><td>frozen-inputs</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>byte-identical SHA-256 before/after</td><td>unchanged</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>decrease-exists</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>finite numeric --decrease-pp</td><td>0.0</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>decrease-sign</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>decrease &gt;= 0.00</td><td>0.0</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>decrease-bounds</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>[0.00, 0.80] decimal fraction</td><td>0.0</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>quarantine</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>source_profit_quarantined never loaded</td><td>excluded</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>inputs</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>9994 lines / 5009 unique orders</td><td>9994 lines / 5009 orders</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>scenarios-off</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>all flags FALSE and costs 0</td><td>OFF confirmed</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>discount-range</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>[0, 1); no NULL</td><td>[0.0, 0.8]</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>ambiguity</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>2 lines NULL freight in one order</td><td>2 lines in US-2014-150119</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>discount-bounds-per-line</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>0 violations; no clipping/drops/partial runs</td><td>min d&#x27;=0.000000</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>no-silent-exclusion</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>9994 lines / 5009 orders in scope</td><td>9994 lines in scope</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>hypo-revenue-dual-subtractive</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max gap &lt;= 1e-6</td><td>9.09e-13</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>hypo-lines</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>dual-form gaps &lt;= 1e-6</td><td>gross 1.82e-12; cogs-pct 4.55e-13</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>freight-passthrough</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>values identical; 2 NULL preserved; flags unchanged</td><td>confirmed</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>order-bands</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>5009 orders exactly one band</td><td>B0=2055 | B1=415 | B2=1634 | B3=278 | B4=274 | B5=353</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>quantity-constant</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>line + order totals 37873; column never transformed</td><td>37873</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>cogs-reconcile</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max per-order gap &lt;= 1e-6</td><td>1.82e-12</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>frozen</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>contrib 565116.9418 / freight 238173.79</td><td>565116.9418 / 238173.79</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>variances</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>max gap &lt;= 1e-9; freight variance 0</td><td>confirmed</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>totals</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>5009 orders / contrib 565116.9418</td><td>5009 orders / 565116.9418</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>metadata</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>all lineage columns populated</td><td>discount_decrease_pp_0.00</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>metadata-decrease</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>discount_decrease / decrease_pp / id matches filename</td><td>discount_decrease_pp_0.00</td></tr>
+      <tr><td>phase4b_scenario_decrease_0.00_quality.json</td><td>frozen-inputs</td><td data-source-value="PASS">PASS</td><td>PASS</td><td>byte-identical SHA-256 before/after</td><td>unchanged</td></tr>
+    </table>
+  </div>
+  <div class="note"><h2>Reliability notes and interpretation guidance</h2><ul>
+      <li>Eligibility means arithmetic/lineage fitness only (existence, parse, counts, PASS standing, exact row/hash identity) — not a business endorsement.</li>
+      <li>Mirrored checks were verified for parseability, counts, standing, and record completeness — not re-executed; the gate cannot detect errors the upstream validations themselves missed.</li>
+      <li>TOTAL verdict requires unanimity: any single failure aborts with no output (none occurred).</li>
+      <li>Counts and hashes are exact integers and full hex strings; no sampling, no tolerance on identity comparisons.</li>
+  </ul><p>No empty metric_value rows exist in AO-06 (verified); upstream
+  N/A-with-reason markers are attested through the mirrored checks, not
+  re-evaluated here. Observed-vs-modeled distinctions live in the AO-01–AO-05
+  freezes notified by this gate; this page adds no economic reading of its own.</p></div>
+  <div class="caveat">Quality evidence covers arithmetic and lineage only; licenses no behavioral, predictive, or causal reading. Upstream checks are mirrored verbatim from frozen evidence — verified for parseability, counts, standing, and record completeness, not re-executed.</div>
+  <div class="footer">Preview generated by powerbi/page6_build.py from
+    data/processed/marginmap.db (read-only). Display formatting of exact stored TEXT;
+    each value carries its source string in <i>data-source-value</i>. No DAX, no
+    relationships, no joins, no new metrics, no re-execution of upstream checks.</div>
+</div>
+</body>
+</html>

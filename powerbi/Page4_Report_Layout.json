@@ -1,0 +1,2824 @@
+{
+  "page_name": "Page 4 \u2014 Scenario Sensitivity by Discount Band",
+  "source": {
+    "database": "data/processed/marginmap.db",
+    "view": "variance_by_band",
+    "source_artifact": "phase4c_contribution_variance_by_band.csv",
+    "import_mode": "Import",
+    "only_view_imported": true
+  },
+  "model": {
+    "relationships": [],
+    "dax_measures": [],
+    "power_query_calculations": []
+  },
+  "scenario_slicer": {
+    "column": "scenario_id",
+    "mode": "single-select",
+    "scope": "this page only",
+    "no_model_relationship": true,
+    "options": [
+      "uniform_replace_0.10",
+      "discount_increase_pp_0.00",
+      "discount_decrease_pp_0.00"
+    ]
+  },
+  "sections": [
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "scenario_type": "uniform replacement",
+      "discount_input": "replacement_rate 0.10",
+      "source_artifact": "phase4b_scenario_uniform_0.10.csv",
+      "note": "Headline sensitivity allocated across baseline bands.",
+      "bands": [
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "TOTAL"
+      ],
+      "band_note": "fixed baseline bands \u2014 never re-banded",
+      "blocks": [
+        {
+          "block": "baseline",
+          "status": "OBSERVED BASELINE",
+          "visual": "matrix",
+          "metrics": [
+            "base_contribution",
+            "base_wad",
+            "quantity",
+            "order_count",
+            "line_count",
+            "neg_base_orders"
+          ],
+          "cells": {
+            "B0": {
+              "base_contribution": {
+                "stored_value": "220993.5347",
+                "unit": "CUR",
+                "display": "$220,993.53"
+              },
+              "base_wad": {
+                "stored_value": "0.0",
+                "unit": "DEC",
+                "display": "0.0000"
+              },
+              "quantity": {
+                "stored_value": "13784",
+                "unit": "CT",
+                "display": "13,784"
+              },
+              "order_count": {
+                "stored_value": "2055",
+                "unit": "CT",
+                "display": "2,055"
+              },
+              "line_count": {
+                "stored_value": "3612",
+                "unit": "CT",
+                "display": "3,612"
+              },
+              "neg_base_orders": {
+                "stored_value": "14.0",
+                "unit": "CT",
+                "display": "14"
+              }
+            },
+            "B1": {
+              "base_contribution": {
+                "stored_value": "79940.04375",
+                "unit": "CUR",
+                "display": "$79,940.04"
+              },
+              "base_wad": {
+                "stored_value": "0.0725131179275186",
+                "unit": "DEC",
+                "display": "0.0725"
+              },
+              "quantity": {
+                "stored_value": "5056",
+                "unit": "CT",
+                "display": "5,056"
+              },
+              "order_count": {
+                "stored_value": "415",
+                "unit": "CT",
+                "display": "415"
+              },
+              "line_count": {
+                "stored_value": "1324",
+                "unit": "CT",
+                "display": "1,324"
+              },
+              "neg_base_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B2": {
+              "base_contribution": {
+                "stored_value": "156514.9269",
+                "unit": "CUR",
+                "display": "$156,514.93"
+              },
+              "base_wad": {
+                "stored_value": "0.1959293617319942",
+                "unit": "DEC",
+                "display": "0.1959"
+              },
+              "quantity": {
+                "stored_value": "10930",
+                "unit": "CT",
+                "display": "10,930"
+              },
+              "order_count": {
+                "stored_value": "1634",
+                "unit": "CT",
+                "display": "1,634"
+              },
+              "line_count": {
+                "stored_value": "2941",
+                "unit": "CT",
+                "display": "2,941"
+              },
+              "neg_base_orders": {
+                "stored_value": "24.0",
+                "unit": "CT",
+                "display": "24"
+              }
+            },
+            "B3": {
+              "base_contribution": {
+                "stored_value": "45515.82156",
+                "unit": "CUR",
+                "display": "$45,515.82"
+              },
+              "base_wad": {
+                "stored_value": "0.2993322833599154",
+                "unit": "DEC",
+                "display": "0.2993"
+              },
+              "quantity": {
+                "stored_value": "2912",
+                "unit": "CT",
+                "display": "2,912"
+              },
+              "order_count": {
+                "stored_value": "278",
+                "unit": "CT",
+                "display": "278"
+              },
+              "line_count": {
+                "stored_value": "773",
+                "unit": "CT",
+                "display": "773"
+              },
+              "neg_base_orders": {
+                "stored_value": "1.0",
+                "unit": "CT",
+                "display": "1"
+              }
+            },
+            "B4": {
+              "base_contribution": {
+                "stored_value": "46790.73572",
+                "unit": "CUR",
+                "display": "$46,790.74"
+              },
+              "base_wad": {
+                "stored_value": "0.4328634928907168",
+                "unit": "DEC",
+                "display": "0.4329"
+              },
+              "quantity": {
+                "stored_value": "2812",
+                "unit": "CT",
+                "display": "2,812"
+              },
+              "order_count": {
+                "stored_value": "274",
+                "unit": "CT",
+                "display": "274"
+              },
+              "line_count": {
+                "stored_value": "744",
+                "unit": "CT",
+                "display": "744"
+              },
+              "neg_base_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B5": {
+              "base_contribution": {
+                "stored_value": "15361.8792",
+                "unit": "CUR",
+                "display": "$15,361.88"
+              },
+              "base_wad": {
+                "stored_value": "0.7065762475915516",
+                "unit": "DEC",
+                "display": "0.7066"
+              },
+              "quantity": {
+                "stored_value": "2379",
+                "unit": "CT",
+                "display": "2,379"
+              },
+              "order_count": {
+                "stored_value": "353",
+                "unit": "CT",
+                "display": "353"
+              },
+              "line_count": {
+                "stored_value": "600",
+                "unit": "CT",
+                "display": "600"
+              },
+              "neg_base_orders": {
+                "stored_value": "5.0",
+                "unit": "CT",
+                "display": "5"
+              }
+            },
+            "TOTAL": {
+              "base_contribution": {
+                "stored_value": "565116.94183",
+                "unit": "CUR",
+                "display": "$565,116.94"
+              },
+              "base_wad": {
+                "stored_value": "0.1978865343607793",
+                "unit": "DEC",
+                "display": "0.1979"
+              },
+              "quantity": {
+                "stored_value": "37873",
+                "unit": "CT",
+                "display": "37,873"
+              },
+              "order_count": {
+                "stored_value": "5009",
+                "unit": "CT",
+                "display": "5,009"
+              },
+              "line_count": {
+                "stored_value": "9994",
+                "unit": "CT",
+                "display": "9,994"
+              },
+              "neg_base_orders": {
+                "stored_value": "50.0",
+                "unit": "CT",
+                "display": "50"
+              }
+            }
+          }
+        },
+        {
+          "block": "hypothetical",
+          "status": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY",
+          "visual": "matrix",
+          "metrics": [
+            "hypo_contribution",
+            "hypo_wad",
+            "neg_hypo_orders"
+          ],
+          "cells": {
+            "B0": {
+              "hypo_contribution": {
+                "stored_value": "190462.71223",
+                "unit": "CUR",
+                "display": "$190,462.71"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0999999999999999",
+                "unit": "DEC",
+                "display": "0.1000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "29.0",
+                "unit": "CT",
+                "display": "29"
+              }
+            },
+            "B1": {
+              "hypo_contribution": {
+                "stored_value": "76691.24036000001",
+                "unit": "CUR",
+                "display": "$76,691.24"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0999999999999999",
+                "unit": "DEC",
+                "display": "0.1000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "4.0",
+                "unit": "CT",
+                "display": "4"
+              }
+            },
+            "B2": {
+              "hypo_contribution": {
+                "stored_value": "183893.05385",
+                "unit": "CUR",
+                "display": "$183,893.05"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0999999999999999",
+                "unit": "DEC",
+                "display": "0.1000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "12.0",
+                "unit": "CT",
+                "display": "12"
+              }
+            },
+            "B3": {
+              "hypo_contribution": {
+                "stored_value": "64117.57022",
+                "unit": "CUR",
+                "display": "$64,117.57"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0999999999999999",
+                "unit": "DEC",
+                "display": "0.1000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "0.0",
+                "unit": "CT",
+                "display": "0"
+              }
+            },
+            "B4": {
+              "hypo_contribution": {
+                "stored_value": "84595.3577",
+                "unit": "CUR",
+                "display": "$84,595.36"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0999999999999999",
+                "unit": "DEC",
+                "display": "0.1000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "1.0",
+                "unit": "CT",
+                "display": "1"
+              }
+            },
+            "B5": {
+              "hypo_contribution": {
+                "stored_value": "60763.24880000001",
+                "unit": "CUR",
+                "display": "$60,763.25"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0999999999999999",
+                "unit": "DEC",
+                "display": "0.1000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "0.0",
+                "unit": "CT",
+                "display": "0"
+              }
+            },
+            "TOTAL": {
+              "hypo_contribution": {
+                "stored_value": "660523.1831600001",
+                "unit": "CUR",
+                "display": "$660,523.18"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0999999999999999",
+                "unit": "DEC",
+                "display": "0.1000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "46.0",
+                "unit": "CT",
+                "display": "46"
+              }
+            }
+          }
+        },
+        {
+          "block": "variance",
+          "status": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY",
+          "visuals": [
+            "clustered bar chart",
+            "matrix",
+            "table"
+          ],
+          "absolute_currency": [
+            "variance_contribution",
+            "variance_net_revenue",
+            "variance_discount_amount",
+            "variance_cogs"
+          ],
+          "relative_percent": [
+            "relative_contribution_variance"
+          ],
+          "pp_metrics": [
+            "margin_change_pp"
+          ],
+          "cells": {
+            "B0": {
+              "variance_net_revenue": {
+                "stored_value": "-86220.23899999994",
+                "unit": "CUR",
+                "display": "$-86,220.24"
+              },
+              "variance_discount_amount": {
+                "stored_value": "86220.23899999997",
+                "unit": "CUR",
+                "display": "$86,220.24"
+              },
+              "variance_cogs": {
+                "stored_value": "-55689.41652999999",
+                "unit": "CUR",
+                "display": "$-55,689.42"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "-30530.822469999985",
+                "unit": "CUR",
+                "display": "$-30,530.82"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "-13.815255958254957",
+                "unit": "PCT",
+                "display": "-13.82%"
+              },
+              "margin_change_pp": {
+                "stored_value": "-1.086554502463038",
+                "unit": "PP",
+                "display": "-1.0866 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B1": {
+              "variance_net_revenue": {
+                "stored_value": "-9725.125500000024",
+                "unit": "CUR",
+                "display": "$-9,725.13"
+              },
+              "variance_discount_amount": {
+                "stored_value": "9725.125499999998",
+                "unit": "CUR",
+                "display": "$9,725.13"
+              },
+              "variance_cogs": {
+                "stored_value": "-6476.322109999979",
+                "unit": "CUR",
+                "display": "$-6,476.32"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "-3248.8033899999864",
+                "unit": "CUR",
+                "display": "$-3,248.80"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "-4.064050052511995",
+                "unit": "PCT",
+                "display": "-4.06%"
+              },
+              "margin_change_pp": {
+                "stored_value": "-0.276266065633262",
+                "unit": "PP",
+                "display": "-0.2763 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B2": {
+              "variance_net_revenue": {
+                "stored_value": "79819.69460000005",
+                "unit": "CUR",
+                "display": "$79,819.69"
+              },
+              "variance_discount_amount": {
+                "stored_value": "-79819.69459999997",
+                "unit": "CUR",
+                "display": "$-79,819.69"
+              },
+              "variance_cogs": {
+                "stored_value": "52441.56764999998",
+                "unit": "CUR",
+                "display": "$52,441.57"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "27378.126950000005",
+                "unit": "CUR",
+                "display": "$27,378.13"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "17.49234241887507",
+                "unit": "PCT",
+                "display": "17.49%"
+              },
+              "margin_change_pp": {
+                "stored_value": "1.1624551383930743",
+                "unit": "PP",
+                "display": "1.1625 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B3": {
+              "variance_net_revenue": {
+                "stored_value": "49012.93610000002",
+                "unit": "CUR",
+                "display": "$49,012.94"
+              },
+              "variance_discount_amount": {
+                "stored_value": "-49012.936100000006",
+                "unit": "CUR",
+                "display": "$-49,012.94"
+              },
+              "variance_cogs": {
+                "stored_value": "30411.187439999994",
+                "unit": "CUR",
+                "display": "$30,411.19"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "18601.74866",
+                "unit": "CUR",
+                "display": "$18,601.75"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "40.868752935676994",
+                "unit": "PCT",
+                "display": "40.87%"
+              },
+              "margin_change_pp": {
+                "stored_value": "2.554483641205607",
+                "unit": "PP",
+                "display": "2.5545 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B4": {
+              "variance_net_revenue": {
+                "stored_value": "119514.96000000002",
+                "unit": "CUR",
+                "display": "$119,514.96"
+              },
+              "variance_discount_amount": {
+                "stored_value": "-119514.96",
+                "unit": "CUR",
+                "display": "$-119,514.96"
+              },
+              "variance_cogs": {
+                "stored_value": "81710.33802",
+                "unit": "CUR",
+                "display": "$81,710.34"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "37804.62198",
+                "unit": "CUR",
+                "display": "$37,804.62"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "80.79510056483464",
+                "unit": "PCT",
+                "display": "80.80%"
+              },
+              "margin_change_pp": {
+                "stored_value": "3.2004819401628737",
+                "unit": "PP",
+                "display": "3.2005 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B5": {
+              "variance_net_revenue": {
+                "stored_value": "127938.44950000002",
+                "unit": "CUR",
+                "display": "$127,938.45"
+              },
+              "variance_discount_amount": {
+                "stored_value": "-127938.4495",
+                "unit": "CUR",
+                "display": "$-127,938.45"
+              },
+              "variance_cogs": {
+                "stored_value": "82537.0799",
+                "unit": "CUR",
+                "display": "$82,537.08"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "45401.369600000005",
+                "unit": "CUR",
+                "display": "$45,401.37"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "295.5456751671372",
+                "unit": "PCT",
+                "display": "295.55%"
+              },
+              "margin_change_pp": {
+                "stored_value": "7.18798060226743",
+                "unit": "PP",
+                "display": "7.1880 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "TOTAL": {
+              "variance_net_revenue": {
+                "stored_value": "280340.6757000005",
+                "unit": "CUR",
+                "display": "$280,340.68"
+              },
+              "variance_discount_amount": {
+                "stored_value": "-280340.6757",
+                "unit": "CUR",
+                "display": "$-280,340.68"
+              },
+              "variance_cogs": {
+                "stored_value": "184934.43437000012",
+                "unit": "CUR",
+                "display": "$184,934.43"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "95406.2413300001",
+                "unit": "CUR",
+                "display": "$95,406.24"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "16.882566114731784",
+                "unit": "PCT",
+                "display": "16.88%"
+              },
+              "margin_change_pp": {
+                "stored_value": "1.0258519545365985",
+                "unit": "PP",
+                "display": "1.0259 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "scenario_type": "discount increase",
+      "discount_input": "increase_pp 0.00",
+      "source_artifact": "phase4b_scenario_increase_0.00.csv",
+      "note": "Identity control \u2014 zero variance on every band by construction; pipeline-integrity check, not sensitivity.",
+      "bands": [
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "TOTAL"
+      ],
+      "band_note": "fixed baseline bands \u2014 never re-banded",
+      "blocks": [
+        {
+          "block": "baseline",
+          "status": "OBSERVED BASELINE",
+          "visual": "matrix",
+          "metrics": [
+            "base_contribution",
+            "base_wad",
+            "quantity",
+            "order_count",
+            "line_count",
+            "neg_base_orders"
+          ],
+          "cells": {
+            "B0": {
+              "base_contribution": {
+                "stored_value": "220993.5347",
+                "unit": "CUR",
+                "display": "$220,993.53"
+              },
+              "base_wad": {
+                "stored_value": "0.0",
+                "unit": "DEC",
+                "display": "0.0000"
+              },
+              "quantity": {
+                "stored_value": "13784",
+                "unit": "CT",
+                "display": "13,784"
+              },
+              "order_count": {
+                "stored_value": "2055",
+                "unit": "CT",
+                "display": "2,055"
+              },
+              "line_count": {
+                "stored_value": "3612",
+                "unit": "CT",
+                "display": "3,612"
+              },
+              "neg_base_orders": {
+                "stored_value": "14.0",
+                "unit": "CT",
+                "display": "14"
+              }
+            },
+            "B1": {
+              "base_contribution": {
+                "stored_value": "79940.04375",
+                "unit": "CUR",
+                "display": "$79,940.04"
+              },
+              "base_wad": {
+                "stored_value": "0.0725131179275186",
+                "unit": "DEC",
+                "display": "0.0725"
+              },
+              "quantity": {
+                "stored_value": "5056",
+                "unit": "CT",
+                "display": "5,056"
+              },
+              "order_count": {
+                "stored_value": "415",
+                "unit": "CT",
+                "display": "415"
+              },
+              "line_count": {
+                "stored_value": "1324",
+                "unit": "CT",
+                "display": "1,324"
+              },
+              "neg_base_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B2": {
+              "base_contribution": {
+                "stored_value": "156514.9269",
+                "unit": "CUR",
+                "display": "$156,514.93"
+              },
+              "base_wad": {
+                "stored_value": "0.1959293617319942",
+                "unit": "DEC",
+                "display": "0.1959"
+              },
+              "quantity": {
+                "stored_value": "10930",
+                "unit": "CT",
+                "display": "10,930"
+              },
+              "order_count": {
+                "stored_value": "1634",
+                "unit": "CT",
+                "display": "1,634"
+              },
+              "line_count": {
+                "stored_value": "2941",
+                "unit": "CT",
+                "display": "2,941"
+              },
+              "neg_base_orders": {
+                "stored_value": "24.0",
+                "unit": "CT",
+                "display": "24"
+              }
+            },
+            "B3": {
+              "base_contribution": {
+                "stored_value": "45515.82156",
+                "unit": "CUR",
+                "display": "$45,515.82"
+              },
+              "base_wad": {
+                "stored_value": "0.2993322833599154",
+                "unit": "DEC",
+                "display": "0.2993"
+              },
+              "quantity": {
+                "stored_value": "2912",
+                "unit": "CT",
+                "display": "2,912"
+              },
+              "order_count": {
+                "stored_value": "278",
+                "unit": "CT",
+                "display": "278"
+              },
+              "line_count": {
+                "stored_value": "773",
+                "unit": "CT",
+                "display": "773"
+              },
+              "neg_base_orders": {
+                "stored_value": "1.0",
+                "unit": "CT",
+                "display": "1"
+              }
+            },
+            "B4": {
+              "base_contribution": {
+                "stored_value": "46790.73572",
+                "unit": "CUR",
+                "display": "$46,790.74"
+              },
+              "base_wad": {
+                "stored_value": "0.4328634928907168",
+                "unit": "DEC",
+                "display": "0.4329"
+              },
+              "quantity": {
+                "stored_value": "2812",
+                "unit": "CT",
+                "display": "2,812"
+              },
+              "order_count": {
+                "stored_value": "274",
+                "unit": "CT",
+                "display": "274"
+              },
+              "line_count": {
+                "stored_value": "744",
+                "unit": "CT",
+                "display": "744"
+              },
+              "neg_base_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B5": {
+              "base_contribution": {
+                "stored_value": "15361.8792",
+                "unit": "CUR",
+                "display": "$15,361.88"
+              },
+              "base_wad": {
+                "stored_value": "0.7065762475915516",
+                "unit": "DEC",
+                "display": "0.7066"
+              },
+              "quantity": {
+                "stored_value": "2379",
+                "unit": "CT",
+                "display": "2,379"
+              },
+              "order_count": {
+                "stored_value": "353",
+                "unit": "CT",
+                "display": "353"
+              },
+              "line_count": {
+                "stored_value": "600",
+                "unit": "CT",
+                "display": "600"
+              },
+              "neg_base_orders": {
+                "stored_value": "5.0",
+                "unit": "CT",
+                "display": "5"
+              }
+            },
+            "TOTAL": {
+              "base_contribution": {
+                "stored_value": "565116.94183",
+                "unit": "CUR",
+                "display": "$565,116.94"
+              },
+              "base_wad": {
+                "stored_value": "0.1978865343607793",
+                "unit": "DEC",
+                "display": "0.1979"
+              },
+              "quantity": {
+                "stored_value": "37873",
+                "unit": "CT",
+                "display": "37,873"
+              },
+              "order_count": {
+                "stored_value": "5009",
+                "unit": "CT",
+                "display": "5,009"
+              },
+              "line_count": {
+                "stored_value": "9994",
+                "unit": "CT",
+                "display": "9,994"
+              },
+              "neg_base_orders": {
+                "stored_value": "50.0",
+                "unit": "CT",
+                "display": "50"
+              }
+            }
+          }
+        },
+        {
+          "block": "hypothetical",
+          "status": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY",
+          "visual": "matrix",
+          "metrics": [
+            "hypo_contribution",
+            "hypo_wad",
+            "neg_hypo_orders"
+          ],
+          "cells": {
+            "B0": {
+              "hypo_contribution": {
+                "stored_value": "220993.5347",
+                "unit": "CUR",
+                "display": "$220,993.53"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0",
+                "unit": "DEC",
+                "display": "0.0000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "14.0",
+                "unit": "CT",
+                "display": "14"
+              }
+            },
+            "B1": {
+              "hypo_contribution": {
+                "stored_value": "79940.04375",
+                "unit": "CUR",
+                "display": "$79,940.04"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0725131179275186",
+                "unit": "DEC",
+                "display": "0.0725"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B2": {
+              "hypo_contribution": {
+                "stored_value": "156514.9269",
+                "unit": "CUR",
+                "display": "$156,514.93"
+              },
+              "hypo_wad": {
+                "stored_value": "0.1959293617319942",
+                "unit": "DEC",
+                "display": "0.1959"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "24.0",
+                "unit": "CT",
+                "display": "24"
+              }
+            },
+            "B3": {
+              "hypo_contribution": {
+                "stored_value": "45515.82156",
+                "unit": "CUR",
+                "display": "$45,515.82"
+              },
+              "hypo_wad": {
+                "stored_value": "0.2993322833599154",
+                "unit": "DEC",
+                "display": "0.2993"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "1.0",
+                "unit": "CT",
+                "display": "1"
+              }
+            },
+            "B4": {
+              "hypo_contribution": {
+                "stored_value": "46790.73572",
+                "unit": "CUR",
+                "display": "$46,790.74"
+              },
+              "hypo_wad": {
+                "stored_value": "0.4328634928907168",
+                "unit": "DEC",
+                "display": "0.4329"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B5": {
+              "hypo_contribution": {
+                "stored_value": "15361.8792",
+                "unit": "CUR",
+                "display": "$15,361.88"
+              },
+              "hypo_wad": {
+                "stored_value": "0.7065762475915516",
+                "unit": "DEC",
+                "display": "0.7066"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "5.0",
+                "unit": "CT",
+                "display": "5"
+              }
+            },
+            "TOTAL": {
+              "hypo_contribution": {
+                "stored_value": "565116.94183",
+                "unit": "CUR",
+                "display": "$565,116.94"
+              },
+              "hypo_wad": {
+                "stored_value": "0.1978865343607793",
+                "unit": "DEC",
+                "display": "0.1979"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "50.0",
+                "unit": "CT",
+                "display": "50"
+              }
+            }
+          }
+        },
+        {
+          "block": "variance",
+          "status": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY",
+          "visuals": [
+            "clustered bar chart",
+            "matrix",
+            "table"
+          ],
+          "absolute_currency": [
+            "variance_contribution",
+            "variance_net_revenue",
+            "variance_discount_amount",
+            "variance_cogs"
+          ],
+          "relative_percent": [
+            "relative_contribution_variance"
+          ],
+          "pp_metrics": [
+            "margin_change_pp"
+          ],
+          "cells": {
+            "B0": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B1": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B2": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B3": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "-1.4551915228366852e-11",
+                "unit": "CUR",
+                "display": "$-0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B4": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B5": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "TOTAL": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "scenario_type": "discount decrease",
+      "discount_input": "decrease_pp 0.00",
+      "source_artifact": "phase4b_scenario_decrease_0.00.csv",
+      "note": "Identity control \u2014 zero variance on every band by construction; pipeline-integrity check, not sensitivity.",
+      "bands": [
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "TOTAL"
+      ],
+      "band_note": "fixed baseline bands \u2014 never re-banded",
+      "blocks": [
+        {
+          "block": "baseline",
+          "status": "OBSERVED BASELINE",
+          "visual": "matrix",
+          "metrics": [
+            "base_contribution",
+            "base_wad",
+            "quantity",
+            "order_count",
+            "line_count",
+            "neg_base_orders"
+          ],
+          "cells": {
+            "B0": {
+              "base_contribution": {
+                "stored_value": "220993.5347",
+                "unit": "CUR",
+                "display": "$220,993.53"
+              },
+              "base_wad": {
+                "stored_value": "0.0",
+                "unit": "DEC",
+                "display": "0.0000"
+              },
+              "quantity": {
+                "stored_value": "13784",
+                "unit": "CT",
+                "display": "13,784"
+              },
+              "order_count": {
+                "stored_value": "2055",
+                "unit": "CT",
+                "display": "2,055"
+              },
+              "line_count": {
+                "stored_value": "3612",
+                "unit": "CT",
+                "display": "3,612"
+              },
+              "neg_base_orders": {
+                "stored_value": "14.0",
+                "unit": "CT",
+                "display": "14"
+              }
+            },
+            "B1": {
+              "base_contribution": {
+                "stored_value": "79940.04375",
+                "unit": "CUR",
+                "display": "$79,940.04"
+              },
+              "base_wad": {
+                "stored_value": "0.0725131179275186",
+                "unit": "DEC",
+                "display": "0.0725"
+              },
+              "quantity": {
+                "stored_value": "5056",
+                "unit": "CT",
+                "display": "5,056"
+              },
+              "order_count": {
+                "stored_value": "415",
+                "unit": "CT",
+                "display": "415"
+              },
+              "line_count": {
+                "stored_value": "1324",
+                "unit": "CT",
+                "display": "1,324"
+              },
+              "neg_base_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B2": {
+              "base_contribution": {
+                "stored_value": "156514.9269",
+                "unit": "CUR",
+                "display": "$156,514.93"
+              },
+              "base_wad": {
+                "stored_value": "0.1959293617319942",
+                "unit": "DEC",
+                "display": "0.1959"
+              },
+              "quantity": {
+                "stored_value": "10930",
+                "unit": "CT",
+                "display": "10,930"
+              },
+              "order_count": {
+                "stored_value": "1634",
+                "unit": "CT",
+                "display": "1,634"
+              },
+              "line_count": {
+                "stored_value": "2941",
+                "unit": "CT",
+                "display": "2,941"
+              },
+              "neg_base_orders": {
+                "stored_value": "24.0",
+                "unit": "CT",
+                "display": "24"
+              }
+            },
+            "B3": {
+              "base_contribution": {
+                "stored_value": "45515.82156",
+                "unit": "CUR",
+                "display": "$45,515.82"
+              },
+              "base_wad": {
+                "stored_value": "0.2993322833599154",
+                "unit": "DEC",
+                "display": "0.2993"
+              },
+              "quantity": {
+                "stored_value": "2912",
+                "unit": "CT",
+                "display": "2,912"
+              },
+              "order_count": {
+                "stored_value": "278",
+                "unit": "CT",
+                "display": "278"
+              },
+              "line_count": {
+                "stored_value": "773",
+                "unit": "CT",
+                "display": "773"
+              },
+              "neg_base_orders": {
+                "stored_value": "1.0",
+                "unit": "CT",
+                "display": "1"
+              }
+            },
+            "B4": {
+              "base_contribution": {
+                "stored_value": "46790.73572",
+                "unit": "CUR",
+                "display": "$46,790.74"
+              },
+              "base_wad": {
+                "stored_value": "0.4328634928907168",
+                "unit": "DEC",
+                "display": "0.4329"
+              },
+              "quantity": {
+                "stored_value": "2812",
+                "unit": "CT",
+                "display": "2,812"
+              },
+              "order_count": {
+                "stored_value": "274",
+                "unit": "CT",
+                "display": "274"
+              },
+              "line_count": {
+                "stored_value": "744",
+                "unit": "CT",
+                "display": "744"
+              },
+              "neg_base_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B5": {
+              "base_contribution": {
+                "stored_value": "15361.8792",
+                "unit": "CUR",
+                "display": "$15,361.88"
+              },
+              "base_wad": {
+                "stored_value": "0.7065762475915516",
+                "unit": "DEC",
+                "display": "0.7066"
+              },
+              "quantity": {
+                "stored_value": "2379",
+                "unit": "CT",
+                "display": "2,379"
+              },
+              "order_count": {
+                "stored_value": "353",
+                "unit": "CT",
+                "display": "353"
+              },
+              "line_count": {
+                "stored_value": "600",
+                "unit": "CT",
+                "display": "600"
+              },
+              "neg_base_orders": {
+                "stored_value": "5.0",
+                "unit": "CT",
+                "display": "5"
+              }
+            },
+            "TOTAL": {
+              "base_contribution": {
+                "stored_value": "565116.94183",
+                "unit": "CUR",
+                "display": "$565,116.94"
+              },
+              "base_wad": {
+                "stored_value": "0.1978865343607793",
+                "unit": "DEC",
+                "display": "0.1979"
+              },
+              "quantity": {
+                "stored_value": "37873",
+                "unit": "CT",
+                "display": "37,873"
+              },
+              "order_count": {
+                "stored_value": "5009",
+                "unit": "CT",
+                "display": "5,009"
+              },
+              "line_count": {
+                "stored_value": "9994",
+                "unit": "CT",
+                "display": "9,994"
+              },
+              "neg_base_orders": {
+                "stored_value": "50.0",
+                "unit": "CT",
+                "display": "50"
+              }
+            }
+          }
+        },
+        {
+          "block": "hypothetical",
+          "status": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY",
+          "visual": "matrix",
+          "metrics": [
+            "hypo_contribution",
+            "hypo_wad",
+            "neg_hypo_orders"
+          ],
+          "cells": {
+            "B0": {
+              "hypo_contribution": {
+                "stored_value": "220993.5347",
+                "unit": "CUR",
+                "display": "$220,993.53"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0",
+                "unit": "DEC",
+                "display": "0.0000"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "14.0",
+                "unit": "CT",
+                "display": "14"
+              }
+            },
+            "B1": {
+              "hypo_contribution": {
+                "stored_value": "79940.04375",
+                "unit": "CUR",
+                "display": "$79,940.04"
+              },
+              "hypo_wad": {
+                "stored_value": "0.0725131179275186",
+                "unit": "DEC",
+                "display": "0.0725"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B2": {
+              "hypo_contribution": {
+                "stored_value": "156514.9269",
+                "unit": "CUR",
+                "display": "$156,514.93"
+              },
+              "hypo_wad": {
+                "stored_value": "0.1959293617319942",
+                "unit": "DEC",
+                "display": "0.1959"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "24.0",
+                "unit": "CT",
+                "display": "24"
+              }
+            },
+            "B3": {
+              "hypo_contribution": {
+                "stored_value": "45515.82156",
+                "unit": "CUR",
+                "display": "$45,515.82"
+              },
+              "hypo_wad": {
+                "stored_value": "0.2993322833599154",
+                "unit": "DEC",
+                "display": "0.2993"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "1.0",
+                "unit": "CT",
+                "display": "1"
+              }
+            },
+            "B4": {
+              "hypo_contribution": {
+                "stored_value": "46790.73572",
+                "unit": "CUR",
+                "display": "$46,790.74"
+              },
+              "hypo_wad": {
+                "stored_value": "0.4328634928907168",
+                "unit": "DEC",
+                "display": "0.4329"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              }
+            },
+            "B5": {
+              "hypo_contribution": {
+                "stored_value": "15361.8792",
+                "unit": "CUR",
+                "display": "$15,361.88"
+              },
+              "hypo_wad": {
+                "stored_value": "0.7065762475915516",
+                "unit": "DEC",
+                "display": "0.7066"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "5.0",
+                "unit": "CT",
+                "display": "5"
+              }
+            },
+            "TOTAL": {
+              "hypo_contribution": {
+                "stored_value": "565116.94183",
+                "unit": "CUR",
+                "display": "$565,116.94"
+              },
+              "hypo_wad": {
+                "stored_value": "0.1978865343607793",
+                "unit": "DEC",
+                "display": "0.1979"
+              },
+              "neg_hypo_orders": {
+                "stored_value": "50.0",
+                "unit": "CT",
+                "display": "50"
+              }
+            }
+          }
+        },
+        {
+          "block": "variance",
+          "status": "HYPOTHETICAL_ARITHMETIC_SENSITIVITY",
+          "visuals": [
+            "clustered bar chart",
+            "matrix",
+            "table"
+          ],
+          "absolute_currency": [
+            "variance_contribution",
+            "variance_net_revenue",
+            "variance_discount_amount",
+            "variance_cogs"
+          ],
+          "relative_percent": [
+            "relative_contribution_variance"
+          ],
+          "pp_metrics": [
+            "margin_change_pp"
+          ],
+          "cells": {
+            "B0": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B1": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B2": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B3": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "-1.4551915228366852e-11",
+                "unit": "CUR",
+                "display": "$-0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B4": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "B5": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            },
+            "TOTAL": {
+              "variance_net_revenue": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cogs": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_freight": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_cost_to_serve": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "variance_contribution": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "relative_contribution_variance": {
+                "stored_value": "0.0",
+                "unit": "PCT",
+                "display": "0.00%"
+              },
+              "margin_change_pp": {
+                "stored_value": "0.0",
+                "unit": "PP",
+                "display": "0.0000 pp"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "fixed_unit_cost_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              },
+              "demand_response_view": {
+                "stored_value": "",
+                "unit": "Label",
+                "display": "N/A"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "na_reasons": [
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B0",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B0",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B1",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B1",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B2",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B2",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B3",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B3",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B4",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B4",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B5",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "B5",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "TOTAL",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_decrease_pp_0.00",
+      "band": "TOTAL",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B0",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B0",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B1",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B1",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B2",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B2",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B3",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B3",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B4",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B4",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B5",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "B5",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "TOTAL",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "discount_increase_pp_0.00",
+      "band": "TOTAL",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B0",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B0",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B1",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B1",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B2",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B2",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B3",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B3",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B4",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B4",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B5",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "B5",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "TOTAL",
+      "block": "variance",
+      "metric": "demand_response_view",
+      "definition_ref": "N/A: RESPONSE_NOT_ESTIMATED",
+      "limitation": "Marked unavailable with reason; never estimated"
+    },
+    {
+      "scenario_id": "uniform_replace_0.10",
+      "band": "TOTAL",
+      "block": "variance",
+      "metric": "fixed_unit_cost_view",
+      "definition_ref": "N/A: COMPARATOR_NOT_IN_INITIAL_BUILD",
+      "limitation": "Marked unavailable with reason; never estimated"
+    }
+  ],
+  "labels": {
+    "standing": "HYPOTHETICAL SCENARIO ANALYSIS \u2014 band allocation of arithmetic sensitivity",
+    "grain": "Reporting grain: Overall \u00d7 baseline discount band (ORDER, fixed bands)",
+    "source_view": "variance_by_band",
+    "source_artifact": "AO-04 contribution variance by baseline band",
+    "validation": "21/21 PASS (phase4c_contribution_variance_by_band_quality.json)",
+    "distinction": "Variance rows stay separate: variance_net_revenue vs variance_cogs vs variance_contribution vs variance_discount_amount (revenue forgone, not profit loss). AO-04 carries no standalone gross-profit row; nothing is netted. Absolute currency changes stay separate from relative percent and percentage-point margin changes."
+  },
+  "methodology": [
+    "Constant observed quantity (hypothetical restates observed units; no response estimated).",
+    "Modeled COGS (frozen revenue-based percentages; band variances conditional on this structure; AO-04 carries no standalone gross-profit row \u2014 variance_net_revenue, variance_cogs, variance_contribution, and variance_discount_amount are displayed separately, never netted).",
+    "Observed freight passthrough (freight and cost-to-serve variances exactly 0.0 on all 21 band rows by design).",
+    "Return-processing costs OFF (excluded, not actual).",
+    "Support costs OFF (excluded, not actual).",
+    "Results conditional on the selected cost structure and benchmark assumptions."
+  ],
+  "caveat_short": "Illustrative constant-quantity arithmetic sensitivity, not a forecast.",
+  "caveat_long": "Observed baseline beside the hypothetical restatement under the stated methodology and cost assumptions; conditional arithmetic illustration, not a forecast, causal estimate, demand prediction, or optimized-pricing recommendation.",
+  "restrictions": [
+    "fixed baseline bands \u2014 never re-banded",
+    "baseline/hypothetical/variance never merged",
+    "no trend/predictive/AI visuals",
+    "summarization off on all value fields",
+    "all columns imported as Text"
+  ]
+}

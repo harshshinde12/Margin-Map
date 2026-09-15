@@ -1,0 +1,227 @@
+{
+  "page_name": "Page 5 \u2014 Order-Level Observed Context",
+  "source": {
+    "database": "data/processed/marginmap.db",
+    "view": "order_reading",
+    "source_artifact": "phase4c_order_reading.csv",
+    "import_mode": "Import",
+    "only_view_imported": true
+  },
+  "model": {
+    "relationships": [],
+    "dax_measures": [],
+    "power_query_calculations": []
+  },
+  "slicers": [
+    {
+      "column": "discount_band",
+      "scope": "this page only",
+      "no_model_relationship": true,
+      "options_from_stored_values": true
+    },
+    {
+      "column": "return_status",
+      "scope": "this page only",
+      "no_model_relationship": true,
+      "options_from_stored_values": true
+    },
+    {
+      "column": "neg_flag",
+      "scope": "this page only",
+      "no_model_relationship": true,
+      "options_from_stored_values": true
+    }
+  ],
+  "tables": {
+    "sample_orders": {
+      "type": "table",
+      "window": "first 20 orders in frozen rowid order",
+      "orders": [
+        "CA-2014-100006",
+        "CA-2014-100090",
+        "CA-2014-100293",
+        "CA-2014-100328",
+        "CA-2014-100363",
+        "CA-2014-100391",
+        "CA-2014-100678",
+        "CA-2014-100706",
+        "CA-2014-100762",
+        "CA-2014-100860",
+        "CA-2014-100867",
+        "CA-2014-100881",
+        "CA-2014-100895",
+        "CA-2014-100916",
+        "CA-2014-100972",
+        "CA-2014-101147",
+        "CA-2014-101175",
+        "CA-2014-101266",
+        "CA-2014-101364",
+        "CA-2014-101392"
+      ]
+    },
+    "negative_orders": {
+      "type": "table",
+      "filter": "neg_flag = True",
+      "order_count": 50,
+      "orders": [
+        "CA-2014-104738",
+        "CA-2014-105340",
+        "CA-2014-106726",
+        "CA-2014-113047",
+        "CA-2014-123225",
+        "CA-2014-140816",
+        "CA-2014-141796",
+        "CA-2014-142965",
+        "CA-2014-154627",
+        "CA-2015-104059",
+        "CA-2015-110877",
+        "CA-2015-124891",
+        "CA-2015-135853",
+        "CA-2015-155334",
+        "CA-2015-156104",
+        "CA-2015-157770",
+        "CA-2015-163440",
+        "CA-2016-110499",
+        "CA-2016-111143",
+        "CA-2016-113551",
+        "CA-2016-121601",
+        "CA-2016-132479",
+        "CA-2016-134887",
+        "CA-2016-136924",
+        "CA-2016-147368",
+        "CA-2016-153318",
+        "CA-2016-155992",
+        "CA-2016-157364",
+        "CA-2016-158834",
+        "CA-2016-162222",
+        "CA-2017-104822",
+        "CA-2017-111556",
+        "CA-2017-115805",
+        "CA-2017-118346",
+        "CA-2017-119193",
+        "CA-2017-120168",
+        "CA-2017-122196",
+        "CA-2017-126788",
+        "CA-2017-133256",
+        "CA-2017-152135",
+        "CA-2017-158246",
+        "CA-2017-167395",
+        "US-2014-120313",
+        "US-2014-133949",
+        "US-2014-167262",
+        "US-2016-131891",
+        "US-2016-134761",
+        "US-2016-157490",
+        "US-2017-116491",
+        "US-2017-118598"
+      ]
+    },
+    "ambiguity_case": {
+      "type": "table",
+      "orders": [
+        "US-2014-150119"
+      ],
+      "metrics": [
+        "wad",
+        "revenue_realization_rate",
+        "net_revenue",
+        "gross_revenue",
+        "modeled_gross_profit",
+        "modeled_gross_margin",
+        "freight_cost",
+        "cost_to_serve",
+        "contribution_profit",
+        "contribution_margin",
+        "quantity",
+        "line_count"
+      ],
+      "cells": {
+        "wad": {
+          "stored_value": "0.3083940242763772",
+          "unit": "DEC",
+          "display": "0.3084"
+        },
+        "revenue_realization_rate": {
+          "stored_value": "69.16059757236226",
+          "unit": "PCT",
+          "display": "69.16%"
+        },
+        "net_revenue": {
+          "stored_value": "592.568",
+          "unit": "CUR",
+          "display": "$592.57"
+        },
+        "gross_revenue": {
+          "stored_value": "856.8000000000001",
+          "unit": "CUR",
+          "display": "$856.80"
+        },
+        "modeled_gross_profit": {
+          "stored_value": "236.87744",
+          "unit": "CUR",
+          "display": "$236.88"
+        },
+        "modeled_gross_margin": {
+          "stored_value": "39.97472695116847",
+          "unit": "PCT",
+          "display": "39.97%"
+        },
+        "freight_cost": {
+          "stored_value": "26.55",
+          "unit": "CUR",
+          "display": "$26.55"
+        },
+        "cost_to_serve": {
+          "stored_value": "26.55",
+          "unit": "CUR",
+          "display": "$26.55"
+        },
+        "contribution_profit": {
+          "stored_value": "210.32744",
+          "unit": "CUR",
+          "display": "$210.33"
+        },
+        "contribution_margin": {
+          "stored_value": "35.494228510483175",
+          "unit": "PCT",
+          "display": "35.49%"
+        },
+        "quantity": {
+          "stored_value": "16",
+          "unit": "CT",
+          "display": "16"
+        },
+        "line_count": {
+          "stored_value": "4",
+          "unit": "CT",
+          "display": "4"
+        }
+      }
+    }
+  },
+  "labels": {
+    "standing": "OBSERVED ORDER-LEVEL CONTEXT",
+    "grain": "Reporting grain: Order",
+    "source_view": "order_reading",
+    "source_artifact": "AO-05 frozen output",
+    "validation": "17/17 PASS (phase4c_order_reading_quality.json)",
+    "observed_only": "Observed values only \u2014 no hypothetical order-level detail exists or is displayed.",
+    "limitation": "Observed order-level context only. No hypothetical order-level scenario values are estimated or displayed.",
+    "no_estimate": "This page does not estimate demand response, causality, forecasts, or optimized pricing."
+  },
+  "methodology": [
+    "One order is one observation \u2014 distributional context only; supports, never replaces, band readings.",
+    "Discount bands are assigned baseline labels, never recomputed.",
+    "COGS treatment is modeled (analytical estimate); AO-05 carries no standalone COGS row \u2014 modeled_gross_profit / modeled_gross_margin shown as stored.",
+    "Freight as observed; NULLs preserved, never defaulted or imputed.",
+    "Return-processing and support costs OFF (excluded, not actual).",
+    "Results conditional on the selected cost structure and benchmark assumptions."
+  ],
+  "restrictions": [
+    "no hypothetical order-level columns",
+    "no averaging of per-order margins/WAD",
+    "no customer/product/region/segment aggregation",
+    "summarization off on all value fields",
+    "all columns imported as Text"
+  ]
+}

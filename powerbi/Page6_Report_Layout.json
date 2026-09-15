@@ -1,0 +1,86 @@
+{
+  "page_name": "Page 6 \u2014 Data Quality and Analytical Reliability",
+  "source": {
+    "database": "data/processed/marginmap.db",
+    "view": "quality_summary",
+    "source_artifact": "phase4c_quality_summary.csv",
+    "import_mode": "Import",
+    "only_view_imported": true
+  },
+  "model": {
+    "relationships": [],
+    "dax_measures": [],
+    "power_query_calculations": [],
+    "joins": []
+  },
+  "slicers": [
+    {
+      "column": "artifact",
+      "scope": "upstream-check table only",
+      "no_model_relationship": true,
+      "options_from_stored_values": true
+    }
+  ],
+  "verdict_cards": [
+    {
+      "metric": "overall_eligibility",
+      "stored_value": "ALL_SOURCES_ELIGIBLE"
+    },
+    {
+      "metric": "artifacts_verified",
+      "stored_value": "17"
+    },
+    {
+      "metric": "checks_attested",
+      "stored_value": "75"
+    }
+  ],
+  "eligibility_table": {
+    "type": "table",
+    "row_count": 17,
+    "artifacts": [
+      "phase3b_quality_report.json",
+      "phase4b_scenario_quality.json",
+      "phase4b_scenario_increase_0.00_quality.json",
+      "phase4b_scenario_decrease_0.00_quality.json",
+      "discount_band_summary.csv",
+      "discount_category_summary.csv",
+      "discount_customer_summary.csv",
+      "discount_order_summary.csv",
+      "discount_product_summary.csv",
+      "discount_segment_summary.csv",
+      "discount_subcategory_summary.csv",
+      "phase4b_scenario_decrease_0.00.csv",
+      "phase4b_scenario_increase_0.00.csv",
+      "phase4b_scenario_uniform_0.10.csv",
+      "fact_margin_map_phase2.csv",
+      "order_margin_map_phase2.csv",
+      "fact_sales_cogs.csv"
+    ]
+  },
+  "upstream_table": {
+    "type": "table",
+    "row_count": 75
+  },
+  "labels": {
+    "standing": "QUALITY_GATE \u2014 eligibility, not economics",
+    "grain": "Reporting grain: Artifact, then TOTAL (ALL_ARTIFACTS)",
+    "source_view": "quality_summary",
+    "source_artifact": "AO-06 data-quality summary",
+    "validation": "9/9 PASS (phase4c_quality_summary_quality.json)",
+    "limitation": "Quality evidence covers arithmetic and lineage only; licenses no behavioral, predictive, or causal reading.",
+    "mirrored": "Upstream checks are mirrored verbatim from frozen evidence \u2014 verified for parseability, counts, standing, and record completeness, not re-executed."
+  },
+  "methodology": [
+    "Eligibility means arithmetic/lineage fitness only (existence, parse, counts, PASS standing, exact row/hash identity) \u2014 not a business endorsement.",
+    "Mirrored checks were verified for parseability, counts, standing, and record completeness \u2014 not re-executed; the gate cannot detect errors the upstream validations themselves missed.",
+    "TOTAL verdict requires unanimity: any single failure aborts with no output (none occurred).",
+    "Counts and hashes are exact integers and full hex strings; no sampling, no tolerance on identity comparisons."
+  ],
+  "restrictions": [
+    "mirrored evidence never reworded or re-executed",
+    "no behavioral/predictive reading",
+    "summarization off on all value fields",
+    "all columns imported as Text"
+  ]
+}

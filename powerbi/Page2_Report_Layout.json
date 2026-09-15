@@ -1,0 +1,1489 @@
+{
+  "page_name": "Page 2 \u2014 Discount-Band Contribution Analysis",
+  "source": {
+    "database": "data/processed/marginmap.db",
+    "view": "contribution_by_band",
+    "source_artifact": "phase4c_band_contribution.csv",
+    "import_mode": "Import",
+    "only_view_imported": true
+  },
+  "model": {
+    "relationships": [],
+    "dax_measures": [],
+    "power_query_calculations": []
+  },
+  "sections": [
+    {
+      "name": "ORDER \u2014 AUTHORITATIVE",
+      "filter": "basis = ORDER",
+      "visuals": [
+        {
+          "type": "matrix",
+          "bands": [
+            "B0",
+            "B1",
+            "B2",
+            "B3",
+            "B4",
+            "B5",
+            "TOTAL"
+          ],
+          "metrics": [
+            "net_revenue",
+            "gross_revenue",
+            "discount_amount",
+            "wad",
+            "revenue_realization_rate",
+            "modeled_gross_profit",
+            "modeled_gross_margin_pct",
+            "freight_cost",
+            "cost_to_serve",
+            "contribution_profit",
+            "contribution_margin_pct",
+            "quantity",
+            "order_count",
+            "line_count",
+            "neg_contribution_orders",
+            "low_sample_flag",
+            "neg_contribution_lines"
+          ],
+          "total_separated": true,
+          "cells": {
+            "B0": {
+              "net_revenue": {
+                "stored_value": "862202.39",
+                "unit": "CUR",
+                "display": "$862,202.39"
+              },
+              "gross_revenue": {
+                "stored_value": "862202.39",
+                "unit": "CUR",
+                "display": "$862,202.39"
+              },
+              "discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "wad": {
+                "stored_value": "0.0",
+                "unit": "DEC",
+                "display": "0.0000"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "100.0",
+                "unit": "PCT",
+                "display": "100.00%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "305308.2247",
+                "unit": "CUR",
+                "display": "$305,308.22"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "35.41027353218077",
+                "unit": "PCT",
+                "display": "35.41%"
+              },
+              "freight_cost": {
+                "stored_value": "84314.69",
+                "unit": "CUR",
+                "display": "$84,314.69"
+              },
+              "cost_to_serve": {
+                "stored_value": "84314.69",
+                "unit": "CUR",
+                "display": "$84,314.69"
+              },
+              "contribution_profit": {
+                "stored_value": "220993.5347",
+                "unit": "CUR",
+                "display": "$220,993.53"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "25.631283010013465",
+                "unit": "PCT",
+                "display": "25.63%"
+              },
+              "quantity": {
+                "stored_value": "13784",
+                "unit": "CT",
+                "display": "13,784"
+              },
+              "order_count": {
+                "stored_value": "2055",
+                "unit": "CT",
+                "display": "2,055"
+              },
+              "line_count": {
+                "stored_value": "3612",
+                "unit": "CT",
+                "display": "3,612"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "14.0",
+                "unit": "CT",
+                "display": "14"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              }
+            },
+            "B1": {
+              "net_revenue": {
+                "stored_value": "328153.8555",
+                "unit": "CUR",
+                "display": "$328,153.86"
+              },
+              "gross_revenue": {
+                "stored_value": "353809.7",
+                "unit": "CUR",
+                "display": "$353,809.70"
+              },
+              "discount_amount": {
+                "stored_value": "25655.8445",
+                "unit": "CUR",
+                "display": "$25,655.84"
+              },
+              "wad": {
+                "stored_value": "0.0725131179275186",
+                "unit": "DEC",
+                "display": "0.0725"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "92.74868820724814",
+                "unit": "PCT",
+                "display": "92.75%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "116085.67375000002",
+                "unit": "CUR",
+                "display": "$116,085.67"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "35.3753801164771",
+                "unit": "PCT",
+                "display": "35.38%"
+              },
+              "freight_cost": {
+                "stored_value": "36145.63",
+                "unit": "CUR",
+                "display": "$36,145.63"
+              },
+              "cost_to_serve": {
+                "stored_value": "36145.63",
+                "unit": "CUR",
+                "display": "$36,145.63"
+              },
+              "contribution_profit": {
+                "stored_value": "79940.04375",
+                "unit": "CUR",
+                "display": "$79,940.04"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "24.36053772039256",
+                "unit": "PCT",
+                "display": "24.36%"
+              },
+              "quantity": {
+                "stored_value": "5056",
+                "unit": "CT",
+                "display": "5,056"
+              },
+              "order_count": {
+                "stored_value": "415",
+                "unit": "CT",
+                "display": "415"
+              },
+              "line_count": {
+                "stored_value": "1324",
+                "unit": "CT",
+                "display": "1,324"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              }
+            },
+            "B2": {
+              "net_revenue": {
+                "stored_value": "669040.9654",
+                "unit": "CUR",
+                "display": "$669,040.97"
+              },
+              "gross_revenue": {
+                "stored_value": "832067.3999999999",
+                "unit": "CUR",
+                "display": "$832,067.40"
+              },
+              "discount_amount": {
+                "stored_value": "163026.43459999995",
+                "unit": "CUR",
+                "display": "$163,026.43"
+              },
+              "wad": {
+                "stored_value": "0.1959293617319942",
+                "unit": "DEC",
+                "display": "0.1959"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "80.40706382680057",
+                "unit": "PCT",
+                "display": "80.41%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "229625.8069",
+                "unit": "CUR",
+                "display": "$229,625.81"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "34.32163630857991",
+                "unit": "PCT",
+                "display": "34.32%"
+              },
+              "freight_cost": {
+                "stored_value": "73110.88",
+                "unit": "CUR",
+                "display": "$73,110.88"
+              },
+              "cost_to_serve": {
+                "stored_value": "73110.88",
+                "unit": "CUR",
+                "display": "$73,110.88"
+              },
+              "contribution_profit": {
+                "stored_value": "156514.9269",
+                "unit": "CUR",
+                "display": "$156,514.93"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "23.393922793116907",
+                "unit": "PCT",
+                "display": "23.39%"
+              },
+              "quantity": {
+                "stored_value": "10930",
+                "unit": "CT",
+                "display": "10,930"
+              },
+              "order_count": {
+                "stored_value": "1634",
+                "unit": "CT",
+                "display": "1,634"
+              },
+              "line_count": {
+                "stored_value": "2941",
+                "unit": "CT",
+                "display": "2,941"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "24.0",
+                "unit": "CT",
+                "display": "24"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              }
+            },
+            "B3": {
+              "net_revenue": {
+                "stored_value": "172284.0949",
+                "unit": "CUR",
+                "display": "$172,284.09"
+              },
+              "gross_revenue": {
+                "stored_value": "245885.59",
+                "unit": "CUR",
+                "display": "$245,885.59"
+              },
+              "discount_amount": {
+                "stored_value": "73601.4951",
+                "unit": "CUR",
+                "display": "$73,601.50"
+              },
+              "wad": {
+                "stored_value": "0.2993322833599154",
+                "unit": "DEC",
+                "display": "0.2993"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "70.06677166400846",
+                "unit": "PCT",
+                "display": "70.07%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "64945.75155999999",
+                "unit": "CUR",
+                "display": "$64,945.75"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "37.69689337701016",
+                "unit": "PCT",
+                "display": "37.70%"
+              },
+              "freight_cost": {
+                "stored_value": "19429.93",
+                "unit": "CUR",
+                "display": "$19,429.93"
+              },
+              "cost_to_serve": {
+                "stored_value": "19429.93",
+                "unit": "CUR",
+                "display": "$19,429.93"
+              },
+              "contribution_profit": {
+                "stored_value": "45515.82156",
+                "unit": "CUR",
+                "display": "$45,515.82"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "26.41905022423518",
+                "unit": "PCT",
+                "display": "26.42%"
+              },
+              "quantity": {
+                "stored_value": "2912",
+                "unit": "CT",
+                "display": "2,912"
+              },
+              "order_count": {
+                "stored_value": "278",
+                "unit": "CT",
+                "display": "278"
+              },
+              "line_count": {
+                "stored_value": "773",
+                "unit": "CT",
+                "display": "773"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "1.0",
+                "unit": "CT",
+                "display": "1"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              }
+            },
+            "B4": {
+              "net_revenue": {
+                "stored_value": "203630.913",
+                "unit": "CUR",
+                "display": "$203,630.91"
+              },
+              "gross_revenue": {
+                "stored_value": "359050.97000000003",
+                "unit": "CUR",
+                "display": "$359,050.97"
+              },
+              "discount_amount": {
+                "stored_value": "155420.057",
+                "unit": "CUR",
+                "display": "$155,420.06"
+              },
+              "wad": {
+                "stored_value": "0.4328634928907168",
+                "unit": "DEC",
+                "display": "0.4329"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "56.71365071092831",
+                "unit": "PCT",
+                "display": "56.71%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "65535.22571999999",
+                "unit": "CUR",
+                "display": "$65,535.23"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "32.183338351972125",
+                "unit": "PCT",
+                "display": "32.18%"
+              },
+              "freight_cost": {
+                "stored_value": "18744.49",
+                "unit": "CUR",
+                "display": "$18,744.49"
+              },
+              "cost_to_serve": {
+                "stored_value": "18744.49",
+                "unit": "CUR",
+                "display": "$18,744.49"
+              },
+              "contribution_profit": {
+                "stored_value": "46790.73572",
+                "unit": "CUR",
+                "display": "$46,790.74"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "22.97820848055619",
+                "unit": "PCT",
+                "display": "22.98%"
+              },
+              "quantity": {
+                "stored_value": "2812",
+                "unit": "CT",
+                "display": "2,812"
+              },
+              "order_count": {
+                "stored_value": "274",
+                "unit": "CT",
+                "display": "274"
+              },
+              "line_count": {
+                "stored_value": "744",
+                "unit": "CT",
+                "display": "744"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "3.0",
+                "unit": "CT",
+                "display": "3"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              }
+            },
+            "B5": {
+              "net_revenue": {
+                "stored_value": "61888.6415",
+                "unit": "CUR",
+                "display": "$61,888.64"
+              },
+              "gross_revenue": {
+                "stored_value": "210918.99",
+                "unit": "CUR",
+                "display": "$210,918.99"
+              },
+              "discount_amount": {
+                "stored_value": "149030.3485",
+                "unit": "CUR",
+                "display": "$149,030.35"
+              },
+              "wad": {
+                "stored_value": "0.7065762475915516",
+                "unit": "DEC",
+                "display": "0.7066"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "29.34237524084484",
+                "unit": "PCT",
+                "display": "29.34%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "21790.049199999998",
+                "unit": "CUR",
+                "display": "$21,790.05"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "35.208478764233334",
+                "unit": "PCT",
+                "display": "35.21%"
+              },
+              "freight_cost": {
+                "stored_value": "6428.17",
+                "unit": "CUR",
+                "display": "$6,428.17"
+              },
+              "cost_to_serve": {
+                "stored_value": "6428.17",
+                "unit": "CUR",
+                "display": "$6,428.17"
+              },
+              "contribution_profit": {
+                "stored_value": "15361.8792",
+                "unit": "CUR",
+                "display": "$15,361.88"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "24.82180708393801",
+                "unit": "PCT",
+                "display": "24.82%"
+              },
+              "quantity": {
+                "stored_value": "2379",
+                "unit": "CT",
+                "display": "2,379"
+              },
+              "order_count": {
+                "stored_value": "353",
+                "unit": "CT",
+                "display": "353"
+              },
+              "line_count": {
+                "stored_value": "600",
+                "unit": "CT",
+                "display": "600"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "5.0",
+                "unit": "CT",
+                "display": "5"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              }
+            },
+            "TOTAL": {
+              "net_revenue": {
+                "stored_value": "2297200.8603",
+                "unit": "CUR",
+                "display": "$2,297,200.86"
+              },
+              "gross_revenue": {
+                "stored_value": "2863935.04",
+                "unit": "CUR",
+                "display": "$2,863,935.04"
+              },
+              "discount_amount": {
+                "stored_value": "566734.1797",
+                "unit": "CUR",
+                "display": "$566,734.18"
+              },
+              "wad": {
+                "stored_value": "0.1978865343607793",
+                "unit": "DEC",
+                "display": "0.1979"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "80.21134656392206",
+                "unit": "PCT",
+                "display": "80.21%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "803290.73183",
+                "unit": "CUR",
+                "display": "$803,290.73"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "34.96824094542152",
+                "unit": "PCT",
+                "display": "34.97%"
+              },
+              "freight_cost": {
+                "stored_value": "238173.79",
+                "unit": "CUR",
+                "display": "$238,173.79"
+              },
+              "cost_to_serve": {
+                "stored_value": "238173.79",
+                "unit": "CUR",
+                "display": "$238,173.79"
+              },
+              "contribution_profit": {
+                "stored_value": "565116.94183",
+                "unit": "CUR",
+                "display": "$565,116.94"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "24.600240736293276",
+                "unit": "PCT",
+                "display": "24.60%"
+              },
+              "quantity": {
+                "stored_value": "37873",
+                "unit": "CT",
+                "display": "37,873"
+              },
+              "order_count": {
+                "stored_value": "5009",
+                "unit": "CT",
+                "display": "5,009"
+              },
+              "line_count": {
+                "stored_value": "9994",
+                "unit": "CT",
+                "display": "9,994"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "50.0",
+                "unit": "CT",
+                "display": "50"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              }
+            }
+          }
+        },
+        {
+          "type": "clustered bar chart",
+          "metric": "contribution_profit",
+          "bands": [
+            "B0",
+            "B1",
+            "B2",
+            "B3",
+            "B4",
+            "B5"
+          ],
+          "total_shown_separately": true,
+          "values": {
+            "B0": {
+              "stored_value": "220993.5347",
+              "unit": "CUR",
+              "display": "$220,993.53"
+            },
+            "B1": {
+              "stored_value": "79940.04375",
+              "unit": "CUR",
+              "display": "$79,940.04"
+            },
+            "B2": {
+              "stored_value": "156514.9269",
+              "unit": "CUR",
+              "display": "$156,514.93"
+            },
+            "B3": {
+              "stored_value": "45515.82156",
+              "unit": "CUR",
+              "display": "$45,515.82"
+            },
+            "B4": {
+              "stored_value": "46790.73572",
+              "unit": "CUR",
+              "display": "$46,790.74"
+            },
+            "B5": {
+              "stored_value": "15361.8792",
+              "unit": "CUR",
+              "display": "$15,361.88"
+            },
+            "TOTAL": {
+              "stored_value": "565116.94183",
+              "unit": "CUR",
+              "display": "$565,116.94"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "LINE \u2014 PARTIAL",
+      "filter": "basis = LINE",
+      "companion_note": "LINE-partial companion \u2014 not authoritative (gap 200.0476 to ORDER TOTAL)",
+      "visuals": [
+        {
+          "type": "table",
+          "bands": [
+            "B0",
+            "B1",
+            "B2",
+            "B3",
+            "B4",
+            "B5",
+            "TOTAL"
+          ],
+          "metrics": [
+            "net_revenue",
+            "gross_revenue",
+            "discount_amount",
+            "wad",
+            "revenue_realization_rate",
+            "modeled_gross_profit",
+            "modeled_gross_margin_pct",
+            "freight_cost",
+            "cost_to_serve",
+            "contribution_profit",
+            "contribution_margin_pct",
+            "quantity",
+            "order_count",
+            "line_count",
+            "neg_contribution_orders",
+            "low_sample_flag",
+            "neg_contribution_lines"
+          ],
+          "cells": {
+            "B0": {
+              "net_revenue": {
+                "stored_value": "1087908.47",
+                "unit": "CUR",
+                "display": "$1,087,908.47"
+              },
+              "gross_revenue": {
+                "stored_value": "1087908.47",
+                "unit": "CUR",
+                "display": "$1,087,908.47"
+              },
+              "discount_amount": {
+                "stored_value": "0.0",
+                "unit": "CUR",
+                "display": "$0.00"
+              },
+              "wad": {
+                "stored_value": "0.0",
+                "unit": "DEC",
+                "display": "0.0000"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "100.0",
+                "unit": "PCT",
+                "display": "100.00%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "383519.898",
+                "unit": "CUR",
+                "display": "$383,519.90"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "35.25295634475573",
+                "unit": "PCT",
+                "display": "35.25%"
+              },
+              "freight_cost": {
+                "stored_value": "109937.78",
+                "unit": "CUR",
+                "display": "$109,937.78"
+              },
+              "cost_to_serve": {
+                "stored_value": "109937.78",
+                "unit": "CUR",
+                "display": "$109,937.78"
+              },
+              "contribution_profit": {
+                "stored_value": "273582.118",
+                "unit": "CUR",
+                "display": "$273,582.12"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "25.147530839611903",
+                "unit": "PCT",
+                "display": "25.15%"
+              },
+              "quantity": {
+                "stored_value": "18267",
+                "unit": "CT",
+                "display": "18,267"
+              },
+              "order_count": {
+                "stored_value": "2644",
+                "unit": "CT",
+                "display": "2,644"
+              },
+              "line_count": {
+                "stored_value": "4798",
+                "unit": "CT",
+                "display": "4,798"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "44.0",
+                "unit": "CT",
+                "display": "44"
+              }
+            },
+            "B1": {
+              "net_revenue": {
+                "stored_value": "81927.8725",
+                "unit": "CUR",
+                "display": "$81,927.87"
+              },
+              "gross_revenue": {
+                "stored_value": "92832.18",
+                "unit": "CUR",
+                "display": "$92,832.18"
+              },
+              "discount_amount": {
+                "stored_value": "10904.3075",
+                "unit": "CUR",
+                "display": "$10,904.31"
+              },
+              "wad": {
+                "stored_value": "0.117462581402268",
+                "unit": "DEC",
+                "display": "0.1175"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "88.2537418597732",
+                "unit": "PCT",
+                "display": "88.25%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "32173.02277",
+                "unit": "CUR",
+                "display": "$32,173.02"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "39.26993560097634",
+                "unit": "PCT",
+                "display": "39.27%"
+              },
+              "freight_cost": {
+                "stored_value": "8935.460000000001",
+                "unit": "CUR",
+                "display": "$8,935.46"
+              },
+              "cost_to_serve": {
+                "stored_value": "8935.460000000001",
+                "unit": "CUR",
+                "display": "$8,935.46"
+              },
+              "contribution_profit": {
+                "stored_value": "23237.56277",
+                "unit": "CUR",
+                "display": "$23,237.56"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "28.36343976831572",
+                "unit": "PCT",
+                "display": "28.36%"
+              },
+              "quantity": {
+                "stored_value": "571",
+                "unit": "CT",
+                "display": "571"
+              },
+              "order_count": {
+                "stored_value": "140",
+                "unit": "CT",
+                "display": "140"
+              },
+              "line_count": {
+                "stored_value": "146",
+                "unit": "CT",
+                "display": "146"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "0.0",
+                "unit": "CT",
+                "display": "0"
+              }
+            },
+            "B2": {
+              "net_revenue": {
+                "stored_value": "764594.368",
+                "unit": "CUR",
+                "display": "$764,594.37"
+              },
+              "gross_revenue": {
+                "stored_value": "955742.96",
+                "unit": "CUR",
+                "display": "$955,742.96"
+              },
+              "discount_amount": {
+                "stored_value": "191148.59199999995",
+                "unit": "CUR",
+                "display": "$191,148.59"
+              },
+              "wad": {
+                "stored_value": "0.1999999999999999",
+                "unit": "DEC",
+                "display": "0.2000"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "80.0",
+                "unit": "PCT",
+                "display": "80.00%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "261648.66328",
+                "unit": "CUR",
+                "display": "$261,648.66"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "34.22058469570103",
+                "unit": "PCT",
+                "display": "34.22%"
+              },
+              "freight_cost": {
+                "stored_value": "82487.71",
+                "unit": "CUR",
+                "display": "$82,487.71"
+              },
+              "cost_to_serve": {
+                "stored_value": "82487.71",
+                "unit": "CUR",
+                "display": "$82,487.71"
+              },
+              "contribution_profit": {
+                "stored_value": "179160.95328",
+                "unit": "CUR",
+                "display": "$179,160.95"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "23.43215707285984",
+                "unit": "PCT",
+                "display": "23.43%"
+              },
+              "quantity": {
+                "stored_value": "13660",
+                "unit": "CT",
+                "display": "13,660"
+              },
+              "order_count": {
+                "stored_value": "2407",
+                "unit": "CT",
+                "display": "2,407"
+              },
+              "line_count": {
+                "stored_value": "3657",
+                "unit": "CT",
+                "display": "3,657"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "46.0",
+                "unit": "CT",
+                "display": "46"
+              }
+            },
+            "B3": {
+              "net_revenue": {
+                "stored_value": "117720.1138",
+                "unit": "CUR",
+                "display": "$117,720.11"
+              },
+              "gross_revenue": {
+                "stored_value": "168780.56000000003",
+                "unit": "CUR",
+                "display": "$168,780.56"
+              },
+              "discount_amount": {
+                "stored_value": "51060.44620000001",
+                "unit": "CUR",
+                "display": "$51,060.45"
+              },
+              "wad": {
+                "stored_value": "0.3025256356537744",
+                "unit": "DEC",
+                "display": "0.3025"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "69.74743643462254",
+                "unit": "PCT",
+                "display": "69.75%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "46524.59977",
+                "unit": "CUR",
+                "display": "$46,524.60"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "39.52136832711761",
+                "unit": "PCT",
+                "display": "39.52%"
+              },
+              "freight_cost": {
+                "stored_value": "13473.66",
+                "unit": "CUR",
+                "display": "$13,473.66"
+              },
+              "cost_to_serve": {
+                "stored_value": "13473.66",
+                "unit": "CUR",
+                "display": "$13,473.66"
+              },
+              "contribution_profit": {
+                "stored_value": "32825.84217",
+                "unit": "CUR",
+                "display": "$32,825.84"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "27.884650388436853",
+                "unit": "PCT",
+                "display": "27.88%"
+              },
+              "quantity": {
+                "stored_value": "954",
+                "unit": "CT",
+                "display": "954"
+              },
+              "order_count": {
+                "stored_value": "234",
+                "unit": "CT",
+                "display": "234"
+              },
+              "line_count": {
+                "stored_value": "254",
+                "unit": "CT",
+                "display": "254"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "2.0",
+                "unit": "CT",
+                "display": "2"
+              }
+            },
+            "B4": {
+              "net_revenue": {
+                "stored_value": "180821.298",
+                "unit": "CUR",
+                "display": "$180,821.30"
+              },
+              "gross_revenue": {
+                "stored_value": "321839.4",
+                "unit": "CUR",
+                "display": "$321,839.40"
+              },
+              "discount_amount": {
+                "stored_value": "141018.102",
+                "unit": "CUR",
+                "display": "$141,018.10"
+              },
+              "wad": {
+                "stored_value": "0.4381629533239249",
+                "unit": "DEC",
+                "display": "0.4382"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "56.1837046676075",
+                "unit": "PCT",
+                "display": "56.18%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "56863.7421",
+                "unit": "CUR",
+                "display": "$56,863.74"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "31.447480318385946",
+                "unit": "PCT",
+                "display": "31.45%"
+              },
+              "freight_cost": {
+                "stored_value": "16470.29",
+                "unit": "CUR",
+                "display": "$16,470.29"
+              },
+              "cost_to_serve": {
+                "stored_value": "16470.29",
+                "unit": "CUR",
+                "display": "$16,470.29"
+              },
+              "contribution_profit": {
+                "stored_value": "40393.4521",
+                "unit": "CUR",
+                "display": "$40,393.45"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "22.33887962688997",
+                "unit": "PCT",
+                "display": "22.34%"
+              },
+              "quantity": {
+                "stored_value": "1072",
+                "unit": "CT",
+                "display": "1,072"
+              },
+              "order_count": {
+                "stored_value": "254",
+                "unit": "CT",
+                "display": "254"
+              },
+              "line_count": {
+                "stored_value": "283",
+                "unit": "CT",
+                "display": "283"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "6.0",
+                "unit": "CT",
+                "display": "6"
+              }
+            },
+            "B5": {
+              "net_revenue": {
+                "stored_value": "64228.738",
+                "unit": "CUR",
+                "display": "$64,228.74"
+              },
+              "gross_revenue": {
+                "stored_value": "236831.47",
+                "unit": "CUR",
+                "display": "$236,831.47"
+              },
+              "discount_amount": {
+                "stored_value": "172602.732",
+                "unit": "CUR",
+                "display": "$172,602.73"
+              },
+              "wad": {
+                "stored_value": "0.728799817017561",
+                "unit": "DEC",
+                "display": "0.7288"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "27.12001829824389",
+                "unit": "PCT",
+                "display": "27.12%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "22560.80591",
+                "unit": "CUR",
+                "display": "$22,560.81"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "35.12571881764203",
+                "unit": "PCT",
+                "display": "35.13%"
+              },
+              "freight_cost": {
+                "stored_value": "6843.84",
+                "unit": "CUR",
+                "display": "$6,843.84"
+              },
+              "cost_to_serve": {
+                "stored_value": "6843.84",
+                "unit": "CUR",
+                "display": "$6,843.84"
+              },
+              "contribution_profit": {
+                "stored_value": "15716.96591",
+                "unit": "CUR",
+                "display": "$15,716.97"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "24.4703016117178",
+                "unit": "PCT",
+                "display": "24.47%"
+              },
+              "quantity": {
+                "stored_value": "3349",
+                "unit": "CT",
+                "display": "3,349"
+              },
+              "order_count": {
+                "stored_value": "685",
+                "unit": "CT",
+                "display": "685"
+              },
+              "line_count": {
+                "stored_value": "856",
+                "unit": "CT",
+                "display": "856"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "11.0",
+                "unit": "CT",
+                "display": "11"
+              }
+            },
+            "TOTAL": {
+              "net_revenue": {
+                "stored_value": "2297200.8603",
+                "unit": "CUR",
+                "display": "$2,297,200.86"
+              },
+              "gross_revenue": {
+                "stored_value": "2863935.04",
+                "unit": "CUR",
+                "display": "$2,863,935.04"
+              },
+              "discount_amount": {
+                "stored_value": "566734.1797",
+                "unit": "CUR",
+                "display": "$566,734.18"
+              },
+              "wad": {
+                "stored_value": "0.1978865343607793",
+                "unit": "DEC",
+                "display": "0.1979"
+              },
+              "revenue_realization_rate": {
+                "stored_value": "80.21134656392206",
+                "unit": "PCT",
+                "display": "80.21%"
+              },
+              "modeled_gross_profit": {
+                "stored_value": "803290.73183",
+                "unit": "CUR",
+                "display": "$803,290.73"
+              },
+              "modeled_gross_margin_pct": {
+                "stored_value": "34.96824094542152",
+                "unit": "PCT",
+                "display": "34.97%"
+              },
+              "freight_cost": {
+                "stored_value": "238148.74",
+                "unit": "CUR",
+                "display": "$238,148.74"
+              },
+              "cost_to_serve": {
+                "stored_value": "238148.74",
+                "unit": "CUR",
+                "display": "$238,148.74"
+              },
+              "contribution_profit": {
+                "stored_value": "564916.8942300001",
+                "unit": "CUR",
+                "display": "$564,916.89"
+              },
+              "contribution_margin_pct": {
+                "stored_value": "24.59153241637849",
+                "unit": "PCT",
+                "display": "24.59%"
+              },
+              "quantity": {
+                "stored_value": "37873",
+                "unit": "CT",
+                "display": "37,873"
+              },
+              "order_count": {
+                "stored_value": "5009",
+                "unit": "CT",
+                "display": "5,009"
+              },
+              "line_count": {
+                "stored_value": "9994",
+                "unit": "CT",
+                "display": "9,994"
+              },
+              "neg_contribution_orders": {
+                "stored_value": "",
+                "unit": "CT",
+                "display": "N/A"
+              },
+              "low_sample_flag": {
+                "stored_value": "False",
+                "unit": "Flag",
+                "display": "False"
+              },
+              "neg_contribution_lines": {
+                "stored_value": "109.0",
+                "unit": "CT",
+                "display": "109"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "na_reasons": [
+    {
+      "basis": "LINE",
+      "band": "B0",
+      "metric": "neg_contribution_orders",
+      "definition_ref": "Negative-contribution orders",
+      "limitation": "N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block"
+    },
+    {
+      "basis": "LINE",
+      "band": "B1",
+      "metric": "neg_contribution_orders",
+      "definition_ref": "Negative-contribution orders",
+      "limitation": "N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block"
+    },
+    {
+      "basis": "LINE",
+      "band": "B2",
+      "metric": "neg_contribution_orders",
+      "definition_ref": "Negative-contribution orders",
+      "limitation": "N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block"
+    },
+    {
+      "basis": "LINE",
+      "band": "B3",
+      "metric": "neg_contribution_orders",
+      "definition_ref": "Negative-contribution orders",
+      "limitation": "N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block"
+    },
+    {
+      "basis": "LINE",
+      "band": "B4",
+      "metric": "neg_contribution_orders",
+      "definition_ref": "Negative-contribution orders",
+      "limitation": "N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block"
+    },
+    {
+      "basis": "LINE",
+      "band": "B5",
+      "metric": "neg_contribution_orders",
+      "definition_ref": "Negative-contribution orders",
+      "limitation": "N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block"
+    },
+    {
+      "basis": "LINE",
+      "band": "TOTAL",
+      "metric": "neg_contribution_orders",
+      "definition_ref": "Negative-contribution orders",
+      "limitation": "N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block"
+    },
+    {
+      "basis": "ORDER",
+      "band": "B0",
+      "metric": "neg_contribution_lines",
+      "definition_ref": "Negative-contribution lines (LINE partial grain only)",
+      "limitation": "N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail"
+    },
+    {
+      "basis": "ORDER",
+      "band": "B1",
+      "metric": "neg_contribution_lines",
+      "definition_ref": "Negative-contribution lines (LINE partial grain only)",
+      "limitation": "N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail"
+    },
+    {
+      "basis": "ORDER",
+      "band": "B2",
+      "metric": "neg_contribution_lines",
+      "definition_ref": "Negative-contribution lines (LINE partial grain only)",
+      "limitation": "N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail"
+    },
+    {
+      "basis": "ORDER",
+      "band": "B3",
+      "metric": "neg_contribution_lines",
+      "definition_ref": "Negative-contribution lines (LINE partial grain only)",
+      "limitation": "N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail"
+    },
+    {
+      "basis": "ORDER",
+      "band": "B4",
+      "metric": "neg_contribution_lines",
+      "definition_ref": "Negative-contribution lines (LINE partial grain only)",
+      "limitation": "N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail"
+    },
+    {
+      "basis": "ORDER",
+      "band": "B5",
+      "metric": "neg_contribution_lines",
+      "definition_ref": "Negative-contribution lines (LINE partial grain only)",
+      "limitation": "N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail"
+    },
+    {
+      "basis": "ORDER",
+      "band": "TOTAL",
+      "metric": "neg_contribution_lines",
+      "definition_ref": "Negative-contribution lines (LINE partial grain only)",
+      "limitation": "N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail"
+    }
+  ],
+  "labels": {
+    "standing": "OBSERVED BASELINE \u2014 contribution-band analysis",
+    "grain": "Reporting grain: Overall \u00d7 discount band",
+    "authority": "ORDER authoritative; LINE partial companion",
+    "source_view": "contribution_by_band",
+    "source_artifact": "AO-02 frozen contribution-by-band output",
+    "validation": "17/17 PASS (phase4c_band_contribution_quality.json)",
+    "distinction": "Gross profit (modeled, excl. serve costs) vs Contribution profit (net of serve costs) vs Discount amount (revenue forgone, not profit loss) \u2014 not interchangeable."
+  },
+  "methodology": [
+    "Observed quantity retained (no demand response estimated).",
+    "COGS is modeled (revenue-based sub-category benchmarks) \u2014 analytical estimate, not accounting COGS; AO-02 carries no standalone modeled-COGS row (see modeled_gross_profit / modeled_gross_margin_pct).",
+    "Freight passthrough as observed (methodology unverified \u2014 Phase 2 caveat).",
+    "Return-processing costs OFF (excluded, not actual).",
+    "Support costs OFF (excluded, not actual).",
+    "Results conditional on the selected cost structure and benchmark assumptions."
+  ],
+  "caveat": "Observed baseline and stored contribution-band analysis under the stated methodology and cost assumptions; not a forecast, causal estimate, demand prediction, or optimized-pricing recommendation.",
+  "restrictions": [
+    "no pie/trend/predictive/AI/decomposition visuals",
+    "ORDER and LINE never blended; TOTAL row separated",
+    "summarization off on all value fields",
+    "all columns imported as Text"
+  ]
+}

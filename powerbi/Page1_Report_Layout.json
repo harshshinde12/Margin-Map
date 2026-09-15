@@ -1,0 +1,140 @@
+{
+  "page_name": "Page 1 \u2014 Executive Profitability Overview",
+  "source": {
+    "database": "data/processed/marginmap.db",
+    "view": "baseline_total",
+    "import_mode": "Import",
+    "only_view_imported": true
+  },
+  "model": {
+    "relationships": [],
+    "dax_measures": [],
+    "power_query_calculations": []
+  },
+  "cards": [
+    {
+      "title": "Net Revenue (baseline)",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "net_revenue"
+      },
+      "stored_value": "2297200.8603000003",
+      "unit": "CUR",
+      "display": "$2,297,200.86"
+    },
+    {
+      "title": "Gross Profit (modeled)",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "modeled_gross_profit"
+      },
+      "stored_value": "803290.7318300004",
+      "unit": "CUR",
+      "display": "$803,290.73"
+    },
+    {
+      "title": "Gross Margin (modeled)",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "modeled_gross_margin_pct"
+      },
+      "stored_value": "34.96824094542153",
+      "unit": "PCT",
+      "display": "34.97%"
+    },
+    {
+      "title": "Contribution Profit",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "contribution_profit"
+      },
+      "stored_value": "565116.9418299999",
+      "unit": "CUR",
+      "display": "$565,116.94"
+    },
+    {
+      "title": "Contribution Margin",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "contribution_margin_pct"
+      },
+      "stored_value": "24.600240736293262",
+      "unit": "PCT",
+      "display": "24.60%"
+    },
+    {
+      "title": "WAD (weighted-avg. discount)",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "wad"
+      },
+      "stored_value": "0.19788653436077944",
+      "unit": "DEC",
+      "display": "0.1979"
+    },
+    {
+      "title": "Quantity",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "quantity"
+      },
+      "stored_value": "37873",
+      "unit": "CT",
+      "display": "37,873"
+    },
+    {
+      "title": "Orders",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "order_count"
+      },
+      "stored_value": "5009",
+      "unit": "CT",
+      "display": "5,009"
+    },
+    {
+      "title": "Lines",
+      "binding": {
+        "table": "baseline_total",
+        "metric_name": "line_count"
+      },
+      "stored_value": "9994",
+      "unit": "CT",
+      "display": "9,994"
+    }
+  ],
+  "metric_table": {
+    "type": "table",
+    "columns": [
+      "metric_name",
+      "metric_value",
+      "unit",
+      "limitation"
+    ],
+    "row_count": 20
+  },
+  "labels": {
+    "standing": "OBSERVED BASELINE",
+    "grain": "Reporting grain: TOTAL",
+    "authority": "Authority: ORDER",
+    "source_view": "baseline_total",
+    "source_artifact": "AO-01 baseline TOTAL output",
+    "validation": "AO-01 validation 18/18 PASS (phase4c_baseline_total_quality.json)",
+    "distinction": "Gross profit (modeled, excl. serve costs) vs Contribution profit (net of serve costs) vs Discount amount (revenue forgone, not profit loss) \u2014 not interchangeable."
+  },
+  "methodology": [
+    "Observed quantity retained (37,873 units; no demand response estimated).",
+    "COGS is modeled (revenue-based sub-category benchmarks) \u2014 analytical estimate, not accounting COGS.",
+    "Freight passthrough as observed (methodology unverified \u2014 Phase 2 caveat).",
+    "Return-processing costs OFF (excluded, not actual).",
+    "Support costs OFF (excluded, not actual).",
+    "Results conditional on the selected cost structure and benchmark assumptions."
+  ],
+  "caveat": "Observed baseline under the stated methodology and cost assumptions; not a forecast or causal estimate.",
+  "restrictions": [
+    "no pie/line/forecast/AI/decomposition visuals",
+    "no waterfall (not approved in spec)",
+    "summarization off on all value fields",
+    "all columns imported as Text"
+  ]
+}

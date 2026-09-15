@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page 2 — Discount-Band Contribution Analysis — preview (not a .pbix)</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; margin: 24px; color: #1b1b1b;
+         background: #f5f5f5; }
+  .page { max-width: 1240px; margin: auto; background: #fff; padding: 28px 32px;
+           border: 1px solid #ddd; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 26px 0 8px; border-bottom: 3px solid #0f5c2e;
+        padding-bottom: 4px; }
+  h3 { font-size: 14px; margin: 14px 0 6px; }
+  .banner { display: inline-block; background: #0f5c2e; color: #fff; font-weight: 600;
+             padding: 4px 12px; margin: 8px 0; font-size: 13px; letter-spacing: .5px; }
+  .meta { font-size: 13px; color: #333; line-height: 1.7; background: #f0f4f1;
+           border-left: 4px solid #0f5c2e; padding: 10px 14px; margin: 12px 0 6px; }
+  table.matrix { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.matrix th, table.matrix td { border: 1px solid #ccc; padding: 5px 7px;
+                                      text-align: left; vertical-align: top; }
+  table.matrix th { background: #0f5c2e; color: #fff; }
+  td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  td.na { text-align: center; color: #8a6d00; font-weight: 600; background: #fff8e1; }
+  .totalcol { background: #eef3ee; font-weight: 600; }
+  th.totalcol { background: #0b4522 !important; }
+  .bar-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; font-size: 13px; }
+  .bar-label { width: 150px; }
+  .bar { display: inline-block; height: 16px; background: #0f5c2e; }
+  .bar.totalbar { background: #555; }
+  .bar-val { font-variant-numeric: tabular-nums; }
+  .bar-row.total { border-top: 2px solid #555; padding-top: 6px; margin-top: 8px; }
+  .note { font-size: 13px; line-height: 1.65; background: #fafafa;
+           border: 1px solid #ddd; padding: 12px 16px; margin-top: 20px; }
+  .note h2 { border: none; margin: 0 0 6px; padding: 0; }
+  .caveat { font-size: 13px; font-weight: 600; border: 2px solid #8a6d00;
+             background: #fff8e1; padding: 10px 14px; margin-top: 16px; }
+  .footer { font-size: 12px; color: #666; margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Page 2 — Discount-Band Contribution Analysis</h1>
+  <div class="banner">OBSERVED BASELINE — CONTRIBUTION-BAND ANALYSIS</div>
+  <div class="meta">
+    <b>Source view:</b> contribution_by_band &nbsp;|&nbsp;
+    <b>Source artifact:</b> AO-02 frozen contribution-by-band output
+    (phase4c_band_contribution.csv)<br>
+    <b>Reporting grain:</b> Overall × discount band (B0–B5 + TOTAL)
+    &nbsp;|&nbsp; <b>Validation status:</b> 17/17 PASS
+    (phase4c_band_contribution_quality.json)<br>
+    <b>Quality:</b> low_sample_flag per band shown in matrix; ORDER TOTAL contribution
+    565,116.94 reconciles to the order-fact baseline (negative ORDER distribution
+    14/3/24/1/3/5/TOTAL 50 = 50 flagged orders).<br>
+    <b>Reading rule:</b> Gross profit (modeled, excl. serve costs) vs Contribution profit
+    (net of serve costs) vs Discount amount (revenue forgone, not profit loss)
+    — distinct concepts, not interchangeable. Margin rows are stored SUM/SUM
+    values — never averaged across bands.
+  </div>
+  <h2>ORDER — AUTHORITATIVE (basis = ORDER)</h2>
+  <div class="bar-row" style="font-weight:600"><span class="bar-label">Contribution by band</span></div>
+      <div class="bar-row"><span class="bar-label">B0</span><span class="bar" style="width:60.0%"></span><span class="bar-val" data-source-value="220993.5347">$220,993.53</span></div>
+      <div class="bar-row"><span class="bar-label">B1</span><span class="bar" style="width:21.7%"></span><span class="bar-val" data-source-value="79940.04375">$79,940.04</span></div>
+      <div class="bar-row"><span class="bar-label">B2</span><span class="bar" style="width:42.5%"></span><span class="bar-val" data-source-value="156514.9269">$156,514.93</span></div>
+      <div class="bar-row"><span class="bar-label">B3</span><span class="bar" style="width:12.4%"></span><span class="bar-val" data-source-value="45515.82156">$45,515.82</span></div>
+      <div class="bar-row"><span class="bar-label">B4</span><span class="bar" style="width:12.7%"></span><span class="bar-val" data-source-value="46790.73572">$46,790.74</span></div>
+      <div class="bar-row"><span class="bar-label">B5</span><span class="bar" style="width:4.2%"></span><span class="bar-val" data-source-value="15361.8792">$15,361.88</span></div>
+      <div class="bar-row total"><span class="bar-label">TOTAL (cross-check)</span><span class="bar totalbar" style="width:60.0%"></span><span class="bar-val" data-source-value="565116.94183">$565,116.94</span></div>
+    <h3>ORDER band matrix — TOTAL column separated (cross-check, not a band)</h3>
+    <table class="matrix">
+      <tr><th>Metric (unit shown per value)</th><th class="">B0</th><th class="">B1</th><th class="">B2</th><th class="">B3</th><th class="">B4</th><th class="">B5</th><th class="totalcol">TOTAL</th></tr>
+      <tr><td>net_revenue</td><td class="num" data-source-value="862202.39">$862,202.39</td><td class="num" data-source-value="328153.8555">$328,153.86</td><td class="num" data-source-value="669040.9654">$669,040.97</td><td class="num" data-source-value="172284.0949">$172,284.09</td><td class="num" data-source-value="203630.913">$203,630.91</td><td class="num" data-source-value="61888.6415">$61,888.64</td><td class="numtotalcol" data-source-value="2297200.8603">$2,297,200.86</td></tr>
+      <tr><td>gross_revenue</td><td class="num" data-source-value="862202.39">$862,202.39</td><td class="num" data-source-value="353809.7">$353,809.70</td><td class="num" data-source-value="832067.3999999999">$832,067.40</td><td class="num" data-source-value="245885.59">$245,885.59</td><td class="num" data-source-value="359050.97000000003">$359,050.97</td><td class="num" data-source-value="210918.99">$210,918.99</td><td class="numtotalcol" data-source-value="2863935.04">$2,863,935.04</td></tr>
+      <tr><td>discount_amount</td><td class="num" data-source-value="0.0">$0.00</td><td class="num" data-source-value="25655.8445">$25,655.84</td><td class="num" data-source-value="163026.43459999995">$163,026.43</td><td class="num" data-source-value="73601.4951">$73,601.50</td><td class="num" data-source-value="155420.057">$155,420.06</td><td class="num" data-source-value="149030.3485">$149,030.35</td><td class="numtotalcol" data-source-value="566734.1797">$566,734.18</td></tr>
+      <tr><td>wad</td><td class="num" data-source-value="0.0">0.0000</td><td class="num" data-source-value="0.0725131179275186">0.0725</td><td class="num" data-source-value="0.1959293617319942">0.1959</td><td class="num" data-source-value="0.2993322833599154">0.2993</td><td class="num" data-source-value="0.4328634928907168">0.4329</td><td class="num" data-source-value="0.7065762475915516">0.7066</td><td class="numtotalcol" data-source-value="0.1978865343607793">0.1979</td></tr>
+      <tr><td>revenue_realization_rate</td><td class="num" data-source-value="100.0">100.00%</td><td class="num" data-source-value="92.74868820724814">92.75%</td><td class="num" data-source-value="80.40706382680057">80.41%</td><td class="num" data-source-value="70.06677166400846">70.07%</td><td class="num" data-source-value="56.71365071092831">56.71%</td><td class="num" data-source-value="29.34237524084484">29.34%</td><td class="numtotalcol" data-source-value="80.21134656392206">80.21%</td></tr>
+      <tr><td>modeled_gross_profit</td><td class="num" data-source-value="305308.2247">$305,308.22</td><td class="num" data-source-value="116085.67375000002">$116,085.67</td><td class="num" data-source-value="229625.8069">$229,625.81</td><td class="num" data-source-value="64945.75155999999">$64,945.75</td><td class="num" data-source-value="65535.22571999999">$65,535.23</td><td class="num" data-source-value="21790.049199999998">$21,790.05</td><td class="numtotalcol" data-source-value="803290.73183">$803,290.73</td></tr>
+      <tr><td>modeled_gross_margin_pct</td><td class="num" data-source-value="35.41027353218077">35.41%</td><td class="num" data-source-value="35.3753801164771">35.38%</td><td class="num" data-source-value="34.32163630857991">34.32%</td><td class="num" data-source-value="37.69689337701016">37.70%</td><td class="num" data-source-value="32.183338351972125">32.18%</td><td class="num" data-source-value="35.208478764233334">35.21%</td><td class="numtotalcol" data-source-value="34.96824094542152">34.97%</td></tr>
+      <tr><td>freight_cost</td><td class="num" data-source-value="84314.69">$84,314.69</td><td class="num" data-source-value="36145.63">$36,145.63</td><td class="num" data-source-value="73110.88">$73,110.88</td><td class="num" data-source-value="19429.93">$19,429.93</td><td class="num" data-source-value="18744.49">$18,744.49</td><td class="num" data-source-value="6428.17">$6,428.17</td><td class="numtotalcol" data-source-value="238173.79">$238,173.79</td></tr>
+      <tr><td>cost_to_serve</td><td class="num" data-source-value="84314.69">$84,314.69</td><td class="num" data-source-value="36145.63">$36,145.63</td><td class="num" data-source-value="73110.88">$73,110.88</td><td class="num" data-source-value="19429.93">$19,429.93</td><td class="num" data-source-value="18744.49">$18,744.49</td><td class="num" data-source-value="6428.17">$6,428.17</td><td class="numtotalcol" data-source-value="238173.79">$238,173.79</td></tr>
+      <tr><td>contribution_profit</td><td class="num" data-source-value="220993.5347">$220,993.53</td><td class="num" data-source-value="79940.04375">$79,940.04</td><td class="num" data-source-value="156514.9269">$156,514.93</td><td class="num" data-source-value="45515.82156">$45,515.82</td><td class="num" data-source-value="46790.73572">$46,790.74</td><td class="num" data-source-value="15361.8792">$15,361.88</td><td class="numtotalcol" data-source-value="565116.94183">$565,116.94</td></tr>
+      <tr><td>contribution_margin_pct</td><td class="num" data-source-value="25.631283010013465">25.63%</td><td class="num" data-source-value="24.36053772039256">24.36%</td><td class="num" data-source-value="23.393922793116907">23.39%</td><td class="num" data-source-value="26.41905022423518">26.42%</td><td class="num" data-source-value="22.97820848055619">22.98%</td><td class="num" data-source-value="24.82180708393801">24.82%</td><td class="numtotalcol" data-source-value="24.600240736293276">24.60%</td></tr>
+      <tr><td>quantity</td><td class="num" data-source-value="13784">13,784</td><td class="num" data-source-value="5056">5,056</td><td class="num" data-source-value="10930">10,930</td><td class="num" data-source-value="2912">2,912</td><td class="num" data-source-value="2812">2,812</td><td class="num" data-source-value="2379">2,379</td><td class="numtotalcol" data-source-value="37873">37,873</td></tr>
+      <tr><td>order_count</td><td class="num" data-source-value="2055">2,055</td><td class="num" data-source-value="415">415</td><td class="num" data-source-value="1634">1,634</td><td class="num" data-source-value="278">278</td><td class="num" data-source-value="274">274</td><td class="num" data-source-value="353">353</td><td class="numtotalcol" data-source-value="5009">5,009</td></tr>
+      <tr><td>line_count</td><td class="num" data-source-value="3612">3,612</td><td class="num" data-source-value="1324">1,324</td><td class="num" data-source-value="2941">2,941</td><td class="num" data-source-value="773">773</td><td class="num" data-source-value="744">744</td><td class="num" data-source-value="600">600</td><td class="numtotalcol" data-source-value="9994">9,994</td></tr>
+      <tr><td>neg_contribution_orders</td><td class="num" data-source-value="14.0">14</td><td class="num" data-source-value="3.0">3</td><td class="num" data-source-value="24.0">24</td><td class="num" data-source-value="1.0">1</td><td class="num" data-source-value="3.0">3</td><td class="num" data-source-value="5.0">5</td><td class="numtotalcol" data-source-value="50.0">50</td></tr>
+      <tr><td>low_sample_flag</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="numtotalcol" data-source-value="False">False</td></tr>
+      <tr><td>neg_contribution_lines</td><td class="na" title="Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail">N/A *</td><td class="na" title="Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail">N/A *</td><td class="na" title="Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail">N/A *</td><td class="na" title="Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail">N/A *</td><td class="na" title="Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail">N/A *</td><td class="na" title="Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail">N/A *</td><td class="natotalcol" title="Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail">N/A *</td></tr>
+    </table>
+  <h2>LINE — PARTIAL companion (basis = LINE)</h2>
+  <p style="font-size:13px">LINE-partial companion — not authoritative
+  (gap 200.0476 to ORDER TOTAL). Shown beside, never instead of, the ORDER rows;
+  never averaged with ORDER rows.</p>
+    <h3>LINE band matrix — partial values only</h3>
+    <table class="matrix">
+      <tr><th>Metric (unit shown per value)</th><th class="">B0</th><th class="">B1</th><th class="">B2</th><th class="">B3</th><th class="">B4</th><th class="">B5</th><th class="totalcol">TOTAL</th></tr>
+      <tr><td>net_revenue</td><td class="num" data-source-value="1087908.47">$1,087,908.47</td><td class="num" data-source-value="81927.8725">$81,927.87</td><td class="num" data-source-value="764594.368">$764,594.37</td><td class="num" data-source-value="117720.1138">$117,720.11</td><td class="num" data-source-value="180821.298">$180,821.30</td><td class="num" data-source-value="64228.738">$64,228.74</td><td class="numtotalcol" data-source-value="2297200.8603">$2,297,200.86</td></tr>
+      <tr><td>gross_revenue</td><td class="num" data-source-value="1087908.47">$1,087,908.47</td><td class="num" data-source-value="92832.18">$92,832.18</td><td class="num" data-source-value="955742.96">$955,742.96</td><td class="num" data-source-value="168780.56000000003">$168,780.56</td><td class="num" data-source-value="321839.4">$321,839.40</td><td class="num" data-source-value="236831.47">$236,831.47</td><td class="numtotalcol" data-source-value="2863935.04">$2,863,935.04</td></tr>
+      <tr><td>discount_amount</td><td class="num" data-source-value="0.0">$0.00</td><td class="num" data-source-value="10904.3075">$10,904.31</td><td class="num" data-source-value="191148.59199999995">$191,148.59</td><td class="num" data-source-value="51060.44620000001">$51,060.45</td><td class="num" data-source-value="141018.102">$141,018.10</td><td class="num" data-source-value="172602.732">$172,602.73</td><td class="numtotalcol" data-source-value="566734.1797">$566,734.18</td></tr>
+      <tr><td>wad</td><td class="num" data-source-value="0.0">0.0000</td><td class="num" data-source-value="0.117462581402268">0.1175</td><td class="num" data-source-value="0.1999999999999999">0.2000</td><td class="num" data-source-value="0.3025256356537744">0.3025</td><td class="num" data-source-value="0.4381629533239249">0.4382</td><td class="num" data-source-value="0.728799817017561">0.7288</td><td class="numtotalcol" data-source-value="0.1978865343607793">0.1979</td></tr>
+      <tr><td>revenue_realization_rate</td><td class="num" data-source-value="100.0">100.00%</td><td class="num" data-source-value="88.2537418597732">88.25%</td><td class="num" data-source-value="80.0">80.00%</td><td class="num" data-source-value="69.74743643462254">69.75%</td><td class="num" data-source-value="56.1837046676075">56.18%</td><td class="num" data-source-value="27.12001829824389">27.12%</td><td class="numtotalcol" data-source-value="80.21134656392206">80.21%</td></tr>
+      <tr><td>modeled_gross_profit</td><td class="num" data-source-value="383519.898">$383,519.90</td><td class="num" data-source-value="32173.02277">$32,173.02</td><td class="num" data-source-value="261648.66328">$261,648.66</td><td class="num" data-source-value="46524.59977">$46,524.60</td><td class="num" data-source-value="56863.7421">$56,863.74</td><td class="num" data-source-value="22560.80591">$22,560.81</td><td class="numtotalcol" data-source-value="803290.73183">$803,290.73</td></tr>
+      <tr><td>modeled_gross_margin_pct</td><td class="num" data-source-value="35.25295634475573">35.25%</td><td class="num" data-source-value="39.26993560097634">39.27%</td><td class="num" data-source-value="34.22058469570103">34.22%</td><td class="num" data-source-value="39.52136832711761">39.52%</td><td class="num" data-source-value="31.447480318385946">31.45%</td><td class="num" data-source-value="35.12571881764203">35.13%</td><td class="numtotalcol" data-source-value="34.96824094542152">34.97%</td></tr>
+      <tr><td>freight_cost</td><td class="num" data-source-value="109937.78">$109,937.78</td><td class="num" data-source-value="8935.460000000001">$8,935.46</td><td class="num" data-source-value="82487.71">$82,487.71</td><td class="num" data-source-value="13473.66">$13,473.66</td><td class="num" data-source-value="16470.29">$16,470.29</td><td class="num" data-source-value="6843.84">$6,843.84</td><td class="numtotalcol" data-source-value="238148.74">$238,148.74</td></tr>
+      <tr><td>cost_to_serve</td><td class="num" data-source-value="109937.78">$109,937.78</td><td class="num" data-source-value="8935.460000000001">$8,935.46</td><td class="num" data-source-value="82487.71">$82,487.71</td><td class="num" data-source-value="13473.66">$13,473.66</td><td class="num" data-source-value="16470.29">$16,470.29</td><td class="num" data-source-value="6843.84">$6,843.84</td><td class="numtotalcol" data-source-value="238148.74">$238,148.74</td></tr>
+      <tr><td>contribution_profit</td><td class="num" data-source-value="273582.118">$273,582.12</td><td class="num" data-source-value="23237.56277">$23,237.56</td><td class="num" data-source-value="179160.95328">$179,160.95</td><td class="num" data-source-value="32825.84217">$32,825.84</td><td class="num" data-source-value="40393.4521">$40,393.45</td><td class="num" data-source-value="15716.96591">$15,716.97</td><td class="numtotalcol" data-source-value="564916.8942300001">$564,916.89</td></tr>
+      <tr><td>contribution_margin_pct</td><td class="num" data-source-value="25.147530839611903">25.15%</td><td class="num" data-source-value="28.36343976831572">28.36%</td><td class="num" data-source-value="23.43215707285984">23.43%</td><td class="num" data-source-value="27.884650388436853">27.88%</td><td class="num" data-source-value="22.33887962688997">22.34%</td><td class="num" data-source-value="24.4703016117178">24.47%</td><td class="numtotalcol" data-source-value="24.59153241637849">24.59%</td></tr>
+      <tr><td>quantity</td><td class="num" data-source-value="18267">18,267</td><td class="num" data-source-value="571">571</td><td class="num" data-source-value="13660">13,660</td><td class="num" data-source-value="954">954</td><td class="num" data-source-value="1072">1,072</td><td class="num" data-source-value="3349">3,349</td><td class="numtotalcol" data-source-value="37873">37,873</td></tr>
+      <tr><td>order_count</td><td class="num" data-source-value="2644">2,644</td><td class="num" data-source-value="140">140</td><td class="num" data-source-value="2407">2,407</td><td class="num" data-source-value="234">234</td><td class="num" data-source-value="254">254</td><td class="num" data-source-value="685">685</td><td class="numtotalcol" data-source-value="5009">5,009</td></tr>
+      <tr><td>line_count</td><td class="num" data-source-value="4798">4,798</td><td class="num" data-source-value="146">146</td><td class="num" data-source-value="3657">3,657</td><td class="num" data-source-value="254">254</td><td class="num" data-source-value="283">283</td><td class="num" data-source-value="856">856</td><td class="numtotalcol" data-source-value="9994">9,994</td></tr>
+      <tr><td>neg_contribution_orders</td><td class="na" title="Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block">N/A *</td><td class="na" title="Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block">N/A *</td><td class="na" title="Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block">N/A *</td><td class="na" title="Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block">N/A *</td><td class="na" title="Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block">N/A *</td><td class="na" title="Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block">N/A *</td><td class="natotalcol" title="Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block">N/A *</td></tr>
+      <tr><td>low_sample_flag</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="num" data-source-value="False">False</td><td class="numtotalcol" data-source-value="False">False</td></tr>
+      <tr><td>neg_contribution_lines</td><td class="num" data-source-value="44.0">44</td><td class="num" data-source-value="0.0">0</td><td class="num" data-source-value="46.0">46</td><td class="num" data-source-value="2.0">2</td><td class="num" data-source-value="6.0">6</td><td class="num" data-source-value="11.0">11</td><td class="numtotalcol" data-source-value="109.0">109</td></tr>
+    </table>
+  <div class="note"><h2>N/A reasons (exact frozen text)</h2><ul>
+      <li><b>LINE / B0 / neg_contribution_orders</b> — Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block</li>
+      <li><b>LINE / B1 / neg_contribution_orders</b> — Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block</li>
+      <li><b>LINE / B2 / neg_contribution_orders</b> — Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block</li>
+      <li><b>LINE / B3 / neg_contribution_orders</b> — Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block</li>
+      <li><b>LINE / B4 / neg_contribution_orders</b> — Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block</li>
+      <li><b>LINE / B5 / neg_contribution_orders</b> — Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block</li>
+      <li><b>LINE / TOTAL / neg_contribution_orders</b> — Negative-contribution orders: N/A at LINE partial grain (not licensed); see neg_contribution_lines on the LINE block</li>
+      <li><b>ORDER / B0 / neg_contribution_lines</b> — Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail</li>
+      <li><b>ORDER / B1 / neg_contribution_lines</b> — Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail</li>
+      <li><b>ORDER / B2 / neg_contribution_lines</b> — Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail</li>
+      <li><b>ORDER / B3 / neg_contribution_lines</b> — Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail</li>
+      <li><b>ORDER / B4 / neg_contribution_lines</b> — Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail</li>
+      <li><b>ORDER / B5 / neg_contribution_lines</b> — Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail</li>
+      <li><b>ORDER / TOTAL / neg_contribution_lines</b> — Negative-contribution lines (LINE partial grain only): N/A at ORDER authoritative grain (detail rows); see neg_contribution_orders on the ORDER block; TOTAL-row zeros are file convention, not licensed detail</li>
+  </ul></div>
+  <div class="note"><h2>Methodology assumptions and limitations</h2><ul>
+      <li>Observed quantity retained (no demand response estimated).</li>
+      <li>COGS is modeled (revenue-based sub-category benchmarks) — analytical estimate, not accounting COGS; AO-02 carries no standalone modeled-COGS row (see modeled_gross_profit / modeled_gross_margin_pct).</li>
+      <li>Freight passthrough as observed (methodology unverified — Phase 2 caveat).</li>
+      <li>Return-processing costs OFF (excluded, not actual).</li>
+      <li>Support costs OFF (excluded, not actual).</li>
+      <li>Results conditional on the selected cost structure and benchmark assumptions.</li>
+  </ul><p>Bands are observed discount configurations (B0–B5 + TOTAL cross-check).
+  LINE rows are partial by the stated 200.0476 gap. No re-banding and no scenario
+  work on this page.</p></div>
+  <div class="caveat">Observed baseline and stored contribution-band analysis under the stated methodology and cost assumptions; not a forecast, causal estimate, demand prediction, or optimized-pricing recommendation.</div>
+  <div class="footer">Preview generated by powerbi/page2_build.py from
+    data/processed/marginmap.db (read-only). Display formatting of exact stored TEXT;
+    each value carries its source string in <i>data-source-value</i>. No DAX, no
+    relationships, no new calculations.</div>
+</div>
+</body>
+</html>

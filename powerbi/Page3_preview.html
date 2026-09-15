@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page 3 — Scenario Sensitivity — TOTAL — preview (not a .pbix)</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; margin: 24px; color: #1b1b1b;
+         background: #f5f5f5; }
+  .page { max-width: 1240px; margin: auto; background: #fff; padding: 28px 32px;
+           border: 1px solid #ddd; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 26px 0 8px; border-bottom: 3px solid #0f5c2e;
+        padding-bottom: 4px; }
+  h3 { font-size: 14px; margin: 14px 0 6px; }
+  .banner { display: inline-block; background: #0f5c2e; color: #fff; font-weight: 600;
+             padding: 4px 12px; margin: 8px 0; font-size: 13px; letter-spacing: .5px; }
+  .status { font-size: 11px; background: #333; color: #fff; padding: 2px 8px;
+             letter-spacing: .4px; }
+  .meta { font-size: 13px; color: #333; line-height: 1.7; background: #f0f4f1;
+           border-left: 4px solid #0f5c2e; padding: 10px 14px; margin: 12px 0 6px; }
+  table.vals { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.vals th, table.vals td { border: 1px solid #ccc; padding: 5px 7px;
+                                  text-align: left; vertical-align: top; }
+  table.vals th { background: #0f5c2e; color: #fff; }
+  td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  td.na { text-align: center; color: #8a6d00; font-weight: 600; background: #fff8e1; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+            margin: 10px 0; }
+  .card { border: 1px solid #ccc; border-top: 4px solid #0f5c2e; padding: 12px 14px; }
+  .card.pp { border-top-color: #8a6d00; }
+  .card-title { font-size: 12px; color: #555; text-transform: uppercase;
+                 letter-spacing: .4px; }
+  .card-value { font-size: 24px; font-weight: 600; margin: 4px 0; }
+  .card-unit { font-size: 12px; color: #666; }
+  .note { font-size: 13px; line-height: 1.65; background: #fafafa;
+           border: 1px solid #ddd; padding: 12px 16px; margin-top: 20px; }
+  .note h2 { border: none; margin: 0 0 6px; padding: 0; }
+  .caveat { font-size: 13px; font-weight: 600; border: 2px solid #8a6d00;
+             background: #fff8e1; padding: 10px 14px; margin-top: 16px; }
+  .caveat.top { font-size: 14px; }
+  .footer { font-size: 12px; color: #666; margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Page 3 — Scenario Sensitivity — TOTAL</h1>
+  <div class="banner">HYPOTHETICAL SCENARIO ANALYSIS</div>
+  <div class="caveat top">Illustrative constant-quantity arithmetic sensitivity, not a forecast.</div>
+  <div class="meta">
+    <b>Source view:</b> scenario_comparison_total &nbsp;|&nbsp;
+    <b>Source artifact:</b> AO-03 scenario comparison at TOTAL
+    (phase4c_scenario_comparison_total.csv)<br>
+    <b>Reporting grain:</b> Overall TOTAL (authoritative order economics)
+    &nbsp;|&nbsp; <b>Validation status:</b> 19/19 PASS
+    (phase4c_scenario_comparison_total_quality.json)<br>
+    <b>Quality:</b> low_sample_flag per variance block shown in detail tables;
+    baselines identical across instances and equal to the frozen baseline;
+    identity (0.00) instances read exactly 0.0 throughout by construction.<br>
+    <b>Reading rule:</b> baseline, hypothetical, and variance blocks are separate
+    areas — never merged. Absolute currency changes are separate cards from
+    percentage-point margin changes. Gross profit vs Contribution profit vs Discount
+    amount (revenue forgone) stay distinct.
+  </div>
+  <h2>Scenario: uniform_replace_0.10</h2>
+  <div class="meta"><b>Scenario type:</b> uniform replacement &nbsp;|&nbsp; <b>Discount input:</b> replacement_rate 0.10 &nbsp;|&nbsp; <b>Source:</b> phase4b_scenario_uniform_0.10.csv<br>  <b>Note:</b> Headline sensitivity instance.</div>
+    <h3>A. Baseline <span class="status">OBSERVED BASELINE</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>net_revenue</td><td class="num" data-source-value="2297200.8603">$2,297,200.86</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>discount_amount</td><td class="num" data-source-value="566734.1797">$566,734.18</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>modeled_cogs</td><td class="num" data-source-value="1493910.1284699996">$1,493,910.13</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>gross_profit</td><td class="num" data-source-value="803290.73183">$803,290.73</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>gross_margin</td><td class="num" data-source-value="34.96824094542152">34.97%</td><td>PCT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>freight_cost</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>cost_to_serve</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>contribution_profit</td><td class="num" data-source-value="565116.94183">$565,116.94</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>contribution_margin</td><td class="num" data-source-value="24.600240736293276">24.60%</td><td>PCT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>wad</td><td class="num" data-source-value="0.1978865343607793">0.1979</td><td>DEC</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>quantity</td><td class="num" data-source-value="37873">37,873</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical; reused bit-identical in scenario</td></tr>
+      <tr><td>order_count</td><td class="num" data-source-value="5009">5,009</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>line_count</td><td class="num" data-source-value="9994">9,994</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+    </table>
+    <h3>B. Hypothetical <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>net_revenue</td><td class="num" data-source-value="2577541.5360000003">$2,577,541.54</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>discount_amount</td><td class="num" data-source-value="286393.504">$286,393.50</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>modeled_cogs</td><td class="num" data-source-value="1678844.5628399998">$1,678,844.56</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>gross_profit</td><td class="num" data-source-value="898696.9731600002">$898,696.97</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>gross_margin</td><td class="num" data-source-value="34.86644000137657">34.87%</td><td>PCT</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>cost_to_serve</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>contribution_profit</td><td class="num" data-source-value="660523.1831600001">$660,523.18</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>contribution_margin</td><td class="num" data-source-value="25.62609269082987">25.63%</td><td>PCT</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>wad</td><td class="num" data-source-value="0.0999999999999999">0.1000</td><td>DEC</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+    </table>
+    <h3>C. Variance <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <div class="cards">
+      <div class="card"><div class="card-title">Absolute contribution variance</div><div class="card-value" data-source-value="95406.2413300001">$95,406.24</div><div class="card-unit">Currency — stored CUR</div></div>
+      <div class="card"><div class="card-title">Absolute net-revenue variance</div><div class="card-value" data-source-value="280340.6757000005">$280,340.68</div><div class="card-unit">Currency — stored CUR</div></div>
+      <div class="card pp"><div class="card-title">Contribution-margin change</div><div class="card-value" data-source-value="1.0258519545365985">1.0259 pp</div><div class="card-unit">Percentage points — never %</div></div>
+      <div class="card pp"><div class="card-title">Gross-margin change</div><div class="card-value" data-source-value="-0.1018009440449532">-0.1018 pp</div><div class="card-unit">Percentage points — never %</div></div>
+    </div>
+    <h3>C (detail). Variance rows <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>variance_net_revenue</td><td class="num" data-source-value="280340.6757000005">$280,340.68</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_discount_amount</td><td class="num" data-source-value="-280340.6757">$-280,340.68</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_modeled_cogs</td><td class="num" data-source-value="184934.43437000012">$184,934.43</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_gross_profit</td><td class="num" data-source-value="95406.24133000022">$95,406.24</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_contribution_profit</td><td class="num" data-source-value="95406.2413300001">$95,406.24</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_freight</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_cost_to_serve</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>relative_contribution_variance</td><td class="num" data-source-value="16.882566114731784">16.88%</td><td>PCT</td><td>Conditional illustration under stated assumptions; not a forecast; shown only where baseline nonzero</td></tr>
+      <tr><td>margin_change_pp</td><td class="num" data-source-value="1.0258519545365985">1.0259 pp</td><td>PP</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>gross_margin_change_pp</td><td class="num" data-source-value="-0.1018009440449532">-0.1018 pp</td><td>PP</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>low_sample_flag</td><td class="num" data-source-value="False">False</td><td>Flag</td><td>Provisional thresholds; FALSE on all three TOTAL rows</td></tr>
+      <tr><td>fixed_unit_cost_view</td><td class="na" title="N/A: COMPARATOR_NOT_IN_INITIAL_BUILD: Marked unavailable with reason; never estimated">N/A *</td><td>Label</td><td>Marked unavailable with reason; never estimated</td></tr>
+      <tr><td>demand_response_view</td><td class="na" title="N/A: RESPONSE_NOT_ESTIMATED: Marked unavailable with reason; never estimated">N/A *</td><td>Label</td><td>Marked unavailable with reason; never estimated</td></tr>
+    </table>
+  <div class="caveat">Observed baseline beside the hypothetical restatement under the stated methodology and cost assumptions; conditional arithmetic illustration, not a forecast, causal estimate, demand prediction, or optimized-pricing recommendation.</div>
+  <h2>Scenario: discount_increase_pp_0.00</h2>
+  <div class="meta"><b>Scenario type:</b> discount increase &nbsp;|&nbsp; <b>Discount input:</b> increase_pp 0.00 &nbsp;|&nbsp; <b>Source:</b> phase4b_scenario_increase_0.00.csv<br>  <b>Note:</b> Identity control — zero variance by construction; pipeline-integrity check, not sensitivity.</div>
+    <h3>A. Baseline <span class="status">OBSERVED BASELINE</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>net_revenue</td><td class="num" data-source-value="2297200.8603">$2,297,200.86</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>discount_amount</td><td class="num" data-source-value="566734.1797">$566,734.18</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>modeled_cogs</td><td class="num" data-source-value="1493910.1284699996">$1,493,910.13</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>gross_profit</td><td class="num" data-source-value="803290.73183">$803,290.73</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>gross_margin</td><td class="num" data-source-value="34.96824094542152">34.97%</td><td>PCT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>freight_cost</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>cost_to_serve</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>contribution_profit</td><td class="num" data-source-value="565116.94183">$565,116.94</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>contribution_margin</td><td class="num" data-source-value="24.600240736293276">24.60%</td><td>PCT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>wad</td><td class="num" data-source-value="0.1978865343607793">0.1979</td><td>DEC</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>quantity</td><td class="num" data-source-value="37873">37,873</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical; reused bit-identical in scenario</td></tr>
+      <tr><td>order_count</td><td class="num" data-source-value="5009">5,009</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>line_count</td><td class="num" data-source-value="9994">9,994</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+    </table>
+    <h3>B. Hypothetical <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>net_revenue</td><td class="num" data-source-value="2297200.8603">$2,297,200.86</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>discount_amount</td><td class="num" data-source-value="566734.1797">$566,734.18</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>modeled_cogs</td><td class="num" data-source-value="1493910.1284699996">$1,493,910.13</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>gross_profit</td><td class="num" data-source-value="803290.73183">$803,290.73</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>gross_margin</td><td class="num" data-source-value="34.96824094542152">34.97%</td><td>PCT</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>cost_to_serve</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>contribution_profit</td><td class="num" data-source-value="565116.94183">$565,116.94</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>contribution_margin</td><td class="num" data-source-value="24.600240736293276">24.60%</td><td>PCT</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>wad</td><td class="num" data-source-value="0.1978865343607793">0.1979</td><td>DEC</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+    </table>
+    <h3>C. Variance <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <div class="cards">
+      <div class="card"><div class="card-title">Absolute contribution variance</div><div class="card-value" data-source-value="0.0">$0.00</div><div class="card-unit">Currency — stored CUR</div></div>
+      <div class="card"><div class="card-title">Absolute net-revenue variance</div><div class="card-value" data-source-value="0.0">$0.00</div><div class="card-unit">Currency — stored CUR</div></div>
+      <div class="card pp"><div class="card-title">Contribution-margin change</div><div class="card-value" data-source-value="0.0">0.0000 pp</div><div class="card-unit">Percentage points — never %</div></div>
+      <div class="card pp"><div class="card-title">Gross-margin change</div><div class="card-value" data-source-value="0.0">0.0000 pp</div><div class="card-unit">Percentage points — never %</div></div>
+    </div>
+    <h3>C (detail). Variance rows <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>variance_net_revenue</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_discount_amount</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_modeled_cogs</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_gross_profit</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_contribution_profit</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_freight</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_cost_to_serve</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>relative_contribution_variance</td><td class="num" data-source-value="0.0">0.00%</td><td>PCT</td><td>Conditional illustration under stated assumptions; not a forecast; shown only where baseline nonzero</td></tr>
+      <tr><td>margin_change_pp</td><td class="num" data-source-value="0.0">0.0000 pp</td><td>PP</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>gross_margin_change_pp</td><td class="num" data-source-value="0.0">0.0000 pp</td><td>PP</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>low_sample_flag</td><td class="num" data-source-value="False">False</td><td>Flag</td><td>Provisional thresholds; FALSE on all three TOTAL rows</td></tr>
+      <tr><td>fixed_unit_cost_view</td><td class="na" title="N/A: COMPARATOR_NOT_IN_INITIAL_BUILD: Marked unavailable with reason; never estimated">N/A *</td><td>Label</td><td>Marked unavailable with reason; never estimated</td></tr>
+      <tr><td>demand_response_view</td><td class="na" title="N/A: RESPONSE_NOT_ESTIMATED: Marked unavailable with reason; never estimated">N/A *</td><td>Label</td><td>Marked unavailable with reason; never estimated</td></tr>
+    </table>
+  <div class="caveat">Observed baseline beside the hypothetical restatement under the stated methodology and cost assumptions; conditional arithmetic illustration, not a forecast, causal estimate, demand prediction, or optimized-pricing recommendation.</div>
+  <h2>Scenario: discount_decrease_pp_0.00</h2>
+  <div class="meta"><b>Scenario type:</b> discount decrease &nbsp;|&nbsp; <b>Discount input:</b> decrease_pp 0.00 &nbsp;|&nbsp; <b>Source:</b> phase4b_scenario_decrease_0.00.csv<br>  <b>Note:</b> Identity control — zero variance by construction; pipeline-integrity check, not sensitivity.</div>
+    <h3>A. Baseline <span class="status">OBSERVED BASELINE</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>net_revenue</td><td class="num" data-source-value="2297200.8603">$2,297,200.86</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>discount_amount</td><td class="num" data-source-value="566734.1797">$566,734.18</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>modeled_cogs</td><td class="num" data-source-value="1493910.1284699996">$1,493,910.13</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>gross_profit</td><td class="num" data-source-value="803290.73183">$803,290.73</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>gross_margin</td><td class="num" data-source-value="34.96824094542152">34.97%</td><td>PCT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>freight_cost</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>cost_to_serve</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>contribution_profit</td><td class="num" data-source-value="565116.94183">$565,116.94</td><td>CUR</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>contribution_margin</td><td class="num" data-source-value="24.600240736293276">24.60%</td><td>PCT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>wad</td><td class="num" data-source-value="0.1978865343607793">0.1979</td><td>DEC</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>quantity</td><td class="num" data-source-value="37873">37,873</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical; reused bit-identical in scenario</td></tr>
+      <tr><td>order_count</td><td class="num" data-source-value="5009">5,009</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+      <tr><td>line_count</td><td class="num" data-source-value="9994">9,994</td><td>CT</td><td>Observed/modeled baseline fact; identical scope to hypothetical</td></tr>
+    </table>
+    <h3>B. Hypothetical <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>net_revenue</td><td class="num" data-source-value="2297200.8603">$2,297,200.86</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>discount_amount</td><td class="num" data-source-value="566734.1797">$566,734.18</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>modeled_cogs</td><td class="num" data-source-value="1493910.1284699996">$1,493,910.13</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>gross_profit</td><td class="num" data-source-value="803290.73183">$803,290.73</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>gross_margin</td><td class="num" data-source-value="34.96824094542152">34.97%</td><td>PCT</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>cost_to_serve</td><td class="num" data-source-value="238173.79">$238,173.79</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>contribution_profit</td><td class="num" data-source-value="565116.94183">$565,116.94</td><td>CUR</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>contribution_margin</td><td class="num" data-source-value="24.600240736293276">24.60%</td><td>PCT</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+      <tr><td>wad</td><td class="num" data-source-value="0.1978865343607793">0.1979</td><td>DEC</td><td>Hypothetical arithmetic sensitivity (constant quantity, frozen COGS pct, freight passthrough, return/support OFF); not a forecast</td></tr>
+    </table>
+    <h3>C. Variance <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <div class="cards">
+      <div class="card"><div class="card-title">Absolute contribution variance</div><div class="card-value" data-source-value="0.0">$0.00</div><div class="card-unit">Currency — stored CUR</div></div>
+      <div class="card"><div class="card-title">Absolute net-revenue variance</div><div class="card-value" data-source-value="0.0">$0.00</div><div class="card-unit">Currency — stored CUR</div></div>
+      <div class="card pp"><div class="card-title">Contribution-margin change</div><div class="card-value" data-source-value="0.0">0.0000 pp</div><div class="card-unit">Percentage points — never %</div></div>
+      <div class="card pp"><div class="card-title">Gross-margin change</div><div class="card-value" data-source-value="0.0">0.0000 pp</div><div class="card-unit">Percentage points — never %</div></div>
+    </div>
+    <h3>C (detail). Variance rows <span class="status">HYPOTHETICAL_ARITHMETIC_SENSITIVITY</span></h3>
+    <table class="vals">
+      <tr><th>Metric</th><th>Value</th><th>Unit</th><th>Limitation</th></tr>
+      <tr><td>variance_net_revenue</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_discount_amount</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_modeled_cogs</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_gross_profit</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_contribution_profit</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_freight</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>variance_cost_to_serve</td><td class="num" data-source-value="0.0">$0.00</td><td>CUR</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>relative_contribution_variance</td><td class="num" data-source-value="0.0">0.00%</td><td>PCT</td><td>Conditional illustration under stated assumptions; not a forecast; shown only where baseline nonzero</td></tr>
+      <tr><td>margin_change_pp</td><td class="num" data-source-value="0.0">0.0000 pp</td><td>PP</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>gross_margin_change_pp</td><td class="num" data-source-value="0.0">0.0000 pp</td><td>PP</td><td>Conditional illustration under stated assumptions; not a forecast</td></tr>
+      <tr><td>low_sample_flag</td><td class="num" data-source-value="False">False</td><td>Flag</td><td>Provisional thresholds; FALSE on all three TOTAL rows</td></tr>
+      <tr><td>fixed_unit_cost_view</td><td class="na" title="N/A: COMPARATOR_NOT_IN_INITIAL_BUILD: Marked unavailable with reason; never estimated">N/A *</td><td>Label</td><td>Marked unavailable with reason; never estimated</td></tr>
+      <tr><td>demand_response_view</td><td class="na" title="N/A: RESPONSE_NOT_ESTIMATED: Marked unavailable with reason; never estimated">N/A *</td><td>Label</td><td>Marked unavailable with reason; never estimated</td></tr>
+    </table>
+  <div class="caveat">Observed baseline beside the hypothetical restatement under the stated methodology and cost assumptions; conditional arithmetic illustration, not a forecast, causal estimate, demand prediction, or optimized-pricing recommendation.</div>
+  <div class="note"><h2>N/A reasons (exact frozen text)</h2><ul>
+      <li><b>discount_decrease_pp_0.00 / variance / demand_response_view</b> — N/A: RESPONSE_NOT_ESTIMATED: Marked unavailable with reason; never estimated</li>
+      <li><b>discount_decrease_pp_0.00 / variance / fixed_unit_cost_view</b> — N/A: COMPARATOR_NOT_IN_INITIAL_BUILD: Marked unavailable with reason; never estimated</li>
+      <li><b>discount_increase_pp_0.00 / variance / demand_response_view</b> — N/A: RESPONSE_NOT_ESTIMATED: Marked unavailable with reason; never estimated</li>
+      <li><b>discount_increase_pp_0.00 / variance / fixed_unit_cost_view</b> — N/A: COMPARATOR_NOT_IN_INITIAL_BUILD: Marked unavailable with reason; never estimated</li>
+      <li><b>uniform_replace_0.10 / variance / demand_response_view</b> — N/A: RESPONSE_NOT_ESTIMATED: Marked unavailable with reason; never estimated</li>
+      <li><b>uniform_replace_0.10 / variance / fixed_unit_cost_view</b> — N/A: COMPARATOR_NOT_IN_INITIAL_BUILD: Marked unavailable with reason; never estimated</li>
+  </ul></div>
+  <div class="note"><h2>Methodology assumptions and limitations</h2><ul>
+      <li>Constant observed quantity (hypothetical restates observed units; no response estimated).</li>
+      <li>Modeled COGS (frozen revenue-based percentages; margins conditional on this structure).</li>
+      <li>Observed freight passthrough (freight and cost-to-serve variances exactly 0.0 by design).</li>
+      <li>Return-processing costs OFF (excluded, not actual).</li>
+      <li>Support costs OFF (excluded, not actual).</li>
+      <li>Results conditional on the selected cost structure and benchmark assumptions.</li>
+  </ul><p>Identity (0.00) scenarios are pipeline-integrity controls with zero variance
+  by construction; they measure no economic sensitivity. Freight and cost-to-serve
+  variances are exactly 0.0 by passthrough design. No order-level hypothetical detail
+  exists or is shown; TOTAL grain only.</p></div>
+  <div class="caveat">Observed baseline beside the hypothetical restatement under the stated methodology and cost assumptions; conditional arithmetic illustration, not a forecast, causal estimate, demand prediction, or optimized-pricing recommendation.</div>
+  <div class="footer">Preview generated by powerbi/page3_build.py from
+    data/processed/marginmap.db (read-only). Display formatting of exact stored TEXT;
+    each value carries its source string in <i>data-source-value</i>. No DAX, no
+    relationships, no new calculations, no new scenarios.</div>
+</div>
+</body>
+</html>
