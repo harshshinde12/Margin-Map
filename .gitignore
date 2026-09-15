@@ -13,6 +13,7 @@ venv/
 *.zip
 *.csv
 *.xlsx
+*.db
 data/raw/
 data/*.csv
 
