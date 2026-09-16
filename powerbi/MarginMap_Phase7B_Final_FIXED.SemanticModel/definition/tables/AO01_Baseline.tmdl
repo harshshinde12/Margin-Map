@@ -1,0 +1,67 @@
+table AO01_Baseline
+	lineageTag: 22eec1e6-0827-413f-a491-7f5d9c515b0e
+
+	column metric_name
+		dataType: string
+		lineageTag: 5b05d6b6-439c-4c7f-91c2-90b0bedbc67c
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_value
+		dataType: double
+		lineageTag: 64d567c3-bf35-40b8-aa10-ab7fb9e9e8f5
+		summarizeBy: none
+		sourceColumn: metric_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit
+		dataType: string
+		lineageTag: baa60612-80cb-42a1-a0a1-793bb934a128
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_artifact
+		dataType: string
+		lineageTag: 79841a58-a017-4945-8ca8-760d2a51bb7d
+		summarizeBy: none
+		sourceColumn: source_artifact
+
+		annotation SummarizationSetBy = Automatic
+
+	column definition_ref
+		dataType: string
+		lineageTag: 32278e7f-dc95-4fb3-a8f8-1ad3b4d02a4e
+		summarizeBy: none
+		sourceColumn: definition_ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column limitation
+		dataType: string
+		lineageTag: 0eb2f901-6b0a-4dbb-8efc-1523fb7418da
+		summarizeBy: none
+		sourceColumn: limitation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AO01_Baseline = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Harsh Shinde\Desktop\Margin Map\powerbi\page1_baseline_values.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"metric_name", type text}, {"metric_value", type number}, {"unit", type text}, {"source_artifact", type text}, {"definition_ref", type text}, {"limitation", type text}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

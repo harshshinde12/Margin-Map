@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["AO01_Baseline","AO02_BandContribution","AO03_ScenarioTotal","AO04_VarianceByBand","AO05_OrderReading","AO06_QualitySummary"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table AO01_Baseline
+ref table AO02_BandContribution
+ref table AO03_ScenarioTotal
+ref table AO04_VarianceByBand
+ref table AO05_OrderReading
+ref table AO06_QualitySummary
+
+ref cultureInfo en-US
+

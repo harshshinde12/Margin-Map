@@ -1,0 +1,185 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e0e939ff05ae16761884",
+  "position": {
+    "x": 32,
+    "y": 592,
+    "z": 1000,
+    "height": 292,
+    "width": 1856,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "scenario_status"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal.scenario_status",
+              "nativeQueryRef": "scenario_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "metric_name"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal.metric_name",
+              "nativeQueryRef": "metric_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "metric_value"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal.metric_value",
+              "nativeQueryRef": "metric_value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "unit"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal.unit",
+              "nativeQueryRef": "unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "output_name"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal.output_name",
+              "nativeQueryRef": "output_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "limitation"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal.limitation",
+              "nativeQueryRef": "limitation"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scenario comparison — TOTAL'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AO-03 analytical slice'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

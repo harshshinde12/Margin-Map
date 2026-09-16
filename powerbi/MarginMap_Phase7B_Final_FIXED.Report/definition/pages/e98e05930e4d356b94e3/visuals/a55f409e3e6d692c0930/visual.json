@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a55f409e3e6d692c0930",
+  "position": {
+    "x": 969.47151543576945,
+    "y": 84.391363339419414,
+    "z": 3000,
+    "height": 148.19946732776094,
+    "width": 918.01336705807466,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO04_VarianceByBand"
+                    }
+                  },
+                  "Property": "metric_name"
+                }
+              },
+              "queryRef": "AO04_VarianceByBand.metric_name",
+              "nativeQueryRef": "metric_name",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Metric'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1dd90a20e7061dbd164b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO04_VarianceByBand"
+              }
+            },
+            "Property": "metric_name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

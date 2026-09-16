@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "973bf0a952ccecec3c9c",
+  "position": {
+    "x": 32.933214961724651,
+    "y": 86.449689274527216,
+    "z": 2000,
+    "height": 146.14114139265314,
+    "width": 918.01336705807466,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "scenario_status"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal.scenario_status",
+              "nativeQueryRef": "scenario_status",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scenario status'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6b8d0cd2a45d3e217240",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO03_ScenarioTotal"
+              }
+            },
+            "Property": "scenario_status"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

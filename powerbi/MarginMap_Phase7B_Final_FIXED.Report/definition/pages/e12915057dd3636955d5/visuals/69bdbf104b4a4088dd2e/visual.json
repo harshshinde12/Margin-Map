@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "69bdbf104b4a4088dd2e",
+  "position": {
+    "x": 32.933214961724651,
+    "y": 86.449689274527216,
+    "z": 2000,
+    "height": 146.14114139265314,
+    "width": 918.01336705807466,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO06_QualitySummary"
+                    }
+                  },
+                  "Property": "artifact"
+                }
+              },
+              "queryRef": "AO06_QualitySummary.artifact",
+              "nativeQueryRef": "artifact",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Artifact'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1264a04d8d0abd9d0401",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO06_QualitySummary"
+              }
+            },
+            "Property": "artifact"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

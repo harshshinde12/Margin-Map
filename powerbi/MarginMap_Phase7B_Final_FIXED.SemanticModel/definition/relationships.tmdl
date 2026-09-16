@@ -1,0 +1,4 @@
+relationship AutoDetected_f59900bf-a70b-421a-94ca-7d98fe534c8b
+	fromColumn: AO02_BandContribution.metric_name
+	toColumn: AO01_Baseline.metric_name
+

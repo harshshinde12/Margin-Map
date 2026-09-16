@@ -1,0 +1,232 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a411455d556ec6979429",
+  "position": {
+    "x": 32,
+    "y": 470,
+    "z": 1000,
+    "height": 400,
+    "width": 1856,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "AO05_OrderReading.order_id",
+              "nativeQueryRef": "order_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "metric_name"
+                }
+              },
+              "queryRef": "AO05_OrderReading.metric_name",
+              "nativeQueryRef": "metric_name"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AO05_OrderReading"
+                        }
+                      },
+                      "Property": "metric_value"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(AO05_OrderReading.metric_value)",
+              "nativeQueryRef": "Sum of metric_value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "unit"
+                }
+              },
+              "queryRef": "AO05_OrderReading.unit",
+              "nativeQueryRef": "unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "discount_band"
+                }
+              },
+              "queryRef": "AO05_OrderReading.discount_band",
+              "nativeQueryRef": "discount_band"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "return_status"
+                }
+              },
+              "queryRef": "AO05_OrderReading.return_status",
+              "nativeQueryRef": "return_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "neg_flag"
+                }
+              },
+              "queryRef": "AO05_OrderReading.neg_flag",
+              "nativeQueryRef": "neg_flag"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "ambiguity_note"
+                }
+              },
+              "queryRef": "AO05_OrderReading.ambiguity_note",
+              "nativeQueryRef": "ambiguity_note"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "limitation"
+                }
+              },
+              "queryRef": "AO05_OrderReading.limitation",
+              "nativeQueryRef": "limitation"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Order-level reading'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AO-05 analytical slice'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

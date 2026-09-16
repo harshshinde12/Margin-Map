@@ -1,0 +1,290 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "437afcf801d51d005db5",
+  "position": {
+    "x": 32,
+    "y": 470,
+    "z": 1000,
+    "height": 400,
+    "width": 1856,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO06_QualitySummary"
+                    }
+                  },
+                  "Property": "artifact"
+                }
+              },
+              "queryRef": "AO06_QualitySummary.artifact",
+              "nativeQueryRef": "artifact"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO06_QualitySummary"
+                    }
+                  },
+                  "Property": "check_id"
+                }
+              },
+              "queryRef": "AO06_QualitySummary.check_id",
+              "nativeQueryRef": "check_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO06_QualitySummary"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "AO06_QualitySummary.status",
+              "nativeQueryRef": "status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO06_QualitySummary"
+                    }
+                  },
+                  "Property": "actual"
+                }
+              },
+              "queryRef": "AO06_QualitySummary.actual",
+              "nativeQueryRef": "actual"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO06_QualitySummary"
+                    }
+                  },
+                  "Property": "expected"
+                }
+              },
+              "queryRef": "AO06_QualitySummary.expected",
+              "nativeQueryRef": "expected"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO06_QualitySummary"
+                    }
+                  },
+                  "Property": "limitation"
+                }
+              },
+              "queryRef": "AO06_QualitySummary.limitation",
+              "nativeQueryRef": "limitation"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AO06_QualitySummary"
+                  }
+                },
+                "Property": "expected"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quality checks & limitations'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AO-06 analytical slice'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a5795979e1d7e3d44369",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO06_QualitySummary"
+              }
+            },
+            "Property": "artifact"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "56781aa58ac8b11e02be",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO06_QualitySummary"
+              }
+            },
+            "Property": "check_id"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6452c159107508850000",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO06_QualitySummary"
+              }
+            },
+            "Property": "status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d80ba787941b247d37a4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO06_QualitySummary"
+              }
+            },
+            "Property": "actual"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "29bdb60135de020dc9a8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO06_QualitySummary"
+              }
+            },
+            "Property": "expected"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5a436c1e2ad12912046b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO06_QualitySummary"
+              }
+            },
+            "Property": "limitation"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

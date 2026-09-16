@@ -1,0 +1,119 @@
+table AO04_VarianceByBand
+	lineageTag: 3e165a47-37fd-446b-b0fc-583008418b7e
+
+	measure _MM_P4_Variance = VAR _t = CALCULATE ( SELECTEDVALUE ( AO04_VarianceByBand[metric_value] ), AO04_VarianceByBand[metric_name] = "variance_contribution", AO04_VarianceByBand[block] = "variance", AO04_VarianceByBand[scenario_id] = "uniform_replace_0.10" ) RETURN IFERROR ( VALUE ( _t ), BLANK () )
+		formatString: #,0.00
+		displayFolder: _MM Presentation
+		lineageTag: 9b59e8dc-f0ec-400e-b4ef-6cdb09e38cb9
+
+	column output_name
+		dataType: string
+		lineageTag: fb7377ca-99f2-4f9a-bdb1-ce74fb275190
+		summarizeBy: none
+		sourceColumn: output_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scenario_status
+		dataType: string
+		lineageTag: 0bb88c5b-54aa-4501-97e2-261ffb03f50e
+		summarizeBy: none
+		sourceColumn: scenario_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column grain
+		dataType: string
+		lineageTag: 56501e8d-d5cd-4ca5-b6e6-87dcdb3235a1
+		summarizeBy: none
+		sourceColumn: grain
+
+		annotation SummarizationSetBy = Automatic
+
+	column scenario_id
+		dataType: string
+		lineageTag: 207b2258-5357-4436-bec1-3710fe689ec0
+		summarizeBy: none
+		sourceColumn: scenario_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column band
+		dataType: string
+		lineageTag: 7f68d643-8345-4169-8f2a-d021d9dae7df
+		summarizeBy: none
+		sourceColumn: band
+
+		annotation SummarizationSetBy = Automatic
+
+	column block
+		dataType: string
+		lineageTag: 77b8dcc8-cdbe-493e-b667-63902df1646f
+		summarizeBy: none
+		sourceColumn: block
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_artifact
+		dataType: string
+		lineageTag: 725b3650-2491-4330-9a65-418883bdbd79
+		summarizeBy: none
+		sourceColumn: source_artifact
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: f87585ad-e0fd-46a1-9a43-0c8af9fb7879
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_value
+		dataType: string
+		lineageTag: 261ccf6a-566f-4e91-8196-3a38797416fe
+		summarizeBy: none
+		sourceColumn: metric_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: 1c8cd323-1c3e-4e6e-84d9-8e677f83aa86
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column definition_ref
+		dataType: string
+		lineageTag: a069f18b-f521-47c4-aa27-b5059e63ee65
+		summarizeBy: none
+		sourceColumn: definition_ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column limitation
+		dataType: string
+		lineageTag: 029085ad-c031-4932-af7c-35706f716601
+		summarizeBy: none
+		sourceColumn: limitation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AO04_VarianceByBand = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Harsh Shinde\Desktop\Margin Map\powerbi\page4_variance_values.csv"),[Delimiter=",", Columns=12, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"output_name", type text}, {"scenario_status", type text}, {"grain", type text}, {"scenario_id", type text}, {"band", type text}, {"block", type text}, {"source_artifact", type text}, {"metric_name", type text}, {"metric_value", type text}, {"unit", type text}, {"definition_ref", type text}, {"limitation", type text}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

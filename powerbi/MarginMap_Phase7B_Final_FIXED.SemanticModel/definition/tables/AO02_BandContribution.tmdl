@@ -1,0 +1,109 @@
+table AO02_BandContribution
+	lineageTag: 2fd2577b-164b-4365-ab49-f14fa71a147d
+
+	measure _MM_Band_Value = VAR _m = IF ( HASONEVALUE ( AO02_BandContribution[metric_name] ), SELECTEDVALUE ( AO02_BandContribution[metric_name] ), "contribution_profit" ) VAR _u = CALCULATE ( SELECTEDVALUE ( AO02_BandContribution[unit] ), AO02_BandContribution[metric_name] = _m, AO02_BandContribution[basis] = "ORDER" ) VAR _t = CALCULATE ( SELECTEDVALUE ( AO02_BandContribution[metric_value] ), AO02_BandContribution[metric_name] = _m, AO02_BandContribution[basis] = "ORDER" ) RETURN IF ( _u IN { "CUR", "CT", "DEC", "PCT" }, IFERROR ( VALUE ( _t ), BLANK () ), BLANK () )
+		displayFolder: _MM Presentation
+		lineageTag: 095b2dd5-66de-4daa-9531-a12dfe85e77c
+
+	column output_name
+		dataType: string
+		lineageTag: 45b96f80-ecb7-49df-bcf0-78bc954eae08
+		summarizeBy: none
+		sourceColumn: output_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scenario_status
+		dataType: string
+		lineageTag: 4035b35e-8a76-4aa3-b02b-1025454f8b6e
+		summarizeBy: none
+		sourceColumn: scenario_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column grain
+		dataType: string
+		lineageTag: cb362657-88fd-48e4-8199-18d3cd71bc8e
+		summarizeBy: none
+		sourceColumn: grain
+
+		annotation SummarizationSetBy = Automatic
+
+	column basis
+		dataType: string
+		lineageTag: 571124fe-aa57-44c7-a978-ff215ed192ee
+		summarizeBy: none
+		sourceColumn: basis
+
+		annotation SummarizationSetBy = Automatic
+
+	column band
+		dataType: string
+		lineageTag: 039c7f16-a2b9-48d5-ac27-d21e1ef1f4e2
+		summarizeBy: none
+		sourceColumn: band
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_artifact
+		dataType: string
+		lineageTag: c69497b3-bd7c-4c69-89fe-50410ec1db92
+		summarizeBy: none
+		sourceColumn: source_artifact
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: d7b780ec-eb18-4438-b2ed-3a1a38ec9dce
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_value
+		dataType: string
+		lineageTag: c5a75c8a-13ec-4d76-b207-374104c29899
+		summarizeBy: none
+		sourceColumn: metric_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: 8664bfd1-2ff2-4471-acbb-30002647dc57
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column definition_ref
+		dataType: string
+		lineageTag: 9a80d106-1a98-4a34-9742-133016178603
+		summarizeBy: none
+		sourceColumn: definition_ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column limitation
+		dataType: string
+		lineageTag: ddbe2252-1a49-4987-aa97-06832ebe2a6a
+		summarizeBy: none
+		sourceColumn: limitation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AO02_BandContribution = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Harsh Shinde\Desktop\Margin Map\powerbi\page2_contribution_values.csv"),[Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"output_name", type text}, {"scenario_status", type text}, {"grain", type text}, {"basis", type text}, {"band", type text}, {"source_artifact", type text}, {"metric_name", type text}, {"metric_value", type text}, {"unit", type text}, {"definition_ref", type text}, {"limitation", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

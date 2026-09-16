@@ -1,0 +1,130 @@
+table AO06_QualitySummary
+	lineageTag: dcf346c8-7043-40c7-a8ec-42ebfe6ca062
+
+	column output_name
+		dataType: string
+		lineageTag: 23a03ebf-25a4-4723-98fd-a915d3c88a96
+		summarizeBy: none
+		sourceColumn: output_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scenario_status
+		dataType: string
+		lineageTag: 522891f1-1fbd-4e6f-9224-be4f3918135b
+		summarizeBy: none
+		sourceColumn: scenario_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column grain
+		dataType: string
+		lineageTag: c23fb4ff-1255-4b05-be74-a027909c9461
+		summarizeBy: none
+		sourceColumn: grain
+
+		annotation SummarizationSetBy = Automatic
+
+	column artifact
+		dataType: string
+		lineageTag: 62ef31b9-bf1c-477c-808d-f0b3f8f075e3
+		summarizeBy: none
+		sourceColumn: artifact
+
+		annotation SummarizationSetBy = Automatic
+
+	column check_id
+		dataType: string
+		lineageTag: 59219ca8-844d-49fe-b0d9-9a94f014bb07
+		summarizeBy: none
+		sourceColumn: check_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: 8313d0f5-cdfe-4c81-be9d-499ea9c25387
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_value
+		dataType: string
+		lineageTag: 76adad63-0197-4be1-bff3-afd59aa372e6
+		summarizeBy: none
+		sourceColumn: metric_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: 9056a23b-79f2-4a6c-a337-0ab1ab9b8ed7
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: f0f59f84-922f-4a9c-a054-2ec5bf7749ce
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected
+		dataType: string
+		lineageTag: 2b5992b9-a1ba-4428-991e-1ffba723084c
+		summarizeBy: none
+		sourceColumn: expected
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual
+		dataType: string
+		lineageTag: d01e1b1e-358c-47f3-baf6-4f738418983c
+		summarizeBy: none
+		sourceColumn: actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_artifact
+		dataType: string
+		lineageTag: 4b1e9059-9de4-4c0b-b48f-25987ba73e74
+		summarizeBy: none
+		sourceColumn: source_artifact
+
+		annotation SummarizationSetBy = Automatic
+
+	column definition_ref
+		dataType: string
+		lineageTag: b8a9dd09-ad29-460f-bd7f-4a8fa51ccdbe
+		summarizeBy: none
+		sourceColumn: definition_ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column limitation
+		dataType: string
+		lineageTag: b27bf1c7-d754-407c-8275-e5cb7d753f68
+		summarizeBy: none
+		sourceColumn: limitation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AO06_QualitySummary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Harsh Shinde\Desktop\Margin Map\powerbi\page6_quality_values.csv"),[Delimiter=",", Columns=14, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"output_name", type text}, {"scenario_status", type text}, {"grain", type text}, {"artifact", type text}, {"check_id", type text}, {"metric_name", type text}, {"metric_value", type text}, {"unit", type text}, {"status", type text}, {"expected", type text}, {"actual", type text}, {"source_artifact", type text}, {"definition_ref", type text}, {"limitation", type text}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

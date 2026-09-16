@@ -1,0 +1,199 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "16b385a08b4973049944",
+  "position": {
+    "x": 32,
+    "y": 592,
+    "z": 1000,
+    "height": 292,
+    "width": 1856,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO04_VarianceByBand"
+                    }
+                  },
+                  "Property": "band"
+                }
+              },
+              "queryRef": "AO04_VarianceByBand.band",
+              "nativeQueryRef": "band"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO04_VarianceByBand"
+                    }
+                  },
+                  "Property": "scenario_status"
+                }
+              },
+              "queryRef": "AO04_VarianceByBand.scenario_status",
+              "nativeQueryRef": "scenario_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO04_VarianceByBand"
+                    }
+                  },
+                  "Property": "metric_value"
+                }
+              },
+              "queryRef": "AO04_VarianceByBand.metric_value",
+              "nativeQueryRef": "metric_value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO04_VarianceByBand"
+                    }
+                  },
+                  "Property": "metric_name"
+                }
+              },
+              "queryRef": "AO04_VarianceByBand.metric_name",
+              "nativeQueryRef": "metric_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO04_VarianceByBand"
+                    }
+                  },
+                  "Property": "unit"
+                }
+              },
+              "queryRef": "AO04_VarianceByBand.unit",
+              "nativeQueryRef": "unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO04_VarianceByBand"
+                    }
+                  },
+                  "Property": "output_name"
+                }
+              },
+              "queryRef": "AO04_VarianceByBand.output_name",
+              "nativeQueryRef": "output_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO04_VarianceByBand"
+                    }
+                  },
+                  "Property": "limitation"
+                }
+              },
+              "queryRef": "AO04_VarianceByBand.limitation",
+              "nativeQueryRef": "limitation"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scenario variance by discount band'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AO-04 analytical slice'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

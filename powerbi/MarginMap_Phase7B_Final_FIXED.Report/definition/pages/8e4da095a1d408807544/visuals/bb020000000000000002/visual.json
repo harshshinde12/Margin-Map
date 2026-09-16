@@ -1,0 +1,146 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "bb020000000000000002",
+  "position": {
+    "x": 32,
+    "y": 282,
+    "z": 1200,
+    "height": 260,
+    "width": 1856,
+    "tabOrder": 1200
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "scenario_id"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal.scenario_id",
+              "nativeQueryRef": "scenario_id",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "_MM_P3_Baseline"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal._MM_P3_Baseline",
+              "nativeQueryRef": "_MM_P3_Baseline"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO03_ScenarioTotal"
+                    }
+                  },
+                  "Property": "_MM_P3_Hypothetical"
+                }
+              },
+              "queryRef": "AO03_ScenarioTotal._MM_P3_Hypothetical",
+              "nativeQueryRef": "_MM_P3_Hypothetical"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7C8DA6'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "AO03_ScenarioTotal._MM_P3_Baseline"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3A5F'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "AO03_ScenarioTotal._MM_P3_Hypothetical"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Baseline vs scenario (selected metric)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

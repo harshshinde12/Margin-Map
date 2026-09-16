@@ -1,0 +1,301 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "300c22417039c0d35987",
+  "position": {
+    "x": 32,
+    "y": 592,
+    "z": 1000,
+    "height": 292,
+    "width": 1856,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO02_BandContribution"
+                    }
+                  },
+                  "Property": "band"
+                }
+              },
+              "queryRef": "AO02_BandContribution.band",
+              "nativeQueryRef": "band"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO02_BandContribution"
+                    }
+                  },
+                  "Property": "scenario_status"
+                }
+              },
+              "queryRef": "AO02_BandContribution.scenario_status",
+              "nativeQueryRef": "scenario_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO02_BandContribution"
+                    }
+                  },
+                  "Property": "metric_name"
+                }
+              },
+              "queryRef": "AO02_BandContribution.metric_name",
+              "nativeQueryRef": "metric_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO02_BandContribution"
+                    }
+                  },
+                  "Property": "metric_value"
+                }
+              },
+              "queryRef": "AO02_BandContribution.metric_value",
+              "nativeQueryRef": "metric_value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO02_BandContribution"
+                    }
+                  },
+                  "Property": "unit"
+                }
+              },
+              "queryRef": "AO02_BandContribution.unit",
+              "nativeQueryRef": "unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO02_BandContribution"
+                    }
+                  },
+                  "Property": "output_name"
+                }
+              },
+              "queryRef": "AO02_BandContribution.output_name",
+              "nativeQueryRef": "output_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO02_BandContribution"
+                    }
+                  },
+                  "Property": "limitation"
+                }
+              },
+              "queryRef": "AO02_BandContribution.limitation",
+              "nativeQueryRef": "limitation"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Contribution by discount band'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AO-02 analytical slice'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ec676aec9802811dc607",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO02_BandContribution"
+              }
+            },
+            "Property": "band"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "10899f28250e7c824909",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO02_BandContribution"
+              }
+            },
+            "Property": "scenario_status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b8f97bc591e227723e58",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO02_BandContribution"
+              }
+            },
+            "Property": "metric_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "57637d325478202eb701",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO02_BandContribution"
+              }
+            },
+            "Property": "metric_value"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "730c682301e78c90303e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO02_BandContribution"
+              }
+            },
+            "Property": "unit"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c2ac290b8a43b0c59d3b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO02_BandContribution"
+              }
+            },
+            "Property": "output_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3328148da8c3078e9ddb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO02_BandContribution"
+              }
+            },
+            "Property": "limitation"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

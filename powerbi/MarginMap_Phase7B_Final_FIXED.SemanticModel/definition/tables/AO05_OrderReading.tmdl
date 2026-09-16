@@ -1,0 +1,132 @@
+table AO05_OrderReading
+	lineageTag: 0ead1652-67b9-4b4f-a91d-7fb50bc326bd
+
+	column output_name
+		dataType: string
+		lineageTag: bf938745-9d31-456c-8654-e592e0639194
+		summarizeBy: none
+		sourceColumn: output_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scenario_status
+		dataType: string
+		lineageTag: 8d0e0211-ac1f-4417-871b-4f2406c29262
+		summarizeBy: none
+		sourceColumn: scenario_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column grain
+		dataType: string
+		lineageTag: c66d0416-32ee-44e4-86e0-33127ff06e57
+		summarizeBy: none
+		sourceColumn: grain
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: 942508fe-a58c-4873-a46b-d9e75ffc1c11
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_band
+		dataType: string
+		lineageTag: 41432831-7f18-4927-a8ac-52be87a8f3e9
+		summarizeBy: none
+		sourceColumn: discount_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column return_status
+		dataType: string
+		lineageTag: 8ed50eb6-e72f-4bef-ace8-59060848f866
+		summarizeBy: none
+		sourceColumn: return_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column neg_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 924a8da8-9291-4478-a4ec-6d64c25f2b8a
+		summarizeBy: none
+		sourceColumn: neg_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ambiguity_note
+		dataType: string
+		lineageTag: 350c0802-0c63-41aa-9992-7869602cdb92
+		summarizeBy: none
+		sourceColumn: ambiguity_note
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_artifact
+		dataType: string
+		lineageTag: 4f63e896-9026-496b-9e43-292151798794
+		summarizeBy: none
+		sourceColumn: source_artifact
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: 1b15616a-3142-467e-808f-704f5c504f0d
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_value
+		dataType: double
+		lineageTag: 702beeaf-b126-4547-a5ee-5282a9e7fdeb
+		summarizeBy: sum
+		sourceColumn: metric_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit
+		dataType: string
+		lineageTag: 5ecdb2d4-8c04-4587-afe2-7ad2d2f015d9
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column definition_ref
+		dataType: string
+		lineageTag: 95d09763-7326-4671-ae5e-7ee2fd573345
+		summarizeBy: none
+		sourceColumn: definition_ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column limitation
+		dataType: string
+		lineageTag: 51aa9280-08af-4b0d-b07f-2a79c45c09e6
+		summarizeBy: none
+		sourceColumn: limitation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AO05_OrderReading = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Harsh Shinde\Desktop\Margin Map\powerbi\page5_order_values.csv"),[Delimiter=",", Columns=14, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"output_name", type text}, {"scenario_status", type text}, {"grain", type text}, {"order_id", type text}, {"discount_band", type text}, {"return_status", type text}, {"neg_flag", type logical}, {"ambiguity_note", type text}, {"source_artifact", type text}, {"metric_name", type text}, {"metric_value", type number}, {"unit", type text}, {"definition_ref", type text}, {"limitation", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

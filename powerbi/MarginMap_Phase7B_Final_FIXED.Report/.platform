@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "MarginMap_Phase7B_Final_FIXED"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5d35f38a-ea71-48c7-8208-1806b3d8a4dc"
+  }
+}

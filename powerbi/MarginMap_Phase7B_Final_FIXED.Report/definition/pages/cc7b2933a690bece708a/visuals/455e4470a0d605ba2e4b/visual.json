@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "455e4470a0d605ba2e4b",
+  "position": {
+    "x": 969.47151543576945,
+    "y": 82.333037404311625,
+    "z": 3000,
+    "height": 150.25779326286872,
+    "width": 918.01336705807466,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AO05_OrderReading"
+                    }
+                  },
+                  "Property": "neg_flag"
+                }
+              },
+              "queryRef": "AO05_OrderReading.neg_flag",
+              "nativeQueryRef": "neg_flag",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Negative-contribution flag'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d79126530e8578cd407b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AO05_OrderReading"
+              }
+            },
+            "Property": "neg_flag"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "MarginMap_Phase7B_Final_FIXED"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fc2ceef5-3f1b-45c2-8c21-8ab167cbb8a0"
+  }
+}

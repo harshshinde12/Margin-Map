@@ -1,0 +1,113 @@
+table AO03_ScenarioTotal
+	lineageTag: a1ba684c-d5c8-4ad1-b356-b53d2dd55f0f
+
+	measure _MM_P3_Baseline = VAR _m = IF ( HASONEVALUE ( AO03_ScenarioTotal[metric_name] ), SELECTEDVALUE ( AO03_ScenarioTotal[metric_name] ), "contribution_profit" ) VAR _u = CALCULATE ( SELECTEDVALUE ( AO03_ScenarioTotal[unit] ), AO03_ScenarioTotal[metric_name] = _m, AO03_ScenarioTotal[block] = "baseline" ) VAR _t = CALCULATE ( SELECTEDVALUE ( AO03_ScenarioTotal[metric_value] ), AO03_ScenarioTotal[metric_name] = _m, AO03_ScenarioTotal[block] = "baseline" ) RETURN IF ( _u IN { "CUR", "CT", "DEC", "PCT", "PP" }, IFERROR ( VALUE ( _t ), BLANK () ), BLANK () )
+		displayFolder: _MM Presentation
+		lineageTag: 8143124a-71e8-4dba-873c-cf895398a4b2
+
+	measure _MM_P3_Hypothetical = VAR _m = IF ( HASONEVALUE ( AO03_ScenarioTotal[metric_name] ), SELECTEDVALUE ( AO03_ScenarioTotal[metric_name] ), "contribution_profit" ) VAR _u = CALCULATE ( SELECTEDVALUE ( AO03_ScenarioTotal[unit] ), AO03_ScenarioTotal[metric_name] = _m, AO03_ScenarioTotal[block] = "hypothetical" ) VAR _t = CALCULATE ( SELECTEDVALUE ( AO03_ScenarioTotal[metric_value] ), AO03_ScenarioTotal[metric_name] = _m, AO03_ScenarioTotal[block] = "hypothetical" ) RETURN IF ( _u IN { "CUR", "CT", "DEC", "PCT", "PP" }, IFERROR ( VALUE ( _t ), BLANK () ), BLANK () )
+		displayFolder: _MM Presentation
+		lineageTag: d61c81a4-0716-4156-ad07-b0f23c7a1fdc
+
+	column output_name
+		dataType: string
+		lineageTag: 0c2edbb2-ee4e-402f-b229-28ced8ecf858
+		summarizeBy: none
+		sourceColumn: output_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scenario_status
+		dataType: string
+		lineageTag: 8a355929-bfdd-478f-8920-0e00d9f0268e
+		summarizeBy: none
+		sourceColumn: scenario_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column grain
+		dataType: string
+		lineageTag: 714436a0-16fa-4f68-8870-f1c22319dcee
+		summarizeBy: none
+		sourceColumn: grain
+
+		annotation SummarizationSetBy = Automatic
+
+	column scenario_id
+		dataType: string
+		lineageTag: a3c31a67-4994-4334-b7dc-024c8bc099a3
+		summarizeBy: none
+		sourceColumn: scenario_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column block
+		dataType: string
+		lineageTag: 2f7ffffb-4504-480d-b593-bfb2b4f9f3da
+		summarizeBy: none
+		sourceColumn: block
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_artifact
+		dataType: string
+		lineageTag: 8d0fe175-7178-4bc6-bb6e-fd6bb776b029
+		summarizeBy: none
+		sourceColumn: source_artifact
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: 422cf5f2-0270-446e-8f75-cb9954a746b9
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_value
+		dataType: string
+		lineageTag: 875f25fa-2d93-4da1-9531-e59fadc95062
+		summarizeBy: none
+		sourceColumn: metric_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: 78245777-33bd-4340-a9b3-c757e4decc0d
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column definition_ref
+		dataType: string
+		lineageTag: f8699111-4f03-4d2c-8021-086534488397
+		summarizeBy: none
+		sourceColumn: definition_ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column limitation
+		dataType: string
+		lineageTag: 0d2e341e-b060-4a75-b06d-616965aa3343
+		summarizeBy: none
+		sourceColumn: limitation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AO03_ScenarioTotal = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Harsh Shinde\Desktop\Margin Map\powerbi\page3_scenario_values.csv"),[Delimiter=",", Columns=11, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"output_name", type text}, {"scenario_status", type text}, {"grain", type text}, {"scenario_id", type text}, {"block", type text}, {"source_artifact", type text}, {"metric_name", type text}, {"metric_value", type text}, {"unit", type text}, {"definition_ref", type text}, {"limitation", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
