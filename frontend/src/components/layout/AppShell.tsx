@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NAV = [
@@ -17,6 +17,17 @@ interface AppShellProps {
 
 export function AppShell({ children, apiUp }: AppShellProps) {
   const [open, setOpen] = useState(false);
+
+  // Let keyboard users dismiss the off-canvas drawer (toggle, scrim, and
+  // navigation already close it; Escape is the remaining expected path).
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [open]);
 
   return (
     <div className="app-shell">

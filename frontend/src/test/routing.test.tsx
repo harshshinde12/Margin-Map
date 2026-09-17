@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { App } from '../App';
@@ -80,5 +80,15 @@ describe('routing and API response rendering', () => {
     for (const label of ['Executive', 'Discount Bands', 'Scenarios', 'Variance', 'Orders', 'Data Quality']) {
       expect(await screen.findByText(label)).toBeInTheDocument();
     }
+  });
+
+  it('closes the navigation drawer on Escape', async () => {
+    mockApi();
+    renderAt('/executive');
+    await waitFor(() => expect(screen.getByText('Executive Profitability Overview')).toBeInTheDocument());
+    fireEvent.click(screen.getByRole('button', { name: 'Toggle navigation' }));
+    expect(document.querySelector('aside.sidebar.open')).not.toBeNull();
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(document.querySelector('aside.sidebar.open')).toBeNull();
   });
 });
