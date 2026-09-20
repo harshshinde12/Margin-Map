@@ -1,0 +1,16 @@
+# Render deployment for Margin Map (single public URL).
+# FastAPI serves the React production build and /api from one origin,
+# reading the rebuilt read-only SQLite analytical database.
+services:
+  - type: web
+    name: margin-map
+    runtime: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Same-origin production: no CORS origins needed. Leave empty.
+      - key: BACKEND_CORS_ORIGINS
+        value: ""

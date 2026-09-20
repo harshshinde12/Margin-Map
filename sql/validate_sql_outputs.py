@@ -34,13 +34,13 @@ TABLES: tuple[tuple[str, str, str, int], ...] = (
     ("phase4c_band_contribution.csv", "phase4c_band_contribution_quality.json",
      "ao02_band_contribution", 238),
     ("phase4c_scenario_comparison_total.csv",
-     "phase4c_scenario_comparison_total_quality.json", "ao03_scenario_comparison", 105),
+     "phase4c_scenario_comparison_total_quality.json", "ao03_scenario_comparison", 140),
     ("phase4c_contribution_variance_by_band.csv",
-     "phase4c_contribution_variance_by_band_quality.json", "ao04_band_variance", 420),
+     "phase4c_contribution_variance_by_band_quality.json", "ao04_band_variance", 560),
     ("phase4c_order_reading.csv", "phase4c_order_reading_quality.json",
      "ao05_order_reading", 60108),
     ("phase4c_quality_summary.csv", "phase4c_quality_summary_quality.json",
-     "ao06_quality_summary", 125),
+     "ao06_quality_summary", 145),
 )
 
 VIEWS = ("baseline_total", "contribution_by_band", "scenario_comparison_total",
@@ -64,8 +64,8 @@ SPOTS: tuple[tuple[str, str, str, str], ...] = (
 )
 
 # Expected empty-value (N/A) row counts per table.
-NA_EXPECTED = {"ao02_band_contribution": 14, "ao03_scenario_comparison": 6,
-               "ao04_band_variance": 42}
+NA_EXPECTED = {"ao02_band_contribution": 14, "ao03_scenario_comparison": 8,
+               "ao04_band_variance": 56}
 
 
 def fail(check: str, expected: str, actual: str) -> "NoReturn":
@@ -145,8 +145,8 @@ def main(argv: list[str] | None = None) -> int:
                 fail("content-equal", f"{table} byte-identical content to {csv_name}",
                      "cell mismatch found")
         passed("columns-match", "6/6 headers match CSVs")
-        passed("row-counts", "20/238/105/420/60108/125 in db and CSVs")
-        passed("content-equal", "all 61,016 rows identical to frozen CSVs")
+        passed("row-counts", "20/238/140/560/60108/145 in db and CSVs")
+        passed("content-equal", "all 61,211 rows identical to frozen CSVs")
 
         for table, where, label, expected in SPOTS:
             actual = con.execute(
@@ -160,7 +160,7 @@ def main(argv: list[str] | None = None) -> int:
                 f"SELECT COUNT(*) FROM {table} WHERE metric_value=''").fetchone()[0]
             if n_na != expected_na:
                 fail("na-preserved", f"{table} {expected_na} empty N/A rows", str(n_na))
-        passed("na-preserved", "14/6/42 empty N/A rows with reasons intact")
+        passed("na-preserved", "14/8/56 empty N/A rows with reasons intact")
 
         statuses = {r[0] for r in con.execute(
             "SELECT DISTINCT scenario_status FROM ao03_scenario_comparison")}
@@ -168,7 +168,9 @@ def main(argv: list[str] | None = None) -> int:
             fail("status-labels", "baseline/hypothetical separation", repr(statuses))
         passed("status-labels", "observed/hypothetical layers separate")
 
-        mirror = {"phase3b_quality_report.json": 16, "phase4b_scenario_quality.json": 15,
+        mirror = {"phase3b_quality_report.json": 16,
+                  "phase4b_scenario_uniform_0.10_quality.json": 15,
+                  "phase4b_scenario_uniform_0.20_quality.json": 15,
                   "phase4b_scenario_increase_0.00_quality.json": 22,
                   "phase4b_scenario_decrease_0.00_quality.json": 22}
         for artifact, expected_n in mirror.items():
@@ -180,7 +182,7 @@ def main(argv: list[str] | None = None) -> int:
             if [r[0] for r in got] != want or len(got) != expected_n:
                 fail("mirror-fidelity", f"{artifact} mirrors {expected_n} upstream checks",
                      f"{len(got)} rows mirrored")
-        passed("mirror-fidelity", "75 upstream checks mirrored verbatim in order")
+        passed("mirror-fidelity", "90 upstream checks mirrored verbatim in order")
 
         n_orders = con.execute(
             "SELECT COUNT(DISTINCT order_id) FROM ao05_order_reading").fetchone()[0]

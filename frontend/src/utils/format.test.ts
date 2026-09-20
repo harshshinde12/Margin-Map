@@ -4,6 +4,7 @@ import {
   formatCompactCurrency,
   formatCount,
   formatCurrency,
+  formatDecimal,
   formatPercent,
   formatPercentagePoints,
   metricLabel,
@@ -47,6 +48,12 @@ describe('display formatting (presentation only, no new metrics)', () => {
   it('humanizes metric names without changing values', () => {
     expect(metricLabel('contribution_profit')).toBe('Contribution Profit');
     expect(metricLabel('variance_contribution_profit')).toBe('Variance Contribution Profit');
+    expect(metricLabel('wad')).toBe('WAD');
+  });
+
+  it('formats decimal ratios at 4dp per display spec (WAD)', () => {
+    expect(formatDecimal('0.19788653436077944')).toBe('0.1979');
+    expect(formatByUnit('0.19788653436077944', 'DEC')).toBe('0.1979');
   });
 
   it('parses single stored values, rejecting non-numeric labels', () => {

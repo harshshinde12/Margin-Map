@@ -308,7 +308,7 @@ def main() -> None:
         "cogs_key_options": "see docs/PRODUCT_GRAIN_DECISION.md (no values created)",
         "modeled_fields_created": [],
     }
-    OUT_JSON.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    OUT_JSON.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     # Validate artefacts (re-read + internal consistency)
     chk_csv = pd.read_csv(OUT_CSV)

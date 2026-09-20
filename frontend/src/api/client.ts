@@ -3,6 +3,9 @@
  *
  * All data access flows through this module. The base URL comes from
  * VITE_API_BASE_URL so it is never hard-coded in components.
+ * An empty/unset VITE_API_BASE_URL means same-origin (production:
+ * FastAPI serves the React build and /api from one origin).
+ * Local development sets VITE_API_BASE_URL=http://127.0.0.1:8000.
  * The client performs no analytical computation of any kind.
  */
 
@@ -18,9 +21,12 @@ import type {
   VarianceRecord,
 } from './types';
 
-export const API_BASE_URL: string =
-  (import.meta.env.VITE_API_BASE_URL as string | undefined)?.replace(/\/$/, '') ||
-  'http://127.0.0.1:8000';
+const _rawBase = (
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? ''
+).trim().replace(/\/$/, '');
+/** Empty string = same-origin relative URLs (production). Set
+ * VITE_API_BASE_URL=http://127.0.0.1:8000 for local two-origin dev. */
+export const API_BASE_URL: string = _rawBase;
 
 export class ApiError extends Error {
   readonly status: number;

@@ -26,8 +26,9 @@ import { formatByUnit, formatSignedCurrency, metricLabel, parseValue } from '../
 
 const SCENARIOS = [
   { value: 'uniform_replace_0.10', label: 'Uniform 10% replacement' },
-  { value: 'discount_increase_pp_0.00', label: 'Discount increase (±0.00 pp)' },
-  { value: 'discount_decrease_pp_0.00', label: 'Discount decrease (±0.00 pp)' },
+  { value: 'uniform_replace_0.20', label: 'Uniform 20% replacement (median observed discount)' },
+  { value: 'discount_increase_pp_0.00', label: 'Discount increase 0.00 pp (identity control)' },
+  { value: 'discount_decrease_pp_0.00', label: 'Discount decrease 0.00 pp (identity control)' },
 ];
 
 const VARIANCE_METRICS = [
@@ -55,7 +56,7 @@ export function Variance() {
   const chartData = useMemo(() => {
     const byBand = new Map((data?.data ?? []).map((r) => [r.band, r]));
     return BANDS.map((b) => byBand.get(b))
-      .filter((r): r is VarianceRecord => !!r)
+      .filter((r): r is VarianceRecord => !!r && parseValue(r.metric_value) !== null)
       .map((r) => ({
         band: r.band,
         value: parseValue(r.metric_value) ?? 0,
@@ -64,6 +65,8 @@ export function Variance() {
         isTotal: r.band === 'TOTAL',
       }));
   }, [data]);
+
+  const chartUnit = chartData[0]?.unit ?? 'CUR';
 
   const reset = () => {
     setScenarioId('uniform_replace_0.10');
@@ -126,7 +129,6 @@ export function Variance() {
           label="Scenario instance"
           value={scenarioId}
           onChange={setScenarioId}
-          allLabel="Select scenario"
           options={SCENARIOS}
         />
         <SelectField
@@ -134,7 +136,6 @@ export function Variance() {
           label="Variance metric"
           value={metric}
           onChange={setMetric}
-          allLabel="Select metric"
           options={VARIANCE_METRICS}
         />
         <button type="button" className="btn" onClick={reset}>
@@ -171,7 +172,15 @@ export function Variance() {
                   <XAxis dataKey="band" tick={{ fill: CHART.tick, fontSize: 12 }} />
                   <YAxis
                     tick={{ fill: CHART.tick, fontSize: 12 }}
-                    tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}K`}
+                    tickFormatter={(v: number) =>
+                      chartUnit === 'CUR'
+                        ? `$${(v / 1000).toFixed(0)}K`
+                        : chartUnit === 'PP'
+                          ? `${v.toFixed(1)} pp`
+                          : chartUnit === 'PCT'
+                            ? `${v.toFixed(1)}%`
+                            : v.toLocaleString('en-US')
+                    }
                   />
                   <Tooltip
                     formatter={(_value, _name, props) => [

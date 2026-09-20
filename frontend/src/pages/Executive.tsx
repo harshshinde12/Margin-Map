@@ -156,7 +156,7 @@ export function Executive() {
                   { metric: 'order_count', format: formatCount, label: 'Orders' },
                   { metric: 'line_count', format: formatCount, label: 'Order Lines' },
                   { metric: 'revenue_realization_rate', format: (v: string) => formatPercent(v), label: 'Revenue Realization' },
-                  { metric: 'wad', format: (v: string) => formatDecimal(v), label: 'Wtd. Avg. Discount' },
+                  { metric: 'wad', format: (v: string) => formatDecimal(v), label: 'WAD · Wtd. Avg. Discount' },
                 ] as const
               ).map((item) => {
                 const record = byMetric.get(item.metric);
@@ -166,7 +166,8 @@ export function Executive() {
                     key={item.metric}
                     label={item.label}
                     value={item.format(record.metric_value)}
-                    sub="Baseline · TOTAL"
+                    sub={`Baseline · TOTAL · ${record.unit}`}
+                    title={`${metricLabel(record.metric_name)}: ${formatByUnit(record.metric_value, record.unit)} (${record.unit})`}
                   />
                 );
               })}

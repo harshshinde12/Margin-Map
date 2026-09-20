@@ -85,7 +85,7 @@ Only values supported by the actual output and quality artifact (exact output pr
 * Uniform scenario B0 contribution variance is `-30,530.82` (approximately `−30,530.82`; stored `-30530.82247`).
 * Band variances reconcile to the overall TOTAL variance of `95406.2413300001` (approximately `+95,406.24`).
 * Both identity scenarios have zero variance throughout (all currency variances, both margin changes, and relative variance exactly `0.0` on every band row).
-* The negative-baseline contribution distribution is preserved, with the reported distribution: `14/3/24/1/3/5/50`. Interpretation as documented: these are the stored baseline negative-order counts per ORDER band (B0 14, B1 24 carrying the largest share, B5 5, TOTAL 50); hypothetical negative-order counts are carried alongside (uniform TOTAL 46) without re-attribution.
+* The negative-baseline contribution distribution is preserved, with the reported distribution: `14/3/24/1/3/5/50`. Interpretation as documented: these are the stored baseline negative-order counts per ORDER band (B0 14, B2 24 carrying the largest share, B5 5, TOTAL 50); hypothetical negative-order counts are carried alongside (uniform TOTAL 46) without re-attribution. (Corrected: an earlier revision wrote "B1 24"; the stored values have always been B1 3 / B2 24 — documentation fix only, implementation unchanged.)
 
 ## 8. Input Artifact Protection
 

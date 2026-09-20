@@ -168,7 +168,31 @@ def main() -> None:
                         "implied_modeled_cogs_per_unit", "cogs_status", "cogs_source",
                         "benchmark_level", "confidence", "assumption_note"]].copy()
     assumptions = assumptions.sort_values("analytical_product_key").reset_index(drop=True)
+    # Step 8 schema: explicit rate/source/method/status columns so consumers can
+    # distinguish OBSERVED source data from MODELED assumption without parsing text.
+    # Values are derived ONLY from the external benchmark (never observed Profit).
+    assumptions["cogs_rate"] = assumptions["modeled_cogs_pct"] / 100.0
+    assumptions["cogs_amount_basis"] = "net_revenue"
+    assumptions["cogs_source_year"] = prod["source_date"].tolist()
+    assumptions["cogs_method"] = ("external_benchmark_gross_margin: "
+                                  "modeled_cogs = net_revenue * (100 - benchmark_pct)/100")
+    assumptions["assumption_status"] = assumptions["cogs_status"]
 
+    # --- circularity guard (P0): COGS must not depend on observed Profit -----
+    # Benchmarks and dimension must not carry the quarantined Profit field; the
+    # authoritative formula below uses ONLY sales × benchmark rate. This fails
+    # loudly if a future change reintroduces COGS ← Profit.
+    for _name, _df in [("dim", dim), ("bench", bench)]:
+        if "source_profit_quarantined" in _df.columns:
+            fail("cogs-independence",
+                 f"{_name} carries no observed-Profit column",
+                 "source_profit_quarantined present")
+    _profit_cols = [c for c in prod.columns if "profit" in c.lower()
+                    and c not in ("modeled_gross_profit",)]
+    if _profit_cols:
+        fail("cogs-independence",
+             "product assumptions carry no observed-profit input",
+             f"profit-like columns: {_profit_cols}")
     # --- enriched fact (§13-15) ----------------------------------------------
     # Join carries ONLY authoritative rate metadata — never a unit cost. The
     # row-level implied value is derived AFTER modeled_cogs (see below).
@@ -276,6 +300,13 @@ def main() -> None:
         net_revenue=("sales", "sum"), quantity=("quantity", "sum"))
     sub["downside_margin_pct"] = (sub["benchmark_gross_margin_pct"] - 5).clip(0, 100)
     sub["upside_margin_pct"] = (sub["benchmark_gross_margin_pct"] + 5).clip(0, 100)
+    # P2-02: the clip above must be a no-op on current benchmarks (min low 20,
+    # max high 45); if a future benchmark sits within 5pp of an edge, the
+    # scenario definition would silently change — fail loudly instead.
+    if bool(((sub["benchmark_gross_margin_pct"] - 5 < 0)
+             | (sub["benchmark_gross_margin_pct"] + 5 > 100)).any()):
+        fail("sensitivity-unclipped", "±5pp scenarios unclipped on all sub-categories",
+             "a benchmark sits within 5pp of 0/100; range or method must be redesigned")
     for scen, mcol in [("base", "benchmark_gross_margin_pct"),
                        ("downside", "downside_margin_pct"),
                        ("upside", "upside_margin_pct")]:
@@ -395,7 +426,7 @@ def main() -> None:
             "must never drive COGS. Authoritative COGS is always Net Revenue x COGS %.",
         ],
     }
-    QUALITY_JSON.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    QUALITY_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     print(f"OK: assumptions {len(assumptions)} products; "
           f"enriched {len(enriched)} rows x {len(enriched.columns)} cols")

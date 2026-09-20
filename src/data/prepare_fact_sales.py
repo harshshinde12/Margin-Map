@@ -122,9 +122,16 @@ def to_postal_string(series: pd.Series) -> pd.Series:
             return pd.NA
         if isinstance(v, str):
             v = v.strip()
-            return pd.NA if v == "" else v
+            if v == "":
+                return pd.NA
+            # US ZIPs are 5 digits; raw CSV mixes '05408' with '1040'
+            # (leading zero lost). Pad pure-digit codes so geo joins compare.
+            if v.isdigit():
+                return v.zfill(5)
+            return v
         try:
-            return str(int(float(v)))  # handles int- or float-read codes
+            iv = int(float(v))  # handles int- or float-read codes
+            return str(iv).zfill(5)
         except (ValueError, TypeError):
             return str(v).strip()
 
@@ -173,7 +180,7 @@ def validate(df: pd.DataFrame, raw_rows: int) -> dict:
         fail("row_id-unique", "all row_id unique",
              f"{int(df['row_id'].duplicated().sum())} duplicates")
     for col in ["order_id", "customer_id", "product_id"]:
-        n_null = int(df[col].isna().sum() | (df[col].str.strip() == "").sum())
+        n_null = int(df[col].isna().sum() + (df[col].str.strip() == "").sum())
         if n_null:
             fail(f"{col}-not-null", "0 null/blank", f"{n_null}")
     stats["rows"] = len(df)
@@ -309,7 +316,7 @@ def main() -> None:
                             "has not been established."),
         "modeled_fields_created": [],
     }
-    QUALITY_JSON.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    QUALITY_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     print(f"OK: {stats['rows']} rows x {len(column_order)} cols -> {FACT_CSV}")
     print(f"OK: quality report -> {QUALITY_JSON}")

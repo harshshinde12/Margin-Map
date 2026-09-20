@@ -109,8 +109,27 @@ def main() -> None:
              f"{len(cand_ret)} rows / {cand_ret['Order ID'].nunique()} unique")
 
     # ---- 2. FREIGHT JOIN (composite signature, validated mechanism) ---------
-    left = base.rename(columns=SIG_P1)[SIG].copy()
-    right = cand_orders[SIG + ["Row ID", "Order ID", "Shipping Cost"]].copy()
+    # Float hardening (P2): monetary fields are normalized BEFORE the merge so
+    # the join never depends on binary float representation. Sales → cents
+    # (source has ≤2dp), Discount → 6dp, Quantity → int; strings stripped.
+    # No stable shared row ID exists across the two files (independent Row ID
+    # systems; year-shifted Order IDs; Order+Product collides on 8 pairs), so
+    # the normalized signature REMAINS the production key — hardened, not
+    # replaced. All cardinality/total gates below still fail loudly.
+    def _norm_sig(df: pd.DataFrame) -> pd.DataFrame:
+        out = df.copy()
+        out["Sales"] = pd.to_numeric(out["Sales"], errors="coerce").round(2)
+        out["Discount"] = pd.to_numeric(out["Discount"], errors="coerce").round(6)
+        out["Quantity"] = pd.to_numeric(out["Quantity"], errors="coerce").astype("int64")
+        for c in ["Customer ID", "Product ID", "Ship Mode", "City", "State"]:
+            out[c] = out[c].astype("string").str.strip()
+        if out[["Sales", "Discount", "Quantity"]].isna().any().any():
+            fail("sig-normalize", "signature numerics parseable on both sides",
+                 "NaN after normalization")
+        return out
+
+    left = _norm_sig(base.rename(columns=SIG_P1)[SIG].copy())
+    right = _norm_sig(cand_orders[SIG + ["Row ID", "Order ID", "Shipping Cost"]].copy())
     if int(right["Shipping Cost"].isna().sum()) != 0:
         fail("freight-nonnull", "0 null Shipping Cost",
              f"{int(right['Shipping Cost'].isna().sum())}")
@@ -378,7 +397,7 @@ def main() -> None:
             "NOT_RETURNED rests on the candidate-Returns completeness assumption (documented caveat).",
         ],
     }
-    QUALITY_JSON.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    QUALITY_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"OK: {len(out)} rows x {len(out.columns)} cols -> {OUT_CSV}")
     print(f"OK: revenue={tot_rev:,.2f} cogs={tot_cogs:,.2f} cts={tot_cts:,.2f} "
           f"contrib={tot_prof:,.2f} margin={tot_prof/tot_rev*100:.2f}%")

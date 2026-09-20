@@ -79,7 +79,7 @@ def main() -> None:
     o = pd.DataFrame({
         "order_revenue": g["net_revenue"].sum(),
         "order_cogs": g["modeled_cogs"].sum(),
-        "order_freight": g["freight_cost_observed"].sum(min_count=0),
+        "order_freight": g["freight_cost_observed"].sum(min_count=1),
         "order_return_processing_cost_scenario": 0.0,
         "order_support_cost_scenario": 0.0,
     }).reset_index()

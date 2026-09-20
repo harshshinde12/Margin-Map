@@ -1,0 +1,30 @@
+# Keep the production image lean: exclude everything the runtime
+# never reads (raw/licensed data, BI sources, dev artifacts).
+.git/
+.gitignore
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# Raw / licensed inputs (never shipped; local only).
+*.zip
+Dataset 1 Apoorva.zip
+Dataset 2 Rohitgrewal.zip
+sample_-_superstore.xls
+data/raw/
+archive.zip
+
+# Locally rebuilt artifacts (rebuilt inside the image).
+*.db
+frontend/dist/
+frontend/node_modules/
+backend/__pycache__/
+backend/.pytest_cache/
+
+# Dev / editorial artifacts not needed at runtime.
+powerbi/
+notebooks/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

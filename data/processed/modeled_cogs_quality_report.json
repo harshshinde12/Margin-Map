@@ -18,8 +18,8 @@
     "unique_orders": 5009,
     "total_net_revenue": 2297200.86,
     "total_quantity": 37873,
-    "fact_sha256_before": "d7478eb549c61d96c34296a418aec872bbe8757c46f20993ad6d04c7e3261ee2",
-    "fact_sha256_after": "d7478eb549c61d96c34296a418aec872bbe8757c46f20993ad6d04c7e3261ee2",
+    "fact_sha256_before": "9b3e38394ea357c1c7f792b53866ca406e0241b5f4e074fb66fcadc1f8d3276c",
+    "fact_sha256_after": "9b3e38394ea357c1c7f792b53866ca406e0241b5f4e074fb66fcadc1f8d3276c",
     "source_profit_used_for_cogs": false
   },
   "benchmark_statistics": {

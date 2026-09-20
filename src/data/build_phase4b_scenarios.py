@@ -127,6 +127,13 @@ def parse_args(argv: list[str] | None = None) -> float:
         fail("rate-bounds",
              f"stated rate within [{RATE_MIN:.2f}, {RATE_MAX:.2f}]",
              f"--rate {rate}")
+    # Filename-collision guard (P2-05): scenario_id/filenames truncate to 2dp,
+    # so a rate like 0.105 would silently collide with 0.10. Only exact-2dp
+    # rates are accepted; anything finer fails loudly instead of overwriting.
+    if abs(float(f"{rate:.2f}") - rate) > 1e-9:
+        fail("rate-precision",
+             "rate exactly representable at 2dp (scenario_id/filename identity)",
+             f"--rate {rate} truncates to {float(f'{rate:.2f}'):.2f}")
     return rate
 
 
@@ -503,7 +510,10 @@ def main(argv: list[str] | None = None) -> None:
 
     # ---- write outputs (only after every check above has passed) -------------------
     OUT_CSV = OUT_DIR / f"phase4b_scenario_uniform_{rate:.2f}.csv"
-    QUALITY_JSON = OUT_DIR / "phase4b_scenario_quality.json"
+    # Per-rate quality file: uniform_0.10 and uniform_0.20 each keep their own
+    # chain-of-custody record (a shared name would let the last run overwrite
+    # the first scenario's record).
+    QUALITY_JSON = OUT_DIR / f"phase4b_scenario_uniform_{rate:.2f}_quality.json"
     if QUARANTINE_COL in out.columns:
         fail("quarantine-output", f"{QUARANTINE_COL} absent from output",
              "column present")
@@ -536,7 +546,7 @@ def main(argv: list[str] | None = None) -> None:
                                    "columns": int(len(out.columns)),
                                    "sha256": sha256(OUT_CSV)}},
     }
-    with open(QUALITY_JSON, "w", encoding="utf-8") as fh:
+    with open(QUALITY_JSON, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(report, fh, indent=2)
         fh.write("\n")
 

@@ -156,6 +156,11 @@ def parse_args(argv: list[str] | None = None) -> float:
              f"stated increase within [{INCREASE_MIN:.2f}, "
              f"{INCREASE_MAX:.2f}] in decimal fraction{hint}",
              f"--increase-pp {increase}")
+    # Filename-collision guard (P2-05): scenario_id truncates to 2dp.
+    if abs(float(f"{increase:.2f}") - increase) > 1e-9:
+        fail("increase-precision",
+             "increase exactly representable at 2dp (scenario_id identity)",
+             f"--increase-pp {increase} truncates to {float(f'{increase:.2f}'):.2f}")
     return increase
 
 
@@ -616,7 +621,7 @@ def main(argv: list[str] | None = None) -> None:
                                    "columns": int(len(out.columns)),
                                    "sha256": sha256(OUT_CSV)}},
     }
-    with open(QUALITY_JSON, "w", encoding="utf-8") as fh:
+    with open(QUALITY_JSON, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(report, fh, indent=2)
         fh.write("\n")
 

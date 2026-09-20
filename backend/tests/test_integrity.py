@@ -24,10 +24,10 @@ TABLES = (
 EXPECTED_COUNTS = {
     "ao01_baseline_total": 20,
     "ao02_band_contribution": 238,
-    "ao03_scenario_comparison": 105,
-    "ao04_band_variance": 420,
+    "ao03_scenario_comparison": 140,
+    "ao04_band_variance": 560,
     "ao05_order_reading": 60108,
-    "ao06_quality_summary": 125,
+    "ao06_quality_summary": 145,
 }
 
 

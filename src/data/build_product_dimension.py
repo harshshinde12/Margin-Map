@@ -51,7 +51,12 @@ def make_key(product_id: str, product_name: str) -> str:
     Order-independent (built from sorted unique combos, never row order),
     stable across runs, human-readable for interview traceability.
     """
-    return f"{product_id.strip()}{KEY_SEP}{product_name.strip()}"
+    pid = product_id.strip()
+    pname = product_name.strip()
+    if KEY_SEP in pid or KEY_SEP in pname:
+        fail("key-separator", f"separator {KEY_SEP!r} absent from id/name",
+             f"collision risk in {product_id!r} / {product_name!r}")
+    return f"{pid}{KEY_SEP}{pname}"
 
 
 def load_fact() -> pd.DataFrame:
@@ -104,6 +109,7 @@ def main() -> None:
     fact = load_fact()
     fact_ids_before = set(fact["product_id"].unique())
     fact_names_before = set(fact["product_name"].unique())
+    fact_combos = set(zip(fact["product_id"], fact["product_name"]))
 
     dim = build_dimension(fact)
     tpl = build_template(dim)
@@ -124,9 +130,8 @@ def main() -> None:
     # Source preservation: values byte-identical to fact (strip only for key join)
     if set(fact["product_id"].unique()) != fact_ids_before:
         fail("source-ids", "fact product_ids untouched", "fact appears modified")
-    if not dim.apply(lambda r: r["product_id"] in fact_ids_before
-                     and r["product_name"] in fact_names_before, axis=1).all():
-        fail("dim-from-source", "all dim values present verbatim in fact", "mismatch")
+    if not dim.apply(lambda r: (r["product_id"], r["product_name"]) in fact_combos, axis=1).all():
+        fail("dim-from-source", "all dim (id, name) combos present verbatim in fact", "mismatch")
 
     # --- validation: template (no fabricated COGS) -------------------------
     if len(tpl) != EXPECTED_PRODUCTS:
@@ -167,7 +172,7 @@ def main() -> None:
                                "archive.zip untouched; dim values verbatim from fact",
         "modeled_fields_created": [],
     }
-    QUALITY_JSON.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    QUALITY_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     print(f"OK: dim_product {len(dim)} rows, keys unique={dim['analytical_product_key'].nunique()}")
     print(f"OK: template {len(tpl)} rows, NULL cogs={int(tpl['cogs_per_unit'].isna().sum())}, fabricated=0")

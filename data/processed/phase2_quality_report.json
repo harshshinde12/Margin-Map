@@ -1,7 +1,7 @@
 {
   "phase": "2B",
   "inputs": {
-    "fact_sales_cogs.csv_sha256": "4d8de717486b323ffb656d13c94fd6bd94f8e61d1a93ea339a602ab5303b9988",
+    "fact_sales_cogs.csv_sha256": "36e99c6a4257d25469cce2c1958b4d5ccfcf867ac9611d3a817714b854cf2f45",
     "Dataset 1 Apoorva.zip_sha256": "5d3155e74e2b4bdfd693e60b6b1d6b42e43a9c39d7e27bbe941366f559152a90",
     "sample_-_superstore.xls_sha256": "5045ed4fec49cae2cc0dfc5ab0d204ba09efa767fe00c996822499e8cc42fbbd",
     "fact_rows": 9994,

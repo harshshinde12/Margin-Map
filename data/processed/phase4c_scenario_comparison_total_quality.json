@@ -13,6 +13,12 @@
       "sha256": "6771a5f2ec4eb1584a7965768766e329c4e80f1b3ae805992c9ff65a7b9da2d1",
       "scenario_id": "uniform_replace_0.10"
     },
+    "phase4b_scenario_uniform_0.20.csv": {
+      "rows": 7,
+      "columns": 52,
+      "sha256": "78b9cad208e9e9fcb6df7fcafafe22119b19c8ef3e32e91cb8fd68ca8ad1f32f",
+      "scenario_id": "uniform_replace_0.20"
+    },
     "phase4b_scenario_increase_0.00.csv": {
       "rows": 7,
       "columns": 52,
@@ -27,10 +33,15 @@
     }
   },
   "evidence": {
-    "phase4b_scenario_quality.json": {
+    "phase4b_scenario_uniform_0.10_quality.json": {
       "checks": 15,
       "status": "all PASS",
       "scenario_id": "uniform_replace_0.10"
+    },
+    "phase4b_scenario_uniform_0.20_quality.json": {
+      "checks": 15,
+      "status": "all PASS",
+      "scenario_id": "uniform_replace_0.20"
     },
     "phase4b_scenario_increase_0.00_quality.json": {
       "checks": 22,
@@ -46,50 +57,50 @@
   "checks": [
     {
       "id": "inputs-exist",
-      "description": "3 scenario CSVs + 3 quality JSONs present",
-      "expected": "6 files",
+      "description": "4 scenario CSVs + 4 quality JSONs present",
+      "expected": "8 files",
       "actual": "present",
       "status": "PASS"
     },
     {
       "id": "quality-status",
       "description": "frozen quality evidence all PASS, unique IDs",
-      "expected": "15/15 + 22/22 + 22/22 unique",
-      "actual": "15/15 + 22/22 + 22/22 unique",
+      "expected": "15/15 + 15/15 + 22/22 + 22/22 unique",
+      "actual": "15/15 + 15/15 + 22/22 + 22/22 unique",
       "status": "PASS"
     },
     {
       "id": "quality-chain",
       "description": "CSV bytes match sha recorded in quality JSON",
-      "expected": "3/3 match",
-      "actual": "3/3 match",
+      "expected": "4/4 match",
+      "actual": "4/4 match",
       "status": "PASS"
     },
     {
       "id": "fact-chain",
       "description": "fact hashes in scenario evidence match freeze records",
-      "expected": "2 facts x 3 evidence files match",
+      "expected": "2 facts x 4 evidence files match",
       "actual": "match",
       "status": "PASS"
     },
     {
       "id": "identifiers",
       "description": "scenario_id/type/scope/basis/standing per instance",
-      "expected": "uniform_replace_0.10 / discount_increase_pp_0.00 / discount_decrease_pp_0.00; ORDER; all_valid_lines",
+      "expected": "uniform_replace_0.10 / uniform_replace_0.20 / discount_increase_pp_0.00 / discount_decrease_pp_0.00; ORDER; all_valid_lines",
       "actual": "match",
       "status": "PASS"
     },
     {
       "id": "input-forms",
       "description": "stated input form + value per instance",
-      "expected": "replacement_rate 0.10; increase_pp 0.0; decrease_pp 0.0",
+      "expected": "replacement_rate 0.10; replacement_rate 0.20; increase_pp 0.0; decrease_pp 0.0",
       "actual": "match",
       "status": "PASS"
     },
     {
       "id": "shapes",
       "description": "scenario file shapes + TOTAL row",
-      "expected": "7 rows x 52 cols x 3 files; one TOTAL each",
+      "expected": "7 rows x 52 cols x 4 files; one TOTAL each",
       "actual": "match",
       "status": "PASS"
     },
@@ -103,7 +114,7 @@
     {
       "id": "quarantine",
       "description": "no quarantined-Profit column",
-      "expected": "absent from all 3 CSVs",
+      "expected": "absent from all 4 CSVs",
       "actual": "absent",
       "status": "PASS"
     },
@@ -124,7 +135,7 @@
     {
       "id": "counts",
       "description": "universal scope counts per TOTAL",
-      "expected": "9994 / 5009 / 37873 x 3",
+      "expected": "9994 / 5009 / 37873 x 4",
       "actual": "match",
       "status": "PASS"
     },
@@ -145,35 +156,35 @@
     {
       "id": "variance-reconcile",
       "description": "stored variances equal hypo-base",
-      "expected": "5 currency pairs x 3 instances, gaps <= 1e-9",
+      "expected": "5 currency pairs x 4 instances, gaps <= 1e-9",
       "actual": "reconciled",
       "status": "PASS"
     },
     {
       "id": "freight-zero",
       "description": "freight variance exactly 0; CTS passthrough",
-      "expected": "0.0 x 3; hypo_cts = base freight",
+      "expected": "0.0 x 4; hypo_cts = base freight",
       "actual": "zero",
       "status": "PASS"
     },
     {
       "id": "margin-pp",
       "description": "stored pp changes equal recomputed",
-      "expected": "2 pp pairs x 3 instances, gaps <= 1e-9",
+      "expected": "2 pp pairs x 4 instances, gaps <= 1e-9",
       "actual": "recomputed",
       "status": "PASS"
     },
     {
       "id": "headline",
       "description": "headline figures match design (+ identities zero)",
-      "expected": "hypo 660523.18 / var 95406.24 / +1.03pp; identities 0.0",
+      "expected": "hypo 660523.18 / var 95406.24 / +1.03pp; uniform020 hypo 560667.96 / var -4448.98; identities 0.0",
       "actual": "match",
       "status": "PASS"
     },
     {
       "id": "grain",
       "description": "TOTAL-only output; no band detail emitted",
-      "expected": "3 instances x 3 blocks, TOTAL grain",
+      "expected": "4 instances x 3 blocks, TOTAL grain",
       "actual": "TOTAL only",
       "status": "PASS"
     }
@@ -193,8 +204,8 @@
   "determinism": "Fixed instance/block/metric ordering, repr() numeric formatting, no timestamps, no randomness, no environment-dependent values.",
   "outputs": {
     "phase4c_scenario_comparison_total.csv": {
-      "rows": 105,
-      "sha256": "7d8088701c32903f6d55b65f5b14dce9f4bf39dc44e15c98c06579eea4e1734e"
+      "rows": 140,
+      "sha256": "aa11a7bd30a7158b3a0e64551b2631285f7b6cd24f45b2b442669933718eec65"
     }
   }
 }

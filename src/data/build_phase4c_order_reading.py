@@ -413,11 +413,11 @@ def main(argv: list[str] | None = None) -> int:
         },
     }
     # order-schema gate is implemented via REQUIRED_COLS subset check above
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     quality["outputs"][OUT_CSV_NAME]["sha256"] = sha256(out_csv)
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     return 0

@@ -26,7 +26,6 @@ import { useApi } from '../hooks/useApi';
 import {
   formatByUnit,
   formatCompactCurrency,
-  formatCurrency,
   metricLabel,
   parseValue,
 } from '../utils/format';
@@ -51,7 +50,9 @@ export function DiscountBands() {
   const activeMetric = metrics.includes(metric) ? metric : (metrics[0] ?? 'contribution_profit');
 
   const chartRows = useMemo(() => {
-    const rows = (data?.data ?? []).filter((r) => r.metric_name === activeMetric);
+    const rows = (data?.data ?? []).filter(
+      (r) => r.metric_name === activeMetric && parseValue(r.metric_value) !== null,
+    );
     const byBand = new Map(rows.map((r) => [r.band, r]));
     return BAND_ORDER.map((b) => byBand.get(b)).filter(
       (r): r is ContributionRecord => !!r,
@@ -69,6 +70,8 @@ export function DiscountBands() {
       })),
     [chartRows],
   );
+
+  const chartUnit = chartRows[0]?.unit ?? 'CUR';
 
   const tableRows = useMemo(
     () => (data?.data ?? []).filter((r) => (band ? r.band === band : true) && r.metric_name === activeMetric),
@@ -129,17 +132,17 @@ export function DiscountBands() {
       />
 
       <div className="filter-bar" role="group" aria-label="Contribution filters">
-        <SelectField
-          id="basis"
-          label="Basis"
-          value={basis}
-          onChange={setBasis}
-          allLabel="All bases"
-          options={[
-            { value: 'ORDER', label: 'ORDER — authoritative' },
-            { value: 'LINE', label: 'LINE — partial companion' },
-          ]}
-        />
+          <SelectField
+            id="basis"
+            label="Basis"
+            value={basis}
+            onChange={setBasis}
+            allowAll={false}
+            options={[
+              { value: 'ORDER', label: 'ORDER — authoritative' },
+              { value: 'LINE', label: 'LINE — partial companion' },
+            ]}
+          />
         <SelectField
           id="band"
           label="Discount band"
@@ -225,14 +228,19 @@ export function DiscountBands() {
                   <YAxis
                     tick={{ fill: CHART.tick, fontSize: 12 }}
                     tickFormatter={(v: number) =>
-                      chartRows[0]?.unit === 'CUR'
+                      chartUnit === 'CUR'
                         ? `$${(v / 1000).toFixed(0)}K`
-                        : v.toLocaleString('en-US')
+                        : chartUnit === 'PCT' || chartUnit === 'PP'
+                          ? `${v.toFixed(1)}${chartUnit === 'PCT' ? '%' : ' pp'}`
+                          : v.toLocaleString('en-US')
                     }
                   />
                   <Tooltip
                     formatter={(_value, _name, props) => [
-                      formatCurrency(String(props?.payload?.raw ?? '')),
+                      formatByUnit(
+                        String(props?.payload?.raw ?? ''),
+                        String(props?.payload?.unit ?? ''),
+                      ),
                       metricLabel(activeMetric),
                     ]}
                     labelFormatter={(label) => `Band ${label}`}

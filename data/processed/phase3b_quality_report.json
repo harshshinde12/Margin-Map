@@ -30,7 +30,7 @@
   "inputs": {
     "fact_margin_map_phase2.csv": {
       "rows": 9994,
-      "sha256": "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1"
+      "sha256": "4038684d113ffee5697a4859991159b630802eb1697c3e12ee59735db5d42e06"
     },
     "order_margin_map_phase2.csv": {
       "rows": 5009,
@@ -38,7 +38,7 @@
     },
     "fact_sales_cogs.csv": {
       "rows": 9994,
-      "sha256": "4d8de717486b323ffb656d13c94fd6bd94f8e61d1a93ea339a602ab5303b9988"
+      "sha256": "36e99c6a4257d25469cce2c1958b4d5ccfcf867ac9611d3a817714b854cf2f45"
     }
   },
   "band_validation": {
@@ -164,8 +164,8 @@
     },
     {
       "id": "product-flags",
-      "description": "product sparsity fully flagged",
-      "expected": "all product rows below provisional thresholds",
+      "description": "product sparsity flags computed (informational)",
+      "expected": "boolean flags on all rows; actual flagged fraction reported, not gated",
       "actual": "5925/5925 flagged",
       "status": "PASS"
     },

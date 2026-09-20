@@ -50,12 +50,21 @@ OUT_JSON_NAME = "phase4c_contribution_variance_by_band_quality.json"
 INSTANCES = (
     {"key": "uniform",
      "csv": "phase4b_scenario_uniform_0.10.csv",
-     "json": "phase4b_scenario_quality.json",
+     "json": "phase4b_scenario_uniform_0.10_quality.json",
      "scenario_id": "uniform_replace_0.10",
      "scenario_type": "uniform_replacement",
      "input_form": "replacement_rate",
      "stated_col": "stated_rate",
      "stated_value": 0.10,
+     "n_checks": 15},
+    {"key": "uniform020",
+     "csv": "phase4b_scenario_uniform_0.20.csv",
+     "json": "phase4b_scenario_uniform_0.20_quality.json",
+     "scenario_id": "uniform_replace_0.20",
+     "scenario_type": "uniform_replacement",
+     "input_form": "replacement_rate",
+     "stated_col": "stated_rate",
+     "stated_value": 0.20,
      "n_checks": 15},
     {"key": "increase",
      "csv": "phase4b_scenario_increase_0.00.csv",
@@ -92,7 +101,7 @@ VAR_TOL = 1e-9  # per-band variance arithmetic reconciliation tolerance
 # ---- frozen fact hashes (chain-of-custody via scenario quality JSONs) ---------
 FROZEN_FACT_HASHES = {
     "fact_margin_map_phase2.csv":
-        "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1",
+        "4038684d113ffee5697a4859991159b630802eb1697c3e12ee59735db5d42e06",
     "order_margin_map_phase2.csv":
         "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267",
 }
@@ -280,7 +289,7 @@ def main(argv: list[str] | None = None) -> int:
     # ---- 7. TOTAL baselines identical + frozen ------------------------------------------------
     ref = frames["uniform"]
     ref_total = ref[ref["band"] == "TOTAL"].iloc[0]
-    for key in ("increase", "decrease"):
+    for key in ("uniform020", "increase", "decrease"):
         tot = frames[key][frames[key]["band"] == "TOTAL"].iloc[0]
         if abs(float(tot["base_contrib"]) - float(ref_total["base_contrib"])) > TOL:
             fail("baseline-identical", "TOTAL base_contrib identical across instances",
@@ -433,27 +442,27 @@ def main(argv: list[str] | None = None) -> int:
             for inst in INSTANCES
         },
         "checks": [
-            {"id": "inputs-exist", "description": "3 scenario CSVs + 3 quality JSONs present",
-             "expected": "6 files", "actual": "present", "status": "PASS"},
+            {"id": "inputs-exist", "description": "4 scenario CSVs + 4 quality JSONs present",
+             "expected": "8 files", "actual": "present", "status": "PASS"},
             {"id": "quality-status", "description": "frozen quality evidence all PASS, unique IDs",
-             "expected": "15/15 + 22/22 + 22/22 unique",
-             "actual": "15/15 + 22/22 + 22/22 unique", "status": "PASS"},
+             "expected": "15/15 + 15/15 + 22/22 + 22/22 unique",
+             "actual": "15/15 + 15/15 + 22/22 + 22/22 unique", "status": "PASS"},
             {"id": "quality-chain", "description": "CSV bytes match sha recorded in quality JSON",
-             "expected": "3/3 match", "actual": "3/3 match", "status": "PASS"},
+             "expected": "4/4 match", "actual": "4/4 match", "status": "PASS"},
             {"id": "fact-chain", "description": "fact hashes in scenario evidence match freeze records",
-             "expected": "2 facts x 3 evidence files match", "actual": "match", "status": "PASS"},
+             "expected": "2 facts x 4 evidence files match", "actual": "match", "status": "PASS"},
             {"id": "identifiers", "description": "scenario_id/type/scope/standing per instance",
-             "expected": "uniform_replace_0.10 / discount_increase_pp_0.00 / discount_decrease_pp_0.00; all_valid_lines",
+             "expected": "uniform_replace_0.10 / uniform_replace_0.20 / discount_increase_pp_0.00 / discount_decrease_pp_0.00; all_valid_lines",
              "actual": "match", "status": "PASS"},
             {"id": "input-forms", "description": "stated input form + value per instance",
-             "expected": "replacement_rate 0.10; increase_pp 0.0; decrease_pp 0.0",
+             "expected": "replacement_rate 0.10; replacement_rate 0.20; increase_pp 0.0; decrease_pp 0.0",
              "actual": "match", "status": "PASS"},
             {"id": "shapes", "description": "scenario file shapes",
-             "expected": "7 rows x 52 cols x 3 files", "actual": "match", "status": "PASS"},
+             "expected": "7 rows x 52 cols x 4 files", "actual": "match", "status": "PASS"},
             {"id": "band-schema", "description": "required per-band columns present",
              "expected": "all required columns", "actual": "present", "status": "PASS"},
             {"id": "quarantine", "description": "no quarantined-Profit column",
-             "expected": "absent from all 3 CSVs", "actual": "absent", "status": "PASS"},
+             "expected": "absent from all 4 CSVs", "actual": "absent", "status": "PASS"},
             {"id": "grain", "description": "ORDER basis, baseline bands, band order",
              "expected": "basis ORDER all rows; B0-B5 + TOTAL; never re-banded",
              "actual": "ORDER baseline bands", "status": "PASS"},
@@ -464,25 +473,25 @@ def main(argv: list[str] | None = None) -> int:
              "expected": "COMPARATOR_NOT_IN_INITIAL_BUILD / RESPONSE_NOT_ESTIMATED",
              "actual": "match", "status": "PASS"},
             {"id": "flags", "description": "low_sample_flag FALSE on every band row",
-             "expected": "FALSE x 21 rows", "actual": "all FALSE", "status": "PASS"},
+             "expected": "FALSE x 28 rows", "actual": "all FALSE", "status": "PASS"},
             {"id": "counts-per-band", "description": "frozen order counts + quantities per band",
-             "expected": "2055/415/1634/278/274/353/5009 and band quantities x 3",
+             "expected": "2055/415/1634/278/274/353/5009 and band quantities x 4",
              "actual": "match", "status": "PASS"},
             {"id": "negatives", "description": "baseline neg distribution + hypo counts valid",
-             "expected": "14/3/24/1/3/5/50 x 3; hypo nonneg ints", "actual": "match", "status": "PASS"},
+             "expected": "14/3/24/1/3/5/50 x 4; hypo nonneg ints", "actual": "match", "status": "PASS"},
             {"id": "band-totals-reconcile", "description": "band rows sum to TOTAL per instance",
-             "expected": "counts/currency reconciled within 0.05 x 3", "actual": "reconciled", "status": "PASS"},
+             "expected": "counts/currency reconciled within 0.05 x 4", "actual": "reconciled", "status": "PASS"},
             {"id": "baseline-identical", "description": "TOTAL baselines identical across instances",
              "expected": "base_contrib identical within 0.05", "actual": "identical", "status": "PASS"},
             {"id": "baseline-frozen", "description": "TOTAL baseline equals frozen baseline",
              "expected": f"{EXPECTED_CONTRIB} +/- {TOL}", "actual": "match", "status": "PASS"},
             {"id": "variance-reconcile", "description": "per-band stored variances equal hypo-base",
-             "expected": "4 currency pairs x 7 bands x 3 instances, gaps <= 1e-9",
+             "expected": "4 currency pairs x 7 bands x 4 instances, gaps <= 1e-9",
              "actual": "reconciled", "status": "PASS"},
             {"id": "freight-zero", "description": "freight/CTS variance exactly 0 per band",
-             "expected": "0.0 x 21 band rows", "actual": "zero", "status": "PASS"},
+             "expected": "0.0 x 28 band rows", "actual": "zero", "status": "PASS"},
             {"id": "margin-pp", "description": "per-band stored pp change equals recomputed",
-             "expected": "7 bands x 3 instances, gaps <= 1e-9", "actual": "recomputed", "status": "PASS"},
+             "expected": "7 bands x 4 instances, gaps <= 1e-9", "actual": "recomputed", "status": "PASS"},
         ],
         "limitations": [
             "Baseline bands only; never re-banded by hypothetical discounts.",
@@ -502,11 +511,11 @@ def main(argv: list[str] | None = None) -> int:
             OUT_CSV_NAME: {"rows": len(rows), "sha256": sha256(out_csv)},
         },
     }
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     quality["outputs"][OUT_CSV_NAME]["sha256"] = sha256(out_csv)
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     return 0

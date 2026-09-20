@@ -76,7 +76,7 @@ FROZEN_HASHES = {
     "order_margin_map_phase2.csv":
         "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267",
     "fact_margin_map_phase2.csv":
-        "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1",
+        "4038684d113ffee5697a4859991159b630802eb1697c3e12ee59735db5d42e06",
 }
 
 QUARANTINE_COL = "source_profit_quarantined"
@@ -462,11 +462,11 @@ def main(argv: list[str] | None = None) -> int:
             OUT_CSV_NAME: {"rows": len(rows), "sha256": sha256(out_csv)},
         },
     }
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     quality["outputs"][OUT_CSV_NAME]["sha256"] = sha256(out_csv)
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     return 0

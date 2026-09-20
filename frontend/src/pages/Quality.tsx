@@ -12,7 +12,7 @@ import { DataTable } from '../components/tables/DataTable';
 import type { Column } from '../components/tables/DataTable';
 import { Pagination } from '../components/tables/Pagination';
 import { useApi } from '../hooks/useApi';
-import { metricLabel } from '../utils/format';
+import { formatByUnit, metricLabel } from '../utils/format';
 
 const PAGE_SIZE = 25;
 
@@ -69,7 +69,16 @@ export function Quality() {
       { key: 'artifact', header: 'Artifact', render: (r) => r.artifact },
       { key: 'check', header: 'Check', render: (r) => r.check_id },
       { key: 'metric', header: 'Metric', render: (r) => metricLabel(r.metric_name) },
-      { key: 'value', header: 'Value', render: (r) => (r.metric_value === '' ? 'N/A' : r.metric_value) },
+      {
+        key: 'value',
+        header: 'Value',
+        render: (r) =>
+          r.metric_value === ''
+            ? 'N/A'
+            : ['CUR', 'PCT', 'PP', 'CT', 'DEC'].includes(r.unit)
+              ? formatByUnit(r.metric_value, r.unit)
+              : r.metric_value,
+      },
       {
         key: 'status',
         header: 'Status',
@@ -97,6 +106,8 @@ export function Quality() {
     [],
   );
 
+  const allPass = rows.length > 0 && rows.every((r) => r.status === 'PASS');
+
   return (
     <div className="page">
       <PageHeader
@@ -105,7 +116,11 @@ export function Quality() {
         meta={
           <>
             <span className="badge badge-info">AO-06 · Artifact grain</span>
-            <span className="badge badge-pass">All checks PASS</span>
+            {allPass ? (
+              <span className="badge badge-pass">All checks PASS</span>
+            ) : (
+              <span className="badge badge-warn">Checks need review</span>
+            )}
           </>
         }
       />
@@ -152,11 +167,11 @@ export function Quality() {
           {showVerdicts ? (
             <div className="section">
               <div className="kpi-grid cols-3">
-                <KpiCard label="Artifacts Verified" value={verdicts.artifacts ?? 'N/A'} sub="Source artifacts" />
-                <KpiCard label="Checks Attested" value={verdicts.checks ?? 'N/A'} sub="Upstream PASS checks" />
+                <KpiCard label="Artifacts Verified" value={verdicts.artifacts || 'N/A'} sub="Source artifacts" />
+                <KpiCard label="Checks Attested" value={verdicts.checks || 'N/A'} sub="Upstream PASS checks" />
                 <KpiCard
                   label="Overall Eligibility"
-                  value={verdicts.eligibility ?? 'N/A'}
+                  value={verdicts.eligibility || 'N/A'}
                   sub="Gate verdict"
                 />
               </div>

@@ -153,3 +153,33 @@ unchanged; the `product_cogs_input_template.csv` contract — including its
   reserves a slot for a future *observed* unit cost. The two must never be
   conflated: one is an input awaiting actuals, the other a derived
   analytical reference.
+
+## 15. Independence proof (P0 remediation) — why this method is NOT circular
+
+Dependency graph (allowed direction only):
+
+  external benchmark (Damodaran / MillerKnoll / HNI / Logitech / Xerox /
+  Best Buy / CSIMarket, dated, per sub-category)
+      → modeled COGS % = 100 − benchmark %
+      → modeled COGS = Net Revenue × modeled COGS %
+      → modeled gross profit / margin (DERIVED)
+
+Observed `Profit` is quarantined (`source_profit_quarantined`): carried through
+untouched, never read by `build_subcategory_benchmarks.py` or
+`apply_modeled_cogs.py`. Machine check: `src/data/check_cogs_independence.py`
+fails loudly if any COGS assignment ever reads a profit field.
+
+Numerical proof (Binders line, benchmark 38% → COGS % 62%):
+
+  Sales = 100.00 → modeled COGS = 62.00 → modeled profit = 38.00 (margin 38%).
+  Whether the quarantined source Profit says 5.00, 38.00, or −20.00, the
+  modeled outputs are unchanged: ∂(modeled COGS)/∂(observed Profit) = 0.
+
+What IS true and is disclosed (not hidden): row modeled margin equals the
+benchmark by construction (`row-margin-identity` check ±1e-6), so within-group
+rankings restate the assumption × revenue mix, not independent cost discovery.
+15/17 benchmarks are CATEGORY fallbacks (identical centrals); only Technology
+spread and cross-tier gaps carry information. Product-level values are
+assumption allocations, labeled `MODELED_*` with `cogs_rate`, `cogs_method`,
+`cogs_source_year`, and `assumption_status` columns. Rankings must never be
+presented as cost-evidence without this caveat.

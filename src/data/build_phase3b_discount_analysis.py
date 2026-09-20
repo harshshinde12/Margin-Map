@@ -141,7 +141,7 @@ def summarize_frame(g: pd.DataFrame, by: list[str]) -> pd.DataFrame:
         line_contribution_partial=("contribution_profit", "sum"),
         neg_grossprofit_lines=("modeled_gross_profit", lambda s: int((s < 0).sum())),
         neg_contribution_lines=("contribution_profit",
-                                lambda s: int((s.fillna(1) < 0).sum())),
+                                lambda s: int((s.notna() & (s < 0)).sum())),
     ).reset_index()
     return agg
 
@@ -737,15 +737,14 @@ def main() -> None:
             columns=["_sort"]).reset_index(drop=True)
     if int((prod_out["row_type"] == "PRODUCT_TOTAL").sum()) != 1894:
         fail("product-count", "1894 PRODUCT_TOTAL rows", "mismatch")
-    if bool(prod_out["low_sample_flag"].sum() != len(prod_out)):
-        record("product-flags", "product sparsity fully flagged",
-               "all product rows below provisional thresholds",
-               f"{int(prod_out['low_sample_flag'].sum())}/{len(prod_out)} "
-               "flagged", "PASS")
-    else:
-        record("product-flags", "product sparsity fully flagged",
-               "all product rows below provisional thresholds",
-               f"{len(prod_out)}/{len(prod_out)} flagged", "PASS")
+    if prod_out["low_sample_flag"].isna().any() or \
+            prod_out["low_sample_flag"].dtype != bool:
+        fail("product-flags-valid", "low_sample_flag boolean, non-null on all rows",
+             "null or non-boolean flags present")
+    record("product-flags", "product sparsity flags computed (informational)",
+           "boolean flags on all rows; actual flagged fraction reported, not gated",
+           f"{int(prod_out['low_sample_flag'].sum())}/{len(prod_out)} "
+           "flagged", "PASS")
 
     # ---- write outputs ----------------------------------------------------------
     OUT.mkdir(parents=True, exist_ok=True)
@@ -843,7 +842,7 @@ def main() -> None:
                                    "columns": int(len(df.columns)),
                                    "sha256": sha256(p)}
     with open(OUT / "phase3b_quality_report.json", "w",
-              encoding="utf-8") as fh:
+              encoding="utf-8", newline="\n") as fh:
         json.dump(report, fh, indent=2)
         fh.write("\n")
 

@@ -108,6 +108,12 @@ COGS is a product cost. Freight + Return + Support = Total Cost-to-Serve
 
 ## 7. Cost-to-serve definitions (future modeled inputs — no rates in Phase 1A)
 
+> Superseded in part by Phase 2: OBSERVED `Shipping Cost` is joined line-grain
+> (9,994/9,994 matched; see `docs/COST_TO_SERVE_MODEL.md` §2). The Phase 1A
+> statements below remain the Phase 1A record; for freight methodology,
+> ambiguity handling (`ORDER_LEVEL_AMBIGUOUS`), and OFF-scenario semantics,
+> `docs/COST_TO_SERVE_MODEL.md` governs.
+
 Cost-to-serve is conceptually separate from COGS: product cost vs.
 operational/service cost of selling and servicing the customer/order.
 Scope: Freight/Logistics, Return-related, Support/Service costs.

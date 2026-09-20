@@ -140,6 +140,12 @@ export function Orders() {
         }
       />
 
+      <div className="caveat" role="note">
+        Return status is an observed order-level flag (YES / NOT_RETURNED /
+        UNKNOWN). No refund or revenue reversal is modeled — returned-order
+        values are retained as observed.
+      </div>
+
       <div className="filter-bar" role="group" aria-label="Order filters">
         <TextField id="o-id" label="Order ID" value={orderId} placeholder="e.g. CA-2014-100006" onChange={setOrderId} />
         <SelectField

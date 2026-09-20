@@ -232,8 +232,8 @@ def main() -> None:
     cs.to_csv(OUT / "customer_subcategory_profitability.csv", index=False, encoding="utf-8")
     summary["validation_results"] = ("ALL PHASE-2C CHECKS A-O PASSED "
                                      "(fail-loud; O determinism by repeated execution)")
-    (OUT / "profitability_summary.json").write_text(json.dumps(summary, indent=2),
-                                                    encoding="utf-8")
+    (OUT / "profitability_summary.json").write_text(json.dumps(summary, indent=2) + "\n",
+                                                     encoding="utf-8", newline="\n")
     print(f"OK: customers {len(c)} (loss {int(neg.sum())}); "
           f"products {len(p)} (neg-gross {int((p['gross_profit']<0).sum())}); "
           f"subcats {len(s)}; cust×subcat {len(cs)}")

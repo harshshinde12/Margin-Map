@@ -11,7 +11,11 @@
       "checks": 16,
       "status": "all PASS"
     },
-    "phase4b_scenario_quality.json": {
+    "phase4b_scenario_uniform_0.10_quality.json": {
+      "checks": 15,
+      "status": "all PASS"
+    },
+    "phase4b_scenario_uniform_0.20_quality.json": {
       "checks": 15,
       "status": "all PASS"
     },
@@ -27,7 +31,7 @@
   "checks": [
     {
       "id": "inputs-exist",
-      "description": "4 evidence files + described CSVs + facts present",
+      "description": "5 evidence files + described CSVs + facts present",
       "expected": "all files present",
       "actual": "present",
       "status": "PASS"
@@ -35,35 +39,35 @@
     {
       "id": "evidence-parse",
       "description": "evidence JSON valid with expected counts",
-      "expected": "16 + 15 + 22 + 22 checks",
-      "actual": "16 + 15 + 22 + 22 checks",
+      "expected": "16 + 15 + 15 + 22 + 22 checks",
+      "actual": "16 + 15 + 15 + 22 + 22 checks",
       "status": "PASS"
     },
     {
       "id": "evidence-status",
       "description": "every upstream check PASS with complete records",
-      "expected": "75/75 PASS; id/description/expected/actual/status each",
-      "actual": "75/75 PASS; records complete",
+      "expected": "90/90 PASS; id/description/expected/actual/status each",
+      "actual": "90/90 PASS; records complete",
       "status": "PASS"
     },
     {
       "id": "evidence-ids",
       "description": "check-ID discipline recorded honestly",
       "expected": "unique IDs (Phase 3B reuses one ID: documented, not claimed unique)",
-      "actual": "15/22/22 unique; Phase 3B 15 unique of 16",
+      "actual": "15/15/15/22/22 unique; Phase 3B 15 unique of 16",
       "status": "PASS"
     },
     {
       "id": "csv-rows",
       "description": "described CSV row counts match records",
-      "expected": "10 files exact",
+      "expected": "11 files exact",
       "actual": "all exact",
       "status": "PASS"
     },
     {
       "id": "csv-hashes",
       "description": "described CSV bytes match recorded hashes",
-      "expected": "10 files exact",
+      "expected": "11 files exact",
       "actual": "all exact",
       "status": "PASS"
     },
@@ -84,8 +88,8 @@
     {
       "id": "grain-structure",
       "description": "artifact rows then TOTAL; fixed ordering",
-      "expected": "125 rows; artifacts sorted, TOTAL last",
-      "actual": "125 rows; ordered",
+      "expected": "145 rows; artifacts sorted, TOTAL last",
+      "actual": "145 rows; ordered",
       "status": "PASS"
     }
   ],
@@ -102,8 +106,8 @@
   "determinism": "Fixed evidence/file/metric ordering, repr() numeric formatting, no timestamps, no randomness, no environment-dependent values.",
   "outputs": {
     "phase4c_quality_summary.csv": {
-      "rows": 125,
-      "sha256": "eeace1465dcffaa5b7ecae6e73c6a99259639c84c4a20c900b1e83faeba141db"
+      "rows": 145,
+      "sha256": "a9eaa1a4250f89ca8419b775d307599dba76677cc0c61d6598ee83729b8e9798"
     }
   }
 }

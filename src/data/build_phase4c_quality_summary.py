@@ -49,7 +49,8 @@ OUT_JSON_NAME = "phase4c_quality_summary_quality.json"
 # ---- upstream evidence files (design AO-06 source list; closed set) -----------
 EVIDENCE = (
     {"json": "phase3b_quality_report.json", "n_checks": 16},
-    {"json": "phase4b_scenario_quality.json", "n_checks": 15},
+    {"json": "phase4b_scenario_uniform_0.10_quality.json", "n_checks": 15},
+    {"json": "phase4b_scenario_uniform_0.20_quality.json", "n_checks": 15},
     {"json": "phase4b_scenario_increase_0.00_quality.json", "n_checks": 22},
     {"json": "phase4b_scenario_decrease_0.00_quality.json", "n_checks": 22},
 )
@@ -57,11 +58,11 @@ EVIDENCE = (
 # ---- frozen fact integrity (design Section 10 records) --------------------------
 FACTS = (
     {"csv": "fact_margin_map_phase2.csv", "rows": 9994,
-     "sha256": "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1"},
+     "sha256": "4038684d113ffee5697a4859991159b630802eb1697c3e12ee59735db5d42e06"},
     {"csv": "order_margin_map_phase2.csv", "rows": 5009,
      "sha256": "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267"},
     {"csv": "fact_sales_cogs.csv", "rows": 9994,
-     "sha256": "4d8de717486b323ffb656d13c94fd6bd94f8e61d1a93ea339a602ab5303b9988"},
+     "sha256": "36e99c6a4257d25469cce2c1958b4d5ccfcf867ac9611d3a817714b854cf2f45"},
 )
 
 OUTPUT_NAME = "Data-quality summary"
@@ -245,7 +246,7 @@ def main(argv: list[str] | None = None) -> int:
         "Every source artifact verified", EVID_LIM)
     add("TOTAL", "ALL_ARTIFACTS", "overall", "checks_attested", total_pass, "CT",
         "PASS", str(total_pass), str(total_pass), "this gate",
-        "Sum of upstream PASS counts (16+15+22+22)", EVID_LIM)
+        "Sum of upstream PASS counts (16+15+15+22+22)", EVID_LIM)
     add("TOTAL", "ALL_ARTIFACTS", "overall", "overall_eligibility",
         "ALL_SOURCES_ELIGIBLE", "Label", "PASS", "all artifacts eligible",
         "all artifacts eligible", "this gate",
@@ -274,17 +275,17 @@ def main(argv: list[str] | None = None) -> int:
             for spec in EVIDENCE
         },
         "checks": [
-            {"id": "inputs-exist", "description": "4 evidence files + described CSVs + facts present",
+            {"id": "inputs-exist", "description": "5 evidence files + described CSVs + facts present",
              "expected": "all files present", "actual": "present", "status": "PASS"},
             {"id": "evidence-parse", "description": "evidence JSON valid with expected counts",
-             "expected": "16 + 15 + 22 + 22 checks",
-             "actual": "16 + 15 + 22 + 22 checks", "status": "PASS"},
+             "expected": "16 + 15 + 15 + 22 + 22 checks",
+             "actual": "16 + 15 + 15 + 22 + 22 checks", "status": "PASS"},
             {"id": "evidence-status", "description": "every upstream check PASS with complete records",
-             "expected": "75/75 PASS; id/description/expected/actual/status each",
-             "actual": "75/75 PASS; records complete", "status": "PASS"},
+             "expected": "90/90 PASS; id/description/expected/actual/status each",
+             "actual": "90/90 PASS; records complete", "status": "PASS"},
             {"id": "evidence-ids", "description": "check-ID discipline recorded honestly",
              "expected": "unique IDs (Phase 3B reuses one ID: documented, not claimed unique)",
-             "actual": "15/22/22 unique; Phase 3B 15 unique of 16", "status": "PASS"},
+             "actual": "15/15/15/22/22 unique; Phase 3B 15 unique of 16", "status": "PASS"},
             {"id": "csv-rows", "description": "described CSV row counts match records",
              "expected": f"{n_csv} files exact", "actual": "all exact", "status": "PASS"},
             {"id": "csv-hashes", "description": "described CSV bytes match recorded hashes",
@@ -312,11 +313,11 @@ def main(argv: list[str] | None = None) -> int:
             OUT_CSV_NAME: {"rows": len(rows), "sha256": sha256(out_csv)},
         },
     }
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     quality["outputs"][OUT_CSV_NAME]["sha256"] = sha256(out_csv)
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     return 0

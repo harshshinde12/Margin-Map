@@ -362,7 +362,7 @@ def main() -> None:
         "units": "percentages as plain numbers (40 = 40%); modeled COGS % = 100 - benchmark %",
         "quarantine_note": "source Profit was not read, not used, and plays no role in any benchmark.",
     }
-    QUALITY_JSON.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    QUALITY_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"OK: {len(df)} sub-category benchmarks "
           f"({stats['subcategory_level_count']} SUB_CATEGORY, "
           f"{stats['category_fallback_count']} CATEGORY fallbacks, "

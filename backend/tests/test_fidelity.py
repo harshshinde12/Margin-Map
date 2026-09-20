@@ -22,9 +22,9 @@ TABLE_OF = {
 EXPECTED_TOTALS = {
     "baseline": 20,
     "contribution": 238,
-    "scenarios": 105,
-    "variance": 420,
-    "quality": 125,
+    "scenarios": 140,
+    "variance": 560,
+    "quality": 145,
 }
 
 

@@ -74,8 +74,8 @@ export function formatCount(raw: string): string {
   return int.format(n);
 }
 
-/** Decimal ratios shown with fixed precision. */
-export function formatDecimal(raw: string, digits = 3): string {
+/** Decimal ratios shown with fixed precision (DEC spec: 4dp, e.g. WAD 0.1979). */
+export function formatDecimal(raw: string, digits = 4): string {
   const n = toNumber(raw);
   if (n === null) return 'N/A';
   return n.toFixed(digits);
@@ -104,7 +104,13 @@ export function formatByUnit(raw: string, unit: string): string {
 }
 
 /** Human-readable label for a snake_case metric name. */
+const METRIC_LABEL_OVERRIDES: Record<string, string> = {
+  wad: 'WAD',
+};
+
 export function metricLabel(metricName: string): string {
+  const override = METRIC_LABEL_OVERRIDES[metricName.toLowerCase()];
+  if (override) return override;
   return metricName
     .split('_')
     .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))

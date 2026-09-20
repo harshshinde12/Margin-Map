@@ -50,12 +50,21 @@ OUT_JSON_NAME = "phase4c_scenario_comparison_total_quality.json"
 INSTANCES = (
     {"key": "uniform",
      "csv": "phase4b_scenario_uniform_0.10.csv",
-     "json": "phase4b_scenario_quality.json",
+     "json": "phase4b_scenario_uniform_0.10_quality.json",
      "scenario_id": "uniform_replace_0.10",
      "scenario_type": "uniform_replacement",
      "input_form": "replacement_rate",
      "stated_col": "stated_rate",
      "stated_value": 0.10,
+     "n_checks": 15},
+    {"key": "uniform020",
+     "csv": "phase4b_scenario_uniform_0.20.csv",
+     "json": "phase4b_scenario_uniform_0.20_quality.json",
+     "scenario_id": "uniform_replace_0.20",
+     "scenario_type": "uniform_replacement",
+     "input_form": "replacement_rate",
+     "stated_col": "stated_rate",
+     "stated_value": 0.20,
      "n_checks": 15},
     {"key": "increase",
      "csv": "phase4b_scenario_increase_0.00.csv",
@@ -89,6 +98,8 @@ EXPECTED_MARGIN = 24.600241
 EXPECTED_UNIFORM_HYPO = 660523.18
 EXPECTED_UNIFORM_VAR = 95406.24
 EXPECTED_UNIFORM_PP = 1.03
+EXPECTED_UNIFORM020_HYPO = 560667.96
+EXPECTED_UNIFORM020_VAR = -4448.98
 TOL = 0.05  # currency tolerance for source-total reconciliation only
 VAR_TOL = 1e-9  # variance arithmetic reconciliation tolerance
 PP_TOL = 0.005  # headline pp cross-check tolerance (design rounds to 2dp)
@@ -96,7 +107,7 @@ PP_TOL = 0.005  # headline pp cross-check tolerance (design rounds to 2dp)
 # ---- frozen fact hashes (chain-of-custody via scenario quality JSONs) ---------
 FROZEN_FACT_HASHES = {
     "fact_margin_map_phase2.csv":
-        "4c471feeda642e5ecbd2263782b4fc0f1655962f6c6488bdfe47886df2f01cb1",
+        "4038684d113ffee5697a4859991159b630802eb1697c3e12ee59735db5d42e06",
     "order_margin_map_phase2.csv":
         "ae6c349c9995747f2fef91cf1db6b940a73d99d6b2fede5ff3dff918f429d267",
 }
@@ -251,7 +262,7 @@ def main(argv: list[str] | None = None) -> int:
 
     # ---- 5. baseline identical across instances + frozen ------------------------------
     ref = totals["uniform"]
-    for key in ("increase", "decrease"):
+    for key in ("uniform020", "increase", "decrease"):
         for col in ("base_net", "base_disc", "base_cogs", "base_freight",
                     "base_cts", "base_contrib", "base_gross_profit",
                     "base_wad", "base_contrib_margin", "base_gross_margin"):
@@ -311,6 +322,13 @@ def main(argv: list[str] | None = None) -> int:
     if abs(float(urow["margin_change_pp"]) - EXPECTED_UNIFORM_PP) > PP_TOL:
         fail("headline", f"uniform pp change {EXPECTED_UNIFORM_PP}",
              repr(float(urow["margin_change_pp"])))
+    u20 = totals["uniform020"]
+    if abs(float(u20["hypo_contrib"]) - EXPECTED_UNIFORM020_HYPO) > TOL:
+        fail("headline", f"uniform020 hypo {EXPECTED_UNIFORM020_HYPO}",
+             repr(float(u20["hypo_contrib"])))
+    if abs(float(u20["variance_contribution_profit"]) - EXPECTED_UNIFORM020_VAR) > TOL:
+        fail("headline", f"uniform020 variance {EXPECTED_UNIFORM020_VAR}",
+             repr(float(u20["variance_contribution_profit"])))
     for key in ("increase", "decrease"):
         row = totals[key]
         if float(row["variance_contribution_profit"]) != 0.0 or \
@@ -461,28 +479,28 @@ def main(argv: list[str] | None = None) -> int:
             for inst in INSTANCES
         },
         "checks": [
-            {"id": "inputs-exist", "description": "3 scenario CSVs + 3 quality JSONs present",
-             "expected": "6 files", "actual": "present", "status": "PASS"},
+            {"id": "inputs-exist", "description": "4 scenario CSVs + 4 quality JSONs present",
+             "expected": "8 files", "actual": "present", "status": "PASS"},
             {"id": "quality-status", "description": "frozen quality evidence all PASS, unique IDs",
-             "expected": "15/15 + 22/22 + 22/22 unique",
-             "actual": "15/15 + 22/22 + 22/22 unique", "status": "PASS"},
+             "expected": "15/15 + 15/15 + 22/22 + 22/22 unique",
+             "actual": "15/15 + 15/15 + 22/22 + 22/22 unique", "status": "PASS"},
             {"id": "quality-chain", "description": "CSV bytes match sha recorded in quality JSON",
-             "expected": "3/3 match", "actual": "3/3 match", "status": "PASS"},
+             "expected": "4/4 match", "actual": "4/4 match", "status": "PASS"},
             {"id": "fact-chain", "description": "fact hashes in scenario evidence match freeze records",
-             "expected": "2 facts x 3 evidence files match", "actual": "match", "status": "PASS"},
+             "expected": "2 facts x 4 evidence files match", "actual": "match", "status": "PASS"},
             {"id": "identifiers", "description": "scenario_id/type/scope/basis/standing per instance",
-             "expected": "uniform_replace_0.10 / discount_increase_pp_0.00 / discount_decrease_pp_0.00; ORDER; all_valid_lines",
+             "expected": "uniform_replace_0.10 / uniform_replace_0.20 / discount_increase_pp_0.00 / discount_decrease_pp_0.00; ORDER; all_valid_lines",
              "actual": "match", "status": "PASS"},
             {"id": "input-forms", "description": "stated input form + value per instance",
-             "expected": "replacement_rate 0.10; increase_pp 0.0; decrease_pp 0.0",
+             "expected": "replacement_rate 0.10; replacement_rate 0.20; increase_pp 0.0; decrease_pp 0.0",
              "actual": "match", "status": "PASS"},
             {"id": "shapes", "description": "scenario file shapes + TOTAL row",
-             "expected": "7 rows x 52 cols x 3 files; one TOTAL each",
+             "expected": "7 rows x 52 cols x 4 files; one TOTAL each",
              "actual": "match", "status": "PASS"},
             {"id": "band-schema", "description": "required TOTAL columns present",
              "expected": "all required columns", "actual": "present", "status": "PASS"},
             {"id": "quarantine", "description": "no quarantined-Profit column",
-             "expected": "absent from all 3 CSVs", "actual": "absent", "status": "PASS"},
+             "expected": "absent from all 4 CSVs", "actual": "absent", "status": "PASS"},
             {"id": "assumption-labels", "description": "assumption labels on every TOTAL row",
              "expected": "CONSTANT_OBSERVED_QUANTITY / FROZEN_MODELED_COGS_PCT / OBSERVED_PASSTHROUGH / OFF",
              "actual": "match", "status": "PASS"},
@@ -490,24 +508,24 @@ def main(argv: list[str] | None = None) -> int:
              "expected": "COMPARATOR_NOT_IN_INITIAL_BUILD / RESPONSE_NOT_ESTIMATED",
              "actual": "match", "status": "PASS"},
             {"id": "counts", "description": "universal scope counts per TOTAL",
-             "expected": "9994 / 5009 / 37873 x 3", "actual": "match", "status": "PASS"},
+             "expected": "9994 / 5009 / 37873 x 4", "actual": "match", "status": "PASS"},
             {"id": "baseline-identical", "description": "baseline blocks identical across instances",
              "expected": "10 baseline columns match within 0.05", "actual": "identical", "status": "PASS"},
             {"id": "baseline-frozen", "description": "baseline TOTAL equals frozen baseline",
              "expected": "2297200.8603 / 1493910.1285 / 238173.79 / 565116.9418",
              "actual": "match", "status": "PASS"},
             {"id": "variance-reconcile", "description": "stored variances equal hypo-base",
-             "expected": "5 currency pairs x 3 instances, gaps <= 1e-9",
+             "expected": "5 currency pairs x 4 instances, gaps <= 1e-9",
              "actual": "reconciled", "status": "PASS"},
             {"id": "freight-zero", "description": "freight variance exactly 0; CTS passthrough",
-             "expected": "0.0 x 3; hypo_cts = base freight", "actual": "zero", "status": "PASS"},
+             "expected": "0.0 x 4; hypo_cts = base freight", "actual": "zero", "status": "PASS"},
             {"id": "margin-pp", "description": "stored pp changes equal recomputed",
-             "expected": "2 pp pairs x 3 instances, gaps <= 1e-9", "actual": "recomputed", "status": "PASS"},
+             "expected": "2 pp pairs x 4 instances, gaps <= 1e-9", "actual": "recomputed", "status": "PASS"},
             {"id": "headline", "description": "headline figures match design (+ identities zero)",
-             "expected": "hypo 660523.18 / var 95406.24 / +1.03pp; identities 0.0",
+             "expected": "hypo 660523.18 / var 95406.24 / +1.03pp; uniform020 hypo 560667.96 / var -4448.98; identities 0.0",
              "actual": "match", "status": "PASS"},
             {"id": "grain", "description": "TOTAL-only output; no band detail emitted",
-             "expected": "3 instances x 3 blocks, TOTAL grain", "actual": "TOTAL only", "status": "PASS"},
+             "expected": "4 instances x 3 blocks, TOTAL grain", "actual": "TOTAL only", "status": "PASS"},
         ],
         "limitations": [
             "Identity slices show zero variance by construction (integrity, not economics).",
@@ -526,11 +544,11 @@ def main(argv: list[str] | None = None) -> int:
             OUT_CSV_NAME: {"rows": len(rows), "sha256": sha256(out_csv)},
         },
     }
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     quality["outputs"][OUT_CSV_NAME]["sha256"] = sha256(out_csv)
-    with open(out_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(quality, f, indent=2)
         f.write("\n")
     return 0

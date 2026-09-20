@@ -26,8 +26,9 @@ import { formatByUnit, formatSignedCurrency, metricLabel, parseValue } from '../
 
 const SCENARIO_LABELS: Record<string, string> = {
   uniform_replace_0_10: 'Uniform 10% replacement',
-  discount_increase_pp_0_00: 'Discount increase (±0.00 pp)',
-  discount_decrease_pp_0_00: 'Discount decrease (±0.00 pp)',
+  uniform_replace_0_20: 'Uniform 20% replacement (median observed discount)',
+  discount_increase_pp_0_00: 'Discount increase 0.00 pp (identity control)',
+  discount_decrease_pp_0_00: 'Discount decrease 0.00 pp (identity control)',
 };
 
 function scenarioLabel(id: string): string {
@@ -52,7 +53,7 @@ export function Scenarios() {
     [scenarioId],
   );
 
-  const scenarioIds = ['uniform_replace_0.10', 'discount_increase_pp_0.00', 'discount_decrease_pp_0.00'];
+  const scenarioIds = ['uniform_replace_0.10', 'uniform_replace_0.20', 'discount_increase_pp_0.00', 'discount_decrease_pp_0.00'];
 
   const byBlockMetric = useMemo(() => {
     const map = new Map<string, ScenarioRecord>();
@@ -143,7 +144,6 @@ export function Scenarios() {
           label="Scenario instance"
           value={scenarioId}
           onChange={setScenarioId}
-          allLabel="Select scenario"
           options={scenarioIds.map((id) => ({ value: id, label: scenarioLabel(id) }))}
         />
       </div>
@@ -161,7 +161,10 @@ export function Scenarios() {
       ) : error || !data ? (
         <ErrorState message={error ?? undefined} onRetry={reload} />
       ) : data.data.length === 0 ? (
-        <EmptyState message="No scenario rows match the selected instance." />
+        <EmptyState
+          message="No scenario rows match the selected instance."
+          onClear={() => setScenarioId('uniform_replace_0.10')}
+        />
       ) : (
         <>
           <div className="section">
@@ -207,11 +210,8 @@ export function Scenarios() {
                   />
                   <Tooltip
                     formatter={(value) => [
-                      new Intl.NumberFormat('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                        maximumFractionDigits: 0,
-                      }).format(Number(value)),
+                      formatByUnit(String(value ?? ''), 'CUR'),
+                      undefined,
                     ]}
                   />
                   <Legend />
